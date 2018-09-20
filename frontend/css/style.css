@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.contenedor {
+  max-width: 1200px;
+  margin: auto;
+}
+
+header {
+  background: url("../assets/bg.png");
+  background-size: cover;
+}
+
+header ul {
+  padding-top: 1%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+header ul div.izq {
+  width: 25%;
+  color: white;
+}
+
+header ul div.der {
+  width: 75%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+header ul div.der li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1%;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+
+header ul div.der li a {
+  font-family: 'Open Sans';
+  text-decoration: none;
+  color: white;
+}
+
+header div.contenido {
+  margin-top: 4em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header div.contenido h1 {
+  color: white;
+  font-family: 'Open Sans';
+  font-weight: 300;
+  text-align: center;
+  font-size: 2.2em;
+}
+
+header div.contenido input {
+  padding: 1%;
+  margin-top: 2em;
+  width: 60%;
+  margin-bottom: 10em;
+}
+
+header div.contenido .botones {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-bottom: 1em;
+  margin-top: 0.5em;
+}
+
+header div.contenido .botones button {
+  font-family: 'Open Sans';
+  margin: 1%;
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 1%;
+  padding-left: 4%;
+  padding-right: 4%;
+}
+
+header .footer {
+  margin: 0;
+}
+
+header .footer img {
+  width: 100%;
+  margin-bottom: -0.5em;
+  height: 100%;
+}
+/*# sourceMappingURL=style.css.map */
