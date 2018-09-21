@@ -1,33 +1,38 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-.contenedor{
+
+.contenedor {
     max-width: 1200px;
     margin: auto;
 }
-header{
-    background: url('../assets/bg.png');
-    background-size: cover;
 
+header {
+    position: absolute;
 
-    ul{
+    ul {
         padding-top: 1%;
         display: flex;
-        div.izq{
+
+        div.izq {
             width: 25%;
             color: white;
+            text-align: center;
         }
-        div.der{
+
+        div.der {
             width: 75%;
             display: flex;
             justify-content: flex-end;
-            li{
+
+            li {
                 display: flex;
                 padding: 1%;
                 flex-wrap: nowrap;
-                a{
+
+                a {
                     font-family: 'Open Sans';
                     text-decoration: none;
                     color: white;
@@ -35,51 +40,117 @@ header{
             }
         }
     }
-    div.contenido{
+
+    div.contenido {
         margin-top: 4em;
         display: flex;
-        justify-content: center; 
+        justify-content: center;
         flex-direction: column;
-        
+
         align-items: center;
-        h1{
+
+        h1 {
             color: white;
             font-family: 'Open Sans';
             font-weight: 300;
             text-align: center;
             font-size: 2.2em;
         }
-        input{
+
+        input {
             padding: 1%;
             margin-top: 2em;
             width: 60%;
             margin-bottom: 10em;
         }
-        .botones{
+
+        .botones {
             display: flex;
             width: 100%;
             justify-content: center;
             padding-bottom: 1em;
             margin-top: 0.5em;
-            button{
+
+            button {
                 font-family: 'Open Sans';
                 margin: 1%;
                 background: transparent;
                 border: 1px solid white;
                 color: white;
                 padding: 1%;
-                padding-left:4%;
+                padding-left: 4%;
                 padding-right: 4%;
             }
         }
     }
-    .footer{
+
+    .footer {
 
         margin: 0;
-        img{
+
+        img {
             width: 100%;
             margin-bottom: -0.5em;
             height: 100%;
+            height: 200px;
+
+        }
+    }
+}
+
+section#main {
+    background: white;
+    height: 50vh;
+    z-index: 2;
+    width: 100%;
+
+    .contenedor {
+        display: flex;
+        justify-content: center;
+
+        .registrarse {
+            h2 {
+                color: black;
+                font-family: 'Open Sans';
+                font-size: 2em;
+                font-weight: 300;
+                padding: 0.5em;
+            }
+
+            form {
+                padding-top: 1em;
+                display: flex;
+                flex-direction: column;
+                
+                input {
+                    padding: 3%;
+                    font-family: 'Open Sans';
+                    font-size: 1em;
+                    margin: 0em 2em 0.8em 2em;
+                    border-color: transparent;
+                    border-bottom: 1px solid black;
+                }
+
+                input[type="submit"] {
+                    background: #0a54f3;
+                    border-bottom-left-radius: 5px;
+                    border-bottom-right-radius: 5px;
+                    color: white;
+                    margin: 0;
+                    margin-top: 1em;
+                    border: transparent;
+                }
+            }
+            border-radius: 5px;
+            border: 1px solid black;
+            background: white;
+            text-align: center;
+            margin: auto;
+            position: absolute;
+            margin-top: -6.6em;
+            z-index: 3;
+            width: 100%;
+            max-width: 430px;
         }
     }
 }
