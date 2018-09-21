@@ -10,38 +10,54 @@
 }
 
 header {
-    position: absolute;
+    background: url('../assets/melinda-derksen-718747-unsplash.jpg');
+    background-size: coveR;
+    padding-top: 1em;
+    padding-bottom: 2em;
+    margin-top: -10em;
+    transform: skewY(-4.2deg);
+    .contenedor{
 
-    ul {
-        padding-top: 1%;
-        display: flex;
-
-        div.izq {
-            width: 25%;
-            color: white;
-            text-align: center;
-        }
-
-        div.der {
-            width: 75%;
+        transform: skewY(4.2deg);
+        ul {
+            margin-top: 10em;
+            padding-top: 1%;
             display: flex;
-            justify-content: flex-end;
-
-            li {
+            
+            div.izq {
+                width: 25%;
+                color: white;
+                text-align: center;
+                img{
+                    width: 100%;
+                    max-width: 50px;
+                }
+            }
+            
+            div.der {
+                width: 75%;
                 display: flex;
-                padding: 1%;
-                flex-wrap: nowrap;
-
-                a {
-                    font-family: 'Open Sans';
-                    text-decoration: none;
-                    color: white;
+                justify-content: flex-end;
+                
+                li {
+                   list-style-type: none;
+                    padding: 1%;
+                    flex-wrap: nowrap;
+                    
+                    a {
+                        white-space: nowrap;
+                        font-family: 'Open Sans';
+                        text-decoration: none;
+                        color: white;
+                    }
                 }
             }
         }
     }
 
     div.contenido {
+
+
         margin-top: 4em;
         display: flex;
         justify-content: center;
@@ -72,14 +88,23 @@ header {
             margin-top: 0.5em;
 
             button {
+                border-radius: 3px;
                 font-family: 'Open Sans';
                 margin: 1%;
+                font-size: 1.1em;
+                margin-top: 1em;
                 background: transparent;
                 border: 1px solid white;
                 color: white;
-                padding: 1%;
+                padding: 0.7%;
                 padding-left: 4%;
                 padding-right: 4%;
+                &:hover{
+                    background: black;
+                    cursor: pointer;
+                    transition-duration: 1s;
+
+                }
             }
         }
     }
@@ -99,8 +124,8 @@ header {
 }
 
 section#main {
-    background: white;
-    height: 50vh;
+    background: #662bc5;
+
     z-index: 2;
     width: 100%;
 
@@ -153,4 +178,8 @@ section#main {
             max-width: 430px;
         }
     }
+}
+
+section#como{
+
 }
