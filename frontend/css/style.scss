@@ -16,34 +16,37 @@ header {
     padding-bottom: 5em;
     margin-top: -10em;
     transform: skewY(-6.2deg);
-    .contenedor{
+
+    .contenedor {
 
         transform: skewY(6.2deg);
+
         ul {
             margin-top: 10em;
             padding-top: 1%;
             display: flex;
-            
+
             div.izq {
                 width: 25%;
                 color: white;
                 text-align: left;
-                img{
+
+                img {
                     width: 100%;
                     max-width: 50px;
                 }
             }
-            
+
             div.der {
                 width: 75%;
                 display: flex;
                 justify-content: flex-end;
-                
+
                 li {
-                   list-style-type: none;
+                    list-style-type: none;
                     padding: 1%;
                     flex-wrap: nowrap;
-                    
+
                     a {
                         white-space: nowrap;
                         font-family: 'Open Sans';
@@ -99,7 +102,8 @@ header {
                 padding: 0.7%;
                 padding-left: 4%;
                 padding-right: 4%;
-                &:hover{
+
+                &:hover {
                     background: black;
                     cursor: pointer;
                     transition-duration: 1s;
@@ -128,79 +132,99 @@ section#main {
 
     z-index: 2;
     width: 100%;
-
+    padding-bottom: 5.42em;
     .contenedor {
+        
         display: flex;
         justify-content: center;
+        padding: 1%;
+        
+        .der {
+            width: 50%;
+            color: white;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-items: flex-start;
 
-        .registrarse {
             h2 {
-                color: black;
-                font-family: 'Open Sans';
                 font-size: 2em;
+                text-align: left;
+                width: 100%;
+                font-family: "soleil";
                 font-weight: 300;
+                margin-bottom: 0.5em;
+            }
+
+            p {
+                font-family: "soleil";
+                text-align: justify;
+            }
+
+            button {
                 padding: 0.5em;
+                width: 100%;
+                max-width: 200px;
+                border: 1px solid rgba(255, 255, 255, 0.301);
+                background-image: linear-gradient(-226deg, #b73dc7, #a740c4 8%, #714bbb 38%, #5358cf 66%, #3f64d4 84%, #2b69dd);
+                color: white;
+                border-radius: 10px;
+                margin-top: 1.5em;
+                margin-bottom: 2em;
+                font-size: 1.01em;
             }
-
-            form {
-                padding-top: 1em;
-                display: flex;
-                flex-direction: column;
-                
-                input {
-                    padding: 3%;
-                    font-family: 'Open Sans';
-                    font-size: 1em;
-                    margin: 0em 2em 0.8em 2em;
-                    border-color: transparent;
-                    border-bottom: 1px solid black;
-                }
-
-                input[type="submit"] {
-                    background: #0a54f3;
-                    border-bottom-left-radius: 5px;
-                    border-bottom-right-radius: 5px;
-                    color: white;
-                    margin: 0;
-                    margin-top: 1em;
-                    border: transparent;
-                }
-            }
-            border-radius: 5px;
-            border: 1px solid black;
-            background: white;
-            text-align: center;
-            margin: auto;
-            position: absolute;
-            margin-top: -6.6em;
-            z-index: 3;
-            width: 100%;
-            max-width: 430px;
         }
+
+        .izq {
+            width: 50%;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    &:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        margin-top: 70em;
+        background-position: top;
+        height: 150px;
+        background: url('../assets/curva.svg');
+        background-repeat: no-repeat;
+        content: "";
     }
 }
 
-section#top{
-    h2{
+section#top {
+    h2 {
         margin-top: 2em;
         text-align: center;
         font-family: 'Open Sans';
         font-weight: 300;
         font-size: 2em;
     }
+
     padding-bottom: 2.5em;
-    .contenedor{
+
+    .contenedor {
         margin-top: 5em;
         display: flex;
-        .caja{
+
+        .caja {
             text-align: center;
             width: 25%;
-            img{
+
+            img {
                 width: 100%;
                 max-width: 140px;
             }
-            .text{
-                p{
+
+            .text {
+                p {
                     text-align: center;
                     margin-top: 1em;
                     font-size: 1.1em;
