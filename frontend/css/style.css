@@ -14,15 +14,15 @@ header {
   background: url("../assets/melinda-derksen-718747-unsplash.jpg");
   background-size: coveR;
   padding-top: 1em;
-  padding-bottom: 2em;
+  padding-bottom: 5em;
   margin-top: -10em;
-  -webkit-transform: skewY(-4.2deg);
-          transform: skewY(-4.2deg);
+  -webkit-transform: skewY(-6.2deg);
+          transform: skewY(-6.2deg);
 }
 
 header .contenedor {
-  -webkit-transform: skewY(4.2deg);
-          transform: skewY(4.2deg);
+  -webkit-transform: skewY(6.2deg);
+          transform: skewY(6.2deg);
 }
 
 header .contenedor ul {
@@ -36,7 +36,7 @@ header .contenedor ul {
 header .contenedor ul div.izq {
   width: 25%;
   color: white;
-  text-align: center;
+  text-align: left;
 }
 
 header .contenedor ul div.izq img {
@@ -208,5 +208,41 @@ section#main .contenedor .registrarse form input[type="submit"] {
   margin: 0;
   margin-top: 1em;
   border: transparent;
+}
+
+section#top {
+  padding-bottom: 2.5em;
+}
+
+section#top h2 {
+  margin-top: 2em;
+  text-align: center;
+  font-family: 'Open Sans';
+  font-weight: 300;
+  font-size: 2em;
+}
+
+section#top .contenedor {
+  margin-top: 5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+section#top .contenedor .caja {
+  text-align: center;
+  width: 25%;
+}
+
+section#top .contenedor .caja img {
+  width: 100%;
+  max-width: 140px;
+}
+
+section#top .contenedor .caja .text p {
+  text-align: center;
+  margin-top: 1em;
+  font-size: 1.1em;
+  font-family: 'Open Sans';
 }
 /*# sourceMappingURL=style.css.map */

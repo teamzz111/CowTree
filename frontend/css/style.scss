@@ -13,12 +13,12 @@ header {
     background: url('../assets/melinda-derksen-718747-unsplash.jpg');
     background-size: coveR;
     padding-top: 1em;
-    padding-bottom: 2em;
+    padding-bottom: 5em;
     margin-top: -10em;
-    transform: skewY(-4.2deg);
+    transform: skewY(-6.2deg);
     .contenedor{
 
-        transform: skewY(4.2deg);
+        transform: skewY(6.2deg);
         ul {
             margin-top: 10em;
             padding-top: 1%;
@@ -27,7 +27,7 @@ header {
             div.izq {
                 width: 25%;
                 color: white;
-                text-align: center;
+                text-align: left;
                 img{
                     width: 100%;
                     max-width: 50px;
@@ -180,6 +180,33 @@ section#main {
     }
 }
 
-section#como{
-
+section#top{
+    h2{
+        margin-top: 2em;
+        text-align: center;
+        font-family: 'Open Sans';
+        font-weight: 300;
+        font-size: 2em;
+    }
+    padding-bottom: 2.5em;
+    .contenedor{
+        margin-top: 5em;
+        display: flex;
+        .caja{
+            text-align: center;
+            width: 25%;
+            img{
+                width: 100%;
+                max-width: 140px;
+            }
+            .text{
+                p{
+                    text-align: center;
+                    margin-top: 1em;
+                    font-size: 1.1em;
+                    font-family: 'Open Sans';
+                }
+            }
+        }
+    }
 }
