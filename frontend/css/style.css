@@ -148,7 +148,17 @@ section#main {
   background: #662bc5;
   z-index: 2;
   width: 100%;
-  padding-bottom: 5.42em;
+  padding-top: 2.5em;
+}
+
+section#main .curva {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  margin-bottom: -1%;
+}
+
+section#main .curva img {
+  height: 100%;
 }
 
 section#main .contenedor {
@@ -159,6 +169,8 @@ section#main .contenedor {
       -ms-flex-pack: center;
           justify-content: center;
   padding: 1%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 section#main .contenedor .der {
@@ -190,7 +202,7 @@ section#main .contenedor .der h2 {
 }
 
 section#main .contenedor .der p {
-  font-family: "soleil";
+  font-family: "Open Sans";
   text-align: justify;
 }
 
@@ -205,6 +217,16 @@ section#main .contenedor .der button {
   margin-top: 1.5em;
   margin-bottom: 2em;
   font-size: 1.01em;
+  -webkit-transition: .6s linear;
+  transition: .6s linear;
+}
+
+section#main .contenedor .der button:hover {
+  -webkit-box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.178);
+          box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.178);
+  -webkit-transform: translateY(-4px);
+  transform: translateY(-4px);
+  cursor: pointer;
 }
 
 section#main .contenedor .izq {
@@ -215,27 +237,15 @@ section#main .contenedor .izq img {
   width: 100%;
 }
 
-section#main:after {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  margin-top: 70em;
-  background-position: top;
-  height: 150px;
-  background: url("../assets/curva.svg");
-  background-repeat: no-repeat;
-  content: "";
-}
-
 section#top {
-  padding-bottom: 2.5em;
+  margin-top: 10em;
+  padding-bottom: 6.5em;
 }
 
 section#top h2 {
   margin-top: 2em;
   text-align: center;
-  font-family: 'Open Sans';
+  font-family: 'Roboto';
   font-weight: 300;
   font-size: 2em;
 }
@@ -245,11 +255,20 @@ section#top .contenedor {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 section#top .contenedor .caja {
   text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 25%;
+  min-width: 227px;
+  margin-top: 2em;
+  -ms-flex-line-pack: center;
+      align-content: center;
 }
 
 section#top .contenedor .caja img {
@@ -261,6 +280,116 @@ section#top .contenedor .caja .text p {
   text-align: center;
   margin-top: 1em;
   font-size: 1.1em;
+  font-weight: 300;
   font-family: 'Open Sans';
+}
+
+section#facil {
+  padding-bottom: 2em;
+}
+
+section#facil .contenedor {
+  font-family: 'Roboto';
+}
+
+section#facil .contenedor h2 {
+  padding-top: 1.5em;
+  text-align: centeR;
+  font-weight: 300;
+  font-size: 2em;
+  margin-bottom: 0.65em;
+}
+
+section#facil .contenedor p {
+  text-align: center;
+  margin-bottom: 3em;
+}
+
+section#facil .contenedor form {
+  padding: 2em;
+  max-width: 540px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: white;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.226);
+}
+
+section#facil .contenedor form .icono {
+  margin-top: -4.5em;
+  border-radius: 100%;
+  width: 100%;
+  border: 10px solid white;
+  width: 100px;
+  height: 100px;
+  background-image: url("../assets/iphone.png");
+  background-size: cover;
+}
+
+section#facil .contenedor form p {
+  margin-top: 2em;
+  text-align: center;
+}
+
+section#facil .contenedor form input,
+section#facil .contenedor form textarea {
+  width: 100%;
+  padding: 1%;
+  border-color: transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.151);
+  margin-bottom: 1em;
+  font-family: 'Roboto';
+  font-size: 1em;
+  max-width: 400px;
+}
+
+section#facil .contenedor form button {
+  background-color: #1869e5;
+  -webkit-box-shadow: 0 2px 12px 0 rgba(24, 105, 229, 0.3);
+          box-shadow: 0 2px 12px 0 rgba(24, 105, 229, 0.3);
+  border-color: #1869e5;
+  padding: 1.2% 3em 1.2% 3em;
+  color: white;
+  font-family: 'Roboto';
+  font-size: 1.1em;
+  margin-top: 1em;
+  border-radius: 20px;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+}
+
+section#facil .contenedor form button:hover {
+  -webkit-box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.178);
+          box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.178);
+  -webkit-transform: translateY(-4px);
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+
+footer {
+  background: black;
+  padding: 1%;
+  margin-top: 1eM;
+  color: white;
+  padding: 1em;
+}
+
+footer p {
+  text-align: center;
+  font-family: 'Roboto';
 }
 /*# sourceMappingURL=style.css.map */

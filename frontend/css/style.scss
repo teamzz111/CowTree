@@ -129,16 +129,27 @@ header {
 
 section#main {
     background: #662bc5;
-
     z-index: 2;
     width: 100%;
-    padding-bottom: 5.42em;
+    padding-top: 2.5em;
+    .curva {
+        //height: 100px;
+        transform: rotate(180deg);
+        margin-bottom: -1%;
+
+
+        img {
+            height: 100%;
+        }
+    }
+
     .contenedor {
-        
+
         display: flex;
         justify-content: center;
         padding: 1%;
-        
+        flex-wrap: wrap;
+
         .der {
             width: 50%;
             color: white;
@@ -158,7 +169,7 @@ section#main {
             }
 
             p {
-                font-family: "soleil";
+                font-family: "Open Sans";
                 text-align: justify;
             }
 
@@ -169,10 +180,19 @@ section#main {
                 border: 1px solid rgba(255, 255, 255, 0.301);
                 background-image: linear-gradient(-226deg, #b73dc7, #a740c4 8%, #714bbb 38%, #5358cf 66%, #3f64d4 84%, #2b69dd);
                 color: white;
+
                 border-radius: 10px;
                 margin-top: 1.5em;
                 margin-bottom: 2em;
                 font-size: 1.01em;
+                transition: .6s linear;
+
+                &:hover {
+                    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.178);
+                    -webkit-transform: translateY(-4px);
+                    transform: translateY(-4px);
+                    cursor: pointer;
+                }
             }
         }
 
@@ -185,39 +205,33 @@ section#main {
         }
     }
 
-    &:after {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        margin-top: 70em;
-        background-position: top;
-        height: 150px;
-        background: url('../assets/curva.svg');
-        background-repeat: no-repeat;
-        content: "";
-    }
+
 }
 
 section#top {
+    margin-top: 10em;
+
     h2 {
         margin-top: 2em;
         text-align: center;
-        font-family: 'Open Sans';
+        font-family: 'Roboto';
         font-weight: 300;
         font-size: 2em;
     }
 
-    padding-bottom: 2.5em;
+    padding-bottom: 6.5em;
 
     .contenedor {
         margin-top: 5em;
         display: flex;
-
+        flex-wrap: wrap;
         .caja {
             text-align: center;
+            justify-content: center;
             width: 25%;
-
+            min-width: 227px;
+            margin-top: 2em;
+            align-content: center;
             img {
                 width: 100%;
                 max-width: 140px;
@@ -228,9 +242,106 @@ section#top {
                     text-align: center;
                     margin-top: 1em;
                     font-size: 1.1em;
+                    font-weight: 300;
                     font-family: 'Open Sans';
                 }
             }
         }
+    }
+}
+
+section#facil {
+    padding-bottom: 2em;
+    .contenedor {
+        font-family: 'Roboto';
+
+        h2 {
+            padding-top: 1.5em;
+            text-align: centeR;
+            font-weight: 300;
+            font-size: 2em;
+            margin-bottom: 0.65em;
+        }
+
+        p {
+            text-align: center;
+            margin-bottom: 3em;
+        }
+
+        form {
+            padding: 2em;
+
+            .icono {
+                margin-top: -4.5em;
+                border-radius: 100%;
+                width: 100%;
+                border: 10px solid rgb(255, 255, 255);
+                width: 100px;
+                height: 100px;
+                background-image: url('../assets/iphone.png');
+                background-size: cover;
+            }
+
+            p {
+                margin-top: 2em;
+                text-align: center;
+
+            }
+
+            max-width: 540px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            background: white;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.226);
+            input,
+            textarea {
+                width: 100%;
+                padding: 1%;
+                border-color: transparent;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.151);
+                margin-bottom: 1em;
+                font-family: 'Roboto';
+                font-size: 1em;
+                max-width: 400px;
+
+            }
+
+            button {
+                background-color: #1869e5;
+                box-shadow: 0 2px 12px 0 rgba(24, 105, 229, .3);
+                border-color: #1869e5;
+                padding: 1.2% 3em 1.2% 3em;
+                color: white;
+                font-family: 'Roboto';
+                font-size: 1.1em;
+                margin-top: 1em;
+                border-radius: 20px;
+                transition: 0.2s linear;
+                &:hover {
+                    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.178);
+                    -webkit-transform: translateY(-4px);
+                    transform: translateY(-2px);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+footer{
+    background: black;
+    padding: 1%;
+    margin-top: 1eM;
+    color: white;
+    padding: 1em;
+    p{
+        text-align: center;
+        font-family: 'Roboto';
+
     }
 }
