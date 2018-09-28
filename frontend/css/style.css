@@ -26,6 +26,7 @@ header .contenedor {
 }
 
 header .contenedor ul {
+  padding: 1em;
   margin-top: 10em;
   padding-top: 1%;
   display: -webkit-box;
@@ -91,6 +92,7 @@ header div.contenido h1 {
   font-weight: 300;
   text-align: center;
   font-size: 2.2em;
+  padding: 0.3em;
 }
 
 header div.contenido input {
@@ -158,6 +160,8 @@ section#main .curva {
 }
 
 section#main .curva img {
+  max-height: 200px;
+  width: 100%;
   height: 100%;
 }
 
@@ -196,7 +200,7 @@ section#main .contenedor .der h2 {
   font-size: 2em;
   text-align: left;
   width: 100%;
-  font-family: "soleil";
+  font-family: "Open Sans";
   font-weight: 300;
   margin-bottom: 0.5em;
 }
@@ -204,6 +208,7 @@ section#main .contenedor .der h2 {
 section#main .contenedor .der p {
   font-family: "Open Sans";
   text-align: justify;
+  padding: 1em;
 }
 
 section#main .contenedor .der button {
@@ -215,7 +220,7 @@ section#main .contenedor .der button {
   color: white;
   border-radius: 10px;
   margin-top: 1.5em;
-  margin-bottom: 2em;
+  margin-bottom: 3em;
   font-size: 1.01em;
   -webkit-transition: .6s linear;
   transition: .6s linear;
@@ -235,6 +240,10 @@ section#main .contenedor .izq {
 
 section#main .contenedor .izq img {
   width: 100%;
+}
+
+section#carousel .contenedor {
+  padding-bottom: 5em;
 }
 
 section#top {
@@ -257,6 +266,9 @@ section#top .contenedor {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 section#top .contenedor .caja {
@@ -391,5 +403,26 @@ footer {
 footer p {
   text-align: center;
   font-family: 'Roboto';
+}
+
+@media screen and (max-width: 854px) {
+  section#main .contenedor .izq, section#main .contenedor .der {
+    width: 100%;
+    text-align: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  section#main .contenedor .izq h2, section#main .contenedor .der h2 {
+    text-align: center;
+    margin-top: 1em;
+    padding-bottom: 0.5em;
+  }
+  section#main .contenedor .izq img, section#main .contenedor .der img {
+    max-width: 400px;
+  }
 }
 /*# sourceMappingURL=style.css.map */

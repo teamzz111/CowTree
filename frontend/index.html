@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
-    <link rel="stylesheet" href="assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="assets/owl.theme.green.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
 
@@ -67,10 +67,13 @@
         </div>
     </section>
     <section id="carousel">
-        <div class="owl-carousel">
-            <div><img src="assets/vaca2.jpg" alt=""></div>
-            <div><img src="assets/vaca1.jpg" alt=""></div>
-            <div><img src="assets/12b.jpg" alt=""></div>
+        <div class="contenedor">
+
+            <div class="owl-carousel">
+                <div><img src="assets/vaca2.jpg" alt=""></div>
+                <div><img src="assets/vaca1.jpg" alt=""></div>
+                <div><img src="assets/12b.jpg" alt=""></div>
+            </div>
         </div>
     </section>
     <section id="main">
@@ -117,12 +120,14 @@
     <script>
         var owl = $('.owl-carousel');
         owl.owlCarousel({
-            items: 4,
+            items: 3,
             loop: true,
             margin: 10,
             autoplay: true,
-            autoplayTimeout: 1000,
-            autoplayHoverPause: true
+            autoplayTimeout: 3000,
+            autoplayHoverPause: true,
+            dots: true,
+            nav: true
         });
         $('.play').on('click', function () {
             owl.trigger('play.owl.autoplay', [1000])

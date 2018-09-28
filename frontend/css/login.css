@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background: #C5D5EA;
+}
+
+.padre {
+  width: 100%;
+  background: White;
+  max-width: 1000px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.padre .izq {
+  width: 50%;
+  padding: 0.6em;
+  text-align: center;
+}
+
+.padre .izq img {
+  max-width: 200px;
+}
+
+.padre .izq p {
+  margin-top: 1.5em;
+  font-family: 'Open Sans';
+  margin-bottom: 1.5em;
+  font-weight: 300;
+}
+
+.padre .izq form {
+  width: 100%;
+  display: inline-block;
+}
+
+.padre .izq form label {
+  font-family: 'Open Sans';
+  margin: 1%;
+}
+
+.padre .izq form input {
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.411);
+  border-radius: 3.9px;
+  padding: 0.6em;
+  max-width: 300px;
+}
+
+.padre .der {
+  width: 50%;
+}
+
+.padre .der img {
+  width: 100%;
+  max-height: 1000px;
+}
+/*# sourceMappingURL=login.css.map */
