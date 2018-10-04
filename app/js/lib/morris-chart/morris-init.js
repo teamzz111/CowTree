@@ -124,51 +124,45 @@ $( function () {
 
 
 	// Extra chart
+
 	Morris.Area( {
 		element: 'extra-area-chart',
 		data: [ {
 				period: '2001',
-				smartphone: 0,
-				windows: 0,
-				mac: 0
+				ganado: 0,
+				
         }, {
 				period: '2002',
-				smartphone: 90,
-				windows: 60,
-				mac: 25
+				ganado: 90,
+				
         }, {
 				period: '2003',
-				smartphone: 40,
-				windows: 80,
-				mac: 35
+				ganado: 40,
+			
         }, {
 				period: '2004',
-				smartphone: 30,
-				windows: 47,
-				mac: 17
+				ganado: 30,
+				
         }, {
 				period: '2005',
-				smartphone: 150,
-				windows: 40,
-				mac: 120
+				ganado: 150,
+				
         }, {
 				period: '2006',
-				smartphone: 25,
-				windows: 80,
-				mac: 40
+				ganado: 25,
+				
         }, {
 				period: '2007',
-				smartphone: 10,
-				windows: 10,
-				mac: 10
+				ganado: 10,
+				
         }
 
 
         ],
 		lineColors: [ '#26DAD2', '#fc6180', '#4680ff' ],
 		xkey: 'period',
-		ykeys: [ 'smartphone', 'windows', 'mac' ],
-		labels: [ 'Phone', 'Windows', 'Mac' ],
+		ykeys: [ 'Ganado' ],
+		labels: [ 'Phone' ],
 		pointSize: 0,
 		lineWidth: 0,
 		resize: true,

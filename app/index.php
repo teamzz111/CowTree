@@ -263,6 +263,13 @@
                                 <li><a href="email-read.html">Read</a></li>
                                 <li><a href="email-inbox.html">Inbox</a></li>
                             </ul>
+                        </li>
+                                                <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-envelope"></i><span class="hide-menu">Registrar</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="form-basic.html">Registrar ganadero</a></li>
+                                <li><a href="form-basic.html">Registrar vaca</a></li>
+                                
+                            </ul>
                         </li><!-- 
                             <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-bar-chart"></i><span class="hide-menu">Charts</span></a>
                             <ul aria-expanded="false" class="collapse">
@@ -275,99 +282,8 @@
                                 <li><a href="chart-sparkline.html">Sparkline</a></li>
                                 <li><a href="chart-peity.html">Peity</a></li>
                             </ul>
-</li>-->
-                        <li class="nav-label">Features</li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-suitcase"></i><span class="hide-menu">Bootstrap UI <span class="label label-rouded label-warning pull-right">6</span></span></a>
-                            <ul aria-expanded="false" class="collapse">
-                                <li><a href="ui-alert.html">Alert</a></li>
-                                <li><a href="ui-button.html">Button</a></li>
-                                <li><a href="ui-dropdown.html">Dropdown</a></li>
-                                <li><a href="ui-progressbar.html">Progressbar</a></li>
-                                <li><a href="ui-tab.html">Tab</a></li>
-                                <li><a href="ui-typography.html">Typography</a></li>
-                            </ul>
-                        </li>
-						<li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-suitcase"></i><span class="hide-menu">Components <span class="label label-rouded label-danger pull-right">6</span></span></a>
-                            <ul aria-expanded="false" class="collapse">
-                                <li><a href="uc-calender.html">Calender</a></li>
-                                <li><a href="uc-datamap.html">Datamap</a></li>
-                                <li><a href="uc-nestedable.html">Nestedable</a></li>
-                                <li><a href="uc-sweetalert.html">Sweetalert</a></li>
-                                <li><a href="uc-toastr.html">Toastr</a></li>
-                                <li><a href="uc-weather.html">Weather</a></li>
-                            </ul>
-                        </li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-wpforms"></i><span class="hide-menu">Forms</span></a>
-                            <ul aria-expanded="false" class="collapse">
-                                <li><a href="form-basic.html">Basic Forms</a></li>
-                                <li><a href="form-layout.html">Form Layout</a></li>
-                                <li><a href="form-validation.html">Form Validation</a></li>
-                                <li><a href="form-editor.html">Editor</a></li>
-                                <li><a href="form-dropzone.html">Dropzone</a></li>
-                            </ul>
-                        </li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Tables</span></a>
-                            <ul aria-expanded="false" class="collapse">
-                                <li><a href="table-bootstrap.html">Basic Tables</a></li>
-                                <li><a href="table-datatable.html">Data Tables</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-label">Layout</li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-columns"></i><span class="hide-menu">Layout</span></a>
-                            <ul aria-expanded="false" class="collapse">
-                                <li><a href="layout-blank.html">Blank</a></li>
-                                <li><a href="layout-boxed.html">Boxed</a></li>
-                                <li><a href="layout-fix-header.html">Fix Header</a></li>
-                                <li><a href="layout-fix-sidebar.html">Fix Sidebar</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-label">EXTRA</li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-book"></i><span class="hide-menu">Pages <span class="label label-rouded label-success pull-right">8</span></span></a>
-                            <ul aria-expanded="false" class="collapse">
-
-                                <li><a href="#" class="has-arrow">Authentication <span class="label label-rounded label-success">6</span></a>
-                                    <ul aria-expanded="false" class="collapse">
-                                        <li><a href="page-login.html">Login</a></li>
-                                        <li><a href="page-register.html">Register</a></li>
-                                        <li><a href="page-invoice.html">Invoice</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#" class="has-arrow">Error Pages</a>
-                                    <ul aria-expanded="false" class="collapse">
-                                        <li><a href="page-error-400.html">400</a></li>
-                                        <li><a href="page-error-403.html">403</a></li>
-                                        <li><a href="page-error-404.html">404</a></li>
-                                        <li><a href="page-error-500.html">500</a></li>
-                                        <li><a href="page-error-503.html">503</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-map-marker"></i><span class="hide-menu">Maps</span></a>
-                            <ul aria-expanded="false" class="collapse">
-                                <li><a href="map-google.html">Google</a></li>
-                                <li><a href="map-vector.html">Vector</a></li>
-                            </ul>
-                        </li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-level-down"></i><span class="hide-menu">Multi level dd</span></a>
-                            <ul aria-expanded="false" class="collapse">
-                                <li><a href="#">item 1.1</a></li>
-                                <li><a href="#">item 1.2</a></li>
-                                <li> <a class="has-arrow" href="#" aria-expanded="false">Menu 1.3</a>
-                                    <ul aria-expanded="false" class="collapse">
-                                        <li><a href="#">item 1.3.1</a></li>
-                                        <li><a href="#">item 1.3.2</a></li>
-                                        <li><a href="#">item 1.3.3</a></li>
-                                        <li><a href="#">item 1.3.4</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">item 1.4</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
-                <!-- End Sidebar navigation -->
-            </div>
+</li>-->        <!-- End Sidebar navigation -->
+</div>
             <!-- End Sidebar scroll-->
         </div>
         <!-- End Left Sidebar  -->
@@ -474,7 +390,7 @@
                     <div class="col-lg-8">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Extra Area Chart</h4>
+                                <h4 class="card-title">Machos vs Hembras</h4>
                                 <div id="extra-area-chart"></div>
                             </div>
                         </div>
@@ -485,120 +401,24 @@
                     <div class="col-lg-4">
                         <div class="card">
                             <div class="card-body browser">
-                                <p class="f-w-600">iMacs <span class="pull-right">85%</span></p>
+                                <p class="f-w-600">Machos <span class="pull-right">75%</span></p>
                                 <div class="progress ">
-                                    <div role="progressbar" style="width: 85%; height:8px;" class="progress-bar bg-danger wow animated progress-animated"> <span class="sr-only">60% Complete</span> </div>
+                                    <div role="progressbar" style="width: 75%; height:8px;" class="progress-bar bg-danger wow animated progress-animated"> <span class="sr-only">60% Complete</span> </div>
                                 </div>
 
-                                <p class="m-t-30 f-w-600">iBooks<span class="pull-right">90%</span></p>
+                                <p class="m-t-30 f-w-600">Hembras<span class="pull-right">25%</span></p>
                                 <div class="progress">
-                                    <div role="progressbar" style="width: 90%; height:8px;" class="progress-bar bg-info wow animated progress-animated"> <span class="sr-only">60% Complete</span> </div>
-                                </div>
-
-                                <p class="m-t-30 f-w-600">iPhone<span class="pull-right">65%</span></p>
-                                <div class="progress">
-                                    <div role="progressbar" style="width: 65%; height:8px;" class="progress-bar bg-success wow animated progress-animated"> <span class="sr-only">60% Complete</span> </div>
-                                </div>
-
-                                <p class="m-t-30 f-w-600">Samsung<span class="pull-right">65%</span></p>
-                                <div class="progress">
-                                    <div role="progressbar" style="width: 65%; height:8px;" class="progress-bar bg-warning wow animated progress-animated"> <span class="sr-only">60% Complete</span> </div>
-                                </div>
-
-								<p class="m-t-30 f-w-600">android<span class="pull-right">65%</span></p>
-                                <div class="progress m-b-30">
-                                    <div role="progressbar" style="width: 65%; height:8px;" class="progress-bar bg-success wow animated progress-animated"> <span class="sr-only">60% Complete</span> </div>
+                                    <div role="progressbar" style="width: 25%; height:8px;" class="progress-bar bg-info wow animated progress-animated"> <span class="sr-only">60% Complete</span> </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- column -->
-                </div>
-                <div class="row">
-					<div class="col-lg-3">
-                        <div class="card bg-dark">
-                            <div class="testimonial-widget-one p-17">
-                                <div class="testimonial-widget-one owl-carousel owl-theme">
-                                    <div class="item">
-                                        <div class="testimonial-content">
-                                            <img class="testimonial-author-img" src="images/avatar/2.jpg" alt="" />
-                                            <div class="testimonial-author">John</div>
-                                            <div class="testimonial-author-position">Founder-Ceo. Dell Corp</div>
-
-                                            <div class="testimonial-text">
-                                                <i class="fa fa-quote-left"></i>  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation .
-                                                <i class="fa fa-quote-right"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="testimonial-content">
-                                            <img class="testimonial-author-img" src="images/avatar/3.jpg" alt="" />
-                                            <div class="testimonial-author">Abraham</div>
-                                            <div class="testimonial-author-position">Founder-Ceo. Dell Corp</div>
-
-                                            <div class="testimonial-text">
-                                                <i class="fa fa-quote-left"></i>  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation .
-                                                <i class="fa fa-quote-right"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="testimonial-content">
-                                            <img class="testimonial-author-img" src="images/avatar/1.jpg" alt="" />
-                                            <div class="testimonial-author">Lincoln</div>
-                                            <div class="testimonial-author-position">Founder-Ceo. Dell Corp</div>
-
-                                            <div class="testimonial-text">
-                                                <i class="fa fa-quote-left"></i>  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation .
-                                                <i class="fa fa-quote-right"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="testimonial-content">
-                                            <img class="testimonial-author-img" src="images/avatar/4.jpg" alt="" />
-                                            <div class="testimonial-author">TYRION LANNISTER</div>
-                                            <div class="testimonial-author-position">Founder-Ceo. Dell Corp</div>
-
-                                           <div class="testimonial-text">
-                                                <i class="fa fa-quote-left"></i>  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation .
-                                                <i class="fa fa-quote-right"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="testimonial-content">
-                                            <img class="testimonial-author-img" src="images/avatar/5.jpg" alt="" />
-                                            <div class="testimonial-author">TYRION LANNISTER</div>
-                                            <div class="testimonial-author-position">Founder-Ceo. Dell Corp</div>
-
-                                            <div class="testimonial-text">
-                                                <i class="fa fa-quote-left"></i>  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation .
-                                                <i class="fa fa-quote-right"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="testimonial-content">
-                                            <img class="testimonial-author-img" src="images/avatar/6.jpg" alt="" />
-                                            <div class="testimonial-author">TYRION LANNISTER</div>
-                                            <div class="testimonial-author-position">Founder-Ceo. Dell Corp</div>
-
-                                            <div class="testimonial-text">
-                                                <i class="fa fa-quote-left"></i>  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation .
-                                                <i class="fa fa-quote-right"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
+                </div>                    
+                <div class="col-lg-13">
                         <div class="card">
                             <div class="card-title">
-                                <h4>Recent Orders </h4>
+                                <h4>Usuarios registrados </h4>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -606,13 +426,20 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Name</th>
-                                                <th>Product</th>
+                                                <th>Nombre</th>
+                                                <th>Ganaderia</th>
                                                 <th>quantity</th>
                                                 <th>Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php
+                                                $result = $con->query("SELECT Nombre, Ganaderia_Id, Cargo FROM Usuario");
+                                                
+                                            
+                                                while($elemento = $result-> fetch_array(MYSQLI_ASSOC)){
+                                                
+                                            ?>   
 
                                             <tr>
                                                 <td>
@@ -620,52 +447,20 @@
                                                         <a href=""><img src="images/avatar/4.jpg" alt=""></a>
                                                     </div>
                                                 </td>
-                                                <td>John Abraham</td>
-                                                <td><span>iBook</span></td>
-                                                <td><span>456 pcs</span></td>
-                                                <td><span class="badge badge-success">Done</span></td>
+                                                <td><?php echo $elemento['Nombre']; ?></td>
+                                                <td><span><?php echo $elemento['Ganaderia_Id']; ?></span></td>
+                                                <td><span><?php echo $elemento['Cargo']; ?></span></td>
+                                                <td><span class="badge badge-success">Activo</span></td>
                                             </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="round-img">
-                                                        <a href=""><img src="images/avatar/2.jpg" alt=""></a>
-                                                    </div>
-                                                </td>
-                                                <td>John Abraham</td>
-                                                <td><span>iPhone</span></td>
-                                                <td><span>456 pcs</span></td>
-                                                <td><span class="badge badge-success">Done</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="round-img">
-                                                        <a href=""><img src="images/avatar/3.jpg" alt=""></a>
-                                                    </div>
-                                                </td>
-                                                <td>John Abraham</td>
-                                                <td><span>iMac</span></td>
-                                                <td><span>456 pcs</span></td>
-                                                <td><span class="badge badge-warning">Pending</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="round-img">
-                                                        <a href=""><img src="images/avatar/4.jpg" alt=""></a>
-                                                    </div>
-                                                </td>
-                                                <td>John Abraham</td>
-                                                <td><span>iBook</span></td>
-                                                <td><span>456 pcs</span></td>
-                                                <td><span class="badge badge-success">Done</span></td>
-                                            </tr>
-                                        </tbody>
+                                            <?php  } ?>
+                                                                                   </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
+<!--
 
                 <div class="row">
 					<div class="col-lg-8">
@@ -720,11 +515,11 @@
 									</div>
 								</div>
 							</div>
-							<!-- /# card -->
+							
 						</div>
-						<!-- /# column -->
+						/# column -->
 						<div class="col-lg-6">
-							<div class="card">
+							<div class="card center-block">
 								<div class="card-body">
 									<div class="year-calendar"></div>
 								</div>

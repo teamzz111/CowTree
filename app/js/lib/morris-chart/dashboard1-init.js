@@ -8,61 +8,41 @@ $( function () {
 		element: 'extra-area-chart',
 		data: [ {
 				period: '2001',
-				iphone: 0,
-				imac: 0,
-				ibook: 90,
-				samsung: 0,
-				android: 0
+				macho: 0,
+				hembra: 12
         }, {
 				period: '2002',
-				iphone: 10,
-				imac: 60,
-				ibook: 40,
-				samsung: 80,
-				android: 120
+				macho: 10,
+				hembra: 60,
+
         }, {
 				period: '2003',
-				iphone: 120,
-				imac: 10,
-				ibook: 90,
-				samsung: 30,
-				android: 50
+				macho: 120,
+				hembra: 10,
         }, {
 				period: '2004',
-				iphone: 0,
-				imac: 0,
-				ibook: 120,
-				samsung: 0,
-				android: 0
+				macho: 0,
+				hembra: 0
         }, {
 				period: '2005',
-				iphone: 0,
-				imac: 0,
-				ibook: 0,
-				samsung: 150,
-				android: 0
+				macho: 0,
+				hembra: 0
         }, {
 				period: '2006',
-				iphone: 160,
-				imac: 75,
-				ibook: 30,
-				samsung: 60,
-				android: 90
+				macho: 160,
+				hembra: 75,
         }, {
 				period: '2007',
-				iphone: 10,
-				imac: 120,
-				ibook: 40,
-				samsung: 60,
-				android: 30
+				macho: 10,
+				hembra: 120,
         }
 
 
         ],
 		lineColors: [ '#26DAD2', '#fc6180', '#62d1f3', '#ffb64d', '#4680ff' ],
 		xkey: 'period',
-		ykeys: [ 'iphone', 'imac', 'ibook', 'samsung', 'android' ],
-		labels: [ 'iphone', 'imac', 'ibook', 'samsung', 'android' ],
+		ykeys: [ 'macho', 'hembra'],
+		labels: [ 'Machos', 'Hembras'],
 		pointSize: 0,
 		lineWidth: 0,
 		resize: true,
