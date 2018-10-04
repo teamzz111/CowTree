@@ -254,7 +254,7 @@ ini_set('display_errors', '1');?>
                         <li class="nav-label">Inicio</li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Panel de control <span class="label label-rouded label-primary pull-right">1</span></span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="index.html">Ganado </a></li>
+                                <li><a href="index.php">Ganado </a></li>
                              <!--   <li><a href="index1.html">Analytics </a></li> -->
                             </ul>
                         </li>
@@ -269,7 +269,7 @@ ini_set('display_errors', '1');?>
                                                 <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fas fa-user"></i><span class="hide-menu">Registrar</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="form-basic.php">Registrar ganadero</a></li>
-                                <li><a href="form-basic.php">Registrar vaca</a></li>
+                                <li><a href="form-vaca.php">Registrar vaca</a></li>
                                 
                             </ul>
                         </li><!-- 
