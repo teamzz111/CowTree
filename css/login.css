@@ -51,6 +51,23 @@ body {
   display: inline-block;
 }
 
+.padre .izq form .exito {
+  display: none;
+  text-align: center;
+  padding: 2%;
+  color: white;
+  max-width: 300px;
+  margin: auto;
+  font-weight: bold;
+  margin-top: 0.9em;
+  font-size: 1.2em;
+  background: red;
+}
+
+.padre .izq form .exito p {
+  margin: auto;
+}
+
 .padre .izq form label {
   font-family: 'Open Sans';
   color: rgba(0, 0, 0, 0.637);
@@ -66,7 +83,7 @@ body {
   max-width: 300px;
 }
 
-.padre .izq form button {
+.padre .izq form input[type='submit'] {
   margin-top: 2em;
   border: 1px solid black;
   padding: 1.9% 4em;
@@ -77,8 +94,9 @@ body {
   transition: 1s linear;
 }
 
-.padre .izq form button:hover {
+.padre .izq form input[type='submit']:hover {
   color: black;
+  cursor: pointer;
   background: white;
 }
 

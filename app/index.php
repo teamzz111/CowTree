@@ -1,3 +1,4 @@
+<?php require_once("../backend/Conexion.php") ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,11 +11,12 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
-    <title>Ela - Bootstrap Admin Dashboard Template</title>
+    <title>CowTree - Admin</title>
     <!-- Bootstrap Core CSS -->
     <link href="css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
-
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+    crossorigin="anonymous">
     <link href="css/lib/calendar2/semantic.ui.min.css" rel="stylesheet">
     <link href="css/lib/calendar2/pignose.calendar.min.css" rel="stylesheet">
     <link href="css/lib/owl.carousel.min.css" rel="stylesheet" />
@@ -44,10 +46,10 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" href="index.html">
                         <!-- Logo icon -->
-                        <b><img src="images/logo.png" alt="homepage" class="dark-logo" /></b>
+                        <b><img style = "max-width: 50px" src="../assets/logo2.png" alt="homepage" class="dark-logo" /></b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
-                        <span><img src="images/logo-text.png" alt="homepage" class="dark-logo" /></span>
+                        
                     </a>
                 </div>
                 <!-- End Logo -->
@@ -247,22 +249,22 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li class="nav-devider"></li>
-                        <li class="nav-label">Home</li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard <span class="label label-rouded label-primary pull-right">2</span></span></a>
+                        <li class="nav-label">Inicio</li>
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Panel de control <span class="label label-rouded label-primary pull-right">1</span></span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="index.html">Ecommerce </a></li>
-                                <li><a href="index1.html">Analytics </a></li>
+                                <li><a href="index.html">Ganado </a></li>
+                             <!--   <li><a href="index1.html">Analytics </a></li> -->
                             </ul>
                         </li>
-                        <li class="nav-label">Apps</li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-envelope"></i><span class="hide-menu">Email</span></a>
+                        <li class="nav-label">Aplicaciones</li>
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-envelope"></i><span class="hide-menu">Mensajes</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="email-compose.html">Compose</a></li>
                                 <li><a href="email-read.html">Read</a></li>
                                 <li><a href="email-inbox.html">Inbox</a></li>
                             </ul>
-                        </li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-bar-chart"></i><span class="hide-menu">Charts</span></a>
+                        </li><!-- 
+                            <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-bar-chart"></i><span class="hide-menu">Charts</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="chart-flot.html">Flot</a></li>
                                 <li><a href="chart-morris.html">Morris</a></li>
@@ -273,7 +275,7 @@
                                 <li><a href="chart-sparkline.html">Sparkline</a></li>
                                 <li><a href="chart-peity.html">Peity</a></li>
                             </ul>
-                        </li>
+</li>-->
                         <li class="nav-label">Features</li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-suitcase"></i><span class="hide-menu">Bootstrap UI <span class="label label-rouded label-warning pull-right">6</span></span></a>
                             <ul aria-expanded="false" class="collapse">
@@ -374,11 +376,11 @@
             <!-- Bread crumb -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-primary">Dashboard</h3> </div>
+                    <h3 class="text-primary">Panel de control</h3> </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
+                        <li class="breadcrumb-item active">Panel de control</li>
                     </ol>
                 </div>
             </div>
@@ -391,11 +393,18 @@
                         <div class="card p-30">
                             <div class="media">
                                 <div class="media-left meida media-middle">
-                                    <span><i class="fa fa-usd f-s-40 color-primary"></i></span>
+                                    
+                                    <span><i class="fas fa-feather f-s-40 color-primary"></i></span>
                                 </div>
                                 <div class="media-body media-text-right">
-                                    <h2>568120</h2>
-                                    <p class="m-b-0">Total Revenue</p>
+                                    <h2>
+                                    <?php
+                                         $result = $con->query("SELECT count(*) as total FROM Vaca");
+                                         $row = $result ->fetch_array(MYSQLI_ASSOC);
+                                         echo $row['total'];
+                                    ?>
+                                    </h2>
+                                    <p class="m-b-0">Ganado registrado</p>
                                 </div>
                             </div>
                         </div>
@@ -404,11 +413,17 @@
                         <div class="card p-30">
                             <div class="media">
                                 <div class="media-left meida media-middle">
-                                    <span><i class="fa fa-shopping-cart f-s-40 color-success"></i></span>
+                                    <span><i class="fas fa-tree f-s-40 color-success"></i></span>
                                 </div>
                                 <div class="media-body media-text-right">
-                                    <h2>1178</h2>
-                                    <p class="m-b-0">Sales</p>
+                                    <h2>
+                                    <?php
+                                         $result = $con->query("SELECT count(*) as total FROM Arbol");
+                                         $row = $result ->fetch_array(MYSQLI_ASSOC);
+                                         echo $row['total'];
+                                    ?>
+                                    </h2>
+                                    <p class="m-b-0">Árboles registrados</p>
                                 </div>
                             </div>
                         </div>
@@ -420,8 +435,14 @@
                                     <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
                                 </div>
                                 <div class="media-body media-text-right">
-                                    <h2>25</h2>
-                                    <p class="m-b-0">Stores</p>
+                                    <h2>
+                                    <?php
+                                         $result = $con->query("SELECT count(*) as total FROM Ganaderia");
+                                         $row = $result ->fetch_array(MYSQLI_ASSOC);
+                                         echo $row['total'];
+                                    ?>
+                                    </h2>
+                                    <p class="m-b-0">Ganaderias</p>
                                 </div>
                             </div>
                         </div>
@@ -433,8 +454,14 @@
                                     <span><i class="fa fa-user f-s-40 color-danger"></i></span>
                                 </div>
                                 <div class="media-body media-text-right">
-                                    <h2>847</h2>
-                                    <p class="m-b-0">Customer</p>
+                                    <h2>
+                                    <?php
+                                         $result = $con->query("SELECT count(*) as total FROM Usuario");
+                                         $row = $result ->fetch_array(MYSQLI_ASSOC);
+                                         echo $row['total'];
+                                    ?>   
+                                    </h2>
+                                    <p class="m-b-0">Usuarios</p>
                                 </div>
                             </div>
                         </div>

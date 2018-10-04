@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>¡Inicia sesión!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/login.css" />
-    <script src="main.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 </head>
+
 <body>
     <div class="padre">
         <div class="izq">
             <img src="assets/logo.png" alt="">
             <p>INICIAR SESIÓN</p>
-            <form action="backend/login.php" method="POST" style = "margin-top: 1em; margin-bottom: 0.5em">
-                <label for="number" >Ingrese usuario</label>
+            <form id = "form" action="backend/login.php" method="POST" style="margin-top: 1em; margin-bottom: 0.5em">
+                <label for="number">Ingrese usuario</label>
                 <br>
-                <input type="number" name = "user" style="margin-bottom: 1.5em">
+                <input type="number" name="user" required style="margin-bottom: 1.5em" id="user">
                 <br>
-                <label for="password" >Ingrese la contraseña</label>
+                <label for="password">Ingrese la contraseña</label>
                 <br>
-                <input name = "pass" type="password">
+                <input name="pass" type="password" id="pass" required>
                 <br>
+                <div class="exito">
+                    <p>Usuario o contraseña incorrecta</p>
+                </div>
                 <input type="submit" value="Entrar">
             </form>
         </div>
@@ -30,5 +34,9 @@
             <img src="assets/vaquita.jpeg" alt="">
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="js/app.js"></script>
 </body>
+
 </html>
