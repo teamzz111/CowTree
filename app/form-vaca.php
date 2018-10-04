@@ -361,7 +361,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="basic-form">
-                                    <form>
+                                    <form id = "RegistroVacas">
                                         <div class="form-group">
                                             <label>Nombre del ejemplar</label>
                                             <input type="text" name = "nombre" class="form-control" placeholder="Nombre">
@@ -392,7 +392,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Fecha nacimiento</label>
-                                            <input type="date" name = "fecha_nacimiento" class="form-control" placeholder="Fecha de nacimiento">
+                                            <input type="text" name = "fecha_nacimiento" class="form-control" placeholder="Fecha de nacimiento">
                                         </div>
                                         <div class="form-group">
                                             <label>Encaste</label>
@@ -420,11 +420,11 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Defectos</label>
-                                            <input type="date" name = "defectos" class="form-control" placeholder="Defectos">
+                                            <input type="text" name = "defectos" class="form-control" placeholder="Defectos">
                                         </div>
                                         <div class="form-group">
                                             <label>Calificación</label>
-                                            <input type="date" name = "calificacion" class="form-control" placeholder="Calificación">
+                                            <input type="text" name = "calificacion" class="form-control" placeholder="Calificación">
                                         </div>
 
                                         <div class="form-group">

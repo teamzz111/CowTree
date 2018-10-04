@@ -1,10 +1,10 @@
 <?php
 
-require_once 'Conexion.php';
-session_start();
+    require_once 'Conexion.php';
+    session_start();
 
-        $Nombre = $_POST['nombre'];
-        $Ejemplar = $_POST['ejemplar'];
+    $Nombre = $_POST['nombre'];
+    $Ejemplar = $_POST['ejemplar'];
 	$Estado=$_POST["estado"];
 	$Destino=$_POST["destino"];
 	$Edad=$_POST["edad"];
@@ -26,31 +26,31 @@ session_start();
 
 
 
-        $con = new mysqli($host, $user, $pass, $db);
-        $con->query("SET NAMES 'utf8'");
-        if ($con->connect_error) {
+    $con = new mysqli($host, $user, $pass, $db);
+    $con->query("SET NAMES 'utf8'");
+    if ($con->connect_error) {
+        echo 'false';
+    }
+
+    $query1="SELECT * FROM vaca WHERE Ejemplar = '$Ejemplar'";
+    $resultado = $con->query($query1);
+
+    if ($resultado->num_rows>0) {
+        echo ('ese id ya está registrado');
+    }
+    else{
+        $query = "INSERT INTO vaca VALUES (
+        '$Ejemplar','$Nombre' ,'$Estado','$Destino','$Edad','$Herrado','$Destetado','$fecha_nacimiento','$Encaste',
+        '$Reseña','$Arbol_id','$Ganaderia','$Criador','$Fenotipo','$Defector','$Calificacion','$Comportamiento',
+        '$Observadores','$Pareja','$Padre')";
+        $rs = $con->query($query);
+        if ($rs) {
+            echo 'true';
+        }
+        else {
             echo 'false';
-        }
-
-        $query1="SELECT * FROM vaca WHERE Ejemplar = '$Ejemplar'";
-        $resultado = $con->query($query1);
-
-        if ($resultado->num_rows>0) {
-            echo ('ese id ya está registrado');
-        }
-        else{
-            $query = "INSERT INTO vaca VALUES (
-                '$Ejemplar','$Nombre' ,'$Estado','$Destino','$Edad','$Herrado','$Destetado','$fecha_nacimiento','$Encaste',
-                '$Reseña','$Arbol_id','$Ganaderia','$Criador','$Fenotipo','$Defector','$Calificacion','$Comportamiento',
-                '$Observadores','$Pareja','$Padre')";
-            $rs = $con->query($query);
-            if ($rs) {
-                echo 'true';
-                }
-                else {
-                    echo 'false';
-                }
             }
+        }
         
     
 ?>
