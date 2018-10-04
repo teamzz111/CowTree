@@ -10,10 +10,16 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
-    <title>Ela - Bootstrap Admin Dashboard Template</title>
+    <title>CowTree - Admin</title>
     <!-- Bootstrap Core CSS -->
     <link href="css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+    crossorigin="anonymous">
+    <link href="css/lib/calendar2/semantic.ui.min.css" rel="stylesheet">
+    <link href="css/lib/calendar2/pignose.calendar.min.css" rel="stylesheet">
+    <link href="css/lib/owl.carousel.min.css" rel="stylesheet" />
+    <link href="css/lib/owl.theme.default.min.css" rel="stylesheet" />
     <link href="css/helper.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -25,6 +31,7 @@
 </head>
 
 <body class="fix-header fix-sidebar">
+    <!-- Preloader - style you can find in spinners.css -->
     <div class="preloader">
         <svg class="circular" viewBox="25 25 50 50">
 			<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
@@ -36,7 +43,7 @@
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <!-- Logo -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="index.php">
                         <!-- Logo icon -->
                         <b><img style = "max-width: 50px" src="../assets/logo2.png" alt="homepage" class="dark-logo" /></b>
                         <!--End Logo icon -->
@@ -234,7 +241,7 @@
         </div>
         <!-- End header header -->
         <!-- Left Sidebar  -->
-         <div class="left-sidebar">
+        <div class="left-sidebar">
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
@@ -256,10 +263,10 @@
                                 <li><a href="email-inbox.html">Inbox</a></li>
                             </ul>
                         </li>
-                                                <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-envelope"></i><span class="hide-menu">Registrar</span></a>
+                                                <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fas fa-user"></i><span class="hide-menu">Registrar</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="form-basic.html">Registrar ganadero</a></li>
-                                <li><a href="form-basic.html">Registrar vaca</a></li>
+                                <li><a href="form-basic.php">Registrar ganadero</a></li>
+                                <li><a href="form-basic.php">Registrar vaca</a></li>
                                 
                             </ul>
                         </li><!-- 
@@ -278,8 +285,8 @@
 </div>
             <!-- End Sidebar scroll-->
         </div>
-
         <!-- End Left Sidebar  -->
+
         <!-- Page wrapper  -->
         <div class="page-wrapper">
             <!-- Bread crumb -->

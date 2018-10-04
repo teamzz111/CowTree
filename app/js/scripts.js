@@ -51,7 +51,41 @@ $(function() {
                 o = o.parent().addClass("in").parent().addClass("active");
             }
         }),
+        $('#Registro').submit(function(e){
+            $.ajax({
+                type: 'POST',
+                url: '../backend/NuevoUsuario.php',
+                data: $(this).serialize(),
+                success: function (data) {
+                    if (data == 'true') {
+                        $(".exito").text("¡REGISTRO EXITOSO!");
+                        $('.exito').fadeIn(2000, function(){
+                            window.location.reload(true);
+                        });
 
+                    } else if (data == 'false') {
+                        $(".exito").text("¡REGISTRO SIN ÉXITO, NO TENEMOS MÁS INFORMACIÓN");
+                        $('.exito').fadeIn(2000, function(){
+                            window.location.reload(true);
+                        });
+                        
+                    } else {
+                        $(".exito").text("EL USUARIO YA SE ENCUENTRA REGISTRADO");
+                        $('.exito').fadeIn(2000, function(){
+                            window.location.reload(true);
+                        }); 
+                    }
+                },
+                error: function (data) {
+                    $(".exito").text("¡REGISTRO SIN ÉXITO, NO TENEMOS MÁS INFORMACIÓN");
+                    $('.exito').fadeIn(2000, function(){
+                        window.location.reload(true);
+                    });
+                }
+            });
+
+            e.preventDefault();
+        });
         $(function() {
             $("#sidebarnav").metisMenu();
         }),

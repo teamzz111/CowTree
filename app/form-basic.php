@@ -44,7 +44,7 @@
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <!-- Logo -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="index.php">
                         <!-- Logo icon -->
                         <b><img style="max-width: 50px" src="../assets/logo2.png" alt="homepage" class="dark-logo" /></b>
                         <!--End Logo icon -->
@@ -357,33 +357,40 @@
                             </div>
                             <div class="card-body">
                                 <div class="basic-form">
-                                    <form method="POST" action= "../backend/NuevoUsuario.php">
+                                    <form id = "Registro" method="POST" action= "../backend/NuevoUsuario.php">
                                         <div class="form-group">
                                             <label>Nombre del usuario</label>
                                             <input type="text" name = "nombre" class="form-control" placeholder="Nombre">
                                         </div>
                                         <div class="form-group">
+                                            <label>Cédula del usuario</label>
+                                            <input type="number" name = "id" class="form-control" placeholder="Cédula del usuario">
+                                        </div>
+                                        <div class="form-group">
                                             <label>Cargo</label>
-                                            <select class="form-control">
+                                            <select class="form-control" name = "cargo">
                                                 <option value="Ganadero">Ganadero</option>
                                                 <option value="Dueno">Dueño</option>
                                                 <option value="Criador">Criador</option>
                                             </select>                                       </div>
-                                        <div class="form-group">
+                                        <div class="form-group" >
                                             <label>Ganaderia</label>
-                                            <select class = "form-control" id="">
+                                            <select class = "form-control" id="" name = "ganaderia">
 
                                             
                                             <?php
                                                 $rs = $con->query('SELECT Nombre FROM ganaderia');
                                                 while($row = $rs->fetch_array(MYSQLI_ASSOC)){
-                                                    echo "<option value = '".$row['Nombre']."'> $row['Nombre']</option>";
-                                                }
-                                            ?> 
+                                            ?>
+                                                <option value = "<?php echo $row['Nombre']; ?>"> <?php echo $row['Nombre']; ?> </option>";                                        
+                                                <?php } ?>
 
                                         </select>
                                         </div>
-
+                                        <div class="exito" style = "display: none; padding-bottom: 0.5em">
+                                            <p>Usuario o contraseña incorrecta</p>
+                                            <br>
+                                        </div>
                                         <button type="submit" class="btn btn-default">Registrar</button>
                                     </form>
                                 </div>
@@ -457,7 +464,7 @@
     <script src="js/lib/sticky-kit-master/dist/sticky-kit.min.js"></script>
     <!--Custom JavaScript -->
     <script src="js/custom.min.js"></script>
-
+    <script src="js/scripts.js"></script>
 </body>
 
 </html>

@@ -46,7 +46,7 @@ ini_set('display_errors', '1');?>
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <!-- Logo -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="index.php">
                         <!-- Logo icon -->
                         <b><img style = "max-width: 50px" src="../assets/logo2.png" alt="homepage" class="dark-logo" /></b>
                         <!--End Logo icon -->
@@ -266,10 +266,10 @@ ini_set('display_errors', '1');?>
                                 <li><a href="email-inbox.html">Inbox</a></li>
                             </ul>
                         </li>
-                                                <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-envelope"></i><span class="hide-menu">Registrar</span></a>
+                                                <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fas fa-user"></i><span class="hide-menu">Registrar</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="form-basic.html">Registrar ganadero</a></li>
-                                <li><a href="form-basic.html">Registrar vaca</a></li>
+                                <li><a href="form-basic.php">Registrar ganadero</a></li>
+                                <li><a href="form-basic.php">Registrar vaca</a></li>
                                 
                             </ul>
                         </li><!-- 

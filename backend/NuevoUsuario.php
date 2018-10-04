@@ -2,10 +2,10 @@
     require_once 'Conexion.php';
     session_start();
     $Id = $_POST['id'];
-    $Nombre = $['nombre'];
+    $Nombre = $_POST['nombre'];
     $Ganaderia=$_POST["ganaderia"];
-    $Usuario=$_POST["usuario"];
-    $Pass=$_POST["pass"];
+ 
+    $Pass=$_POST["id"];
     $Cargo=$_POST["cargo"];
 
     if ($con->connect_error) {
@@ -16,11 +16,11 @@
     $resultado = $con->query($query1);
 
     if ($resultado->num_rows>0) {
-        echo ('ese id ya está registrado');
+        echo ('0');
     }
     else{
         $query = "INSERT INTO usuario VALUES (
-        '$Id','$Nombre','$Ganaderia','$Usuario','$Pass','$Cargo')";
+        '$Id','$Nombre','$Ganaderia','$Pass','$Cargo')";
         $rs = $con->query($query);
         if ($rs) {
             echo 'true';
