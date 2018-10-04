@@ -1,4 +1,6 @@
-<?php require_once("../backend/Conexion.php") ?>
+<?php require_once("../backend/Conexion.php");
+error_reporting(E_ALL);
+ini_set('display_errors', '1');?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -287,6 +289,7 @@
             <!-- End Sidebar scroll-->
         </div>
         <!-- End Left Sidebar  -->
+
         <!-- Page wrapper  -->
         <div class="page-wrapper">
             <!-- Bread crumb -->
@@ -315,7 +318,8 @@
                                 <div class="media-body media-text-right">
                                     <h2>
                                     <?php
-                                         $result = $con->query("SELECT count(*) as total FROM Vaca");
+                                         $result = $con->query('SELECT count(*) as total FROM vaca') or  die("Last error: {$con->error}\n");
+
                                          $row = $result ->fetch_array(MYSQLI_ASSOC);
                                          echo $row['total'];
                                     ?>
@@ -334,7 +338,7 @@
                                 <div class="media-body media-text-right">
                                     <h2>
                                     <?php
-                                         $result = $con->query("SELECT count(*) as total FROM Arbol");
+                                         $result = $con->query('SELECT count(*) as total FROM arbol');
                                          $row = $result ->fetch_array(MYSQLI_ASSOC);
                                          echo $row['total'];
                                     ?>
@@ -353,7 +357,7 @@
                                 <div class="media-body media-text-right">
                                     <h2>
                                     <?php
-                                         $result = $con->query("SELECT count(*) as total FROM Ganaderia");
+                                         $result = $con->query('SELECT count(*) as total FROM ganaderia');
                                          $row = $result ->fetch_array(MYSQLI_ASSOC);
                                          echo $row['total'];
                                     ?>
@@ -372,7 +376,7 @@
                                 <div class="media-body media-text-right">
                                     <h2>
                                     <?php
-                                         $result = $con->query("SELECT count(*) as total FROM Usuario");
+                                         $result = $con->query('SELECT count(*) as total FROM usuario');
                                          $row = $result ->fetch_array(MYSQLI_ASSOC);
                                          echo $row['total'];
                                     ?>   
@@ -434,7 +438,7 @@
                                         </thead>
                                         <tbody>
                                             <?php
-                                                $result = $con->query("SELECT Nombre, Ganaderia_Id, Cargo FROM Usuario");
+                                                $result = $con->query('SELECT Nombre, Ganaderia_Id, Cargo FROM usuario');
                                                 
                                             
                                                 while($elemento = $result-> fetch_array(MYSQLI_ASSOC)){
