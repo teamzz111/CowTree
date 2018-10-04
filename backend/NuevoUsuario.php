@@ -9,8 +9,7 @@ include 'Conexion.php';
         $Pass=$input["pass"];
         $Cargo=$input["cargo"];
 
-        $con = new mysqli($host, $user, $pass, $db);
-        $con->query("SET NAMES 'utf8'");
+
         if ($con->connect_error) {
             echo 'false';
         }
