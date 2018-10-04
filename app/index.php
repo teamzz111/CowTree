@@ -432,8 +432,8 @@ ini_set('display_errors', '1');?>
                                                 <th>#</th>
                                                 <th>Nombre</th>
                                                 <th>Ganaderia</th>
-                                                <th>quantity</th>
-                                                <th>Status</th>
+                                                <th>Cargo</th>
+                                                <th>Estado</th>
                                             </tr>
                                         </thead>
                                         <tbody>

@@ -1,3 +1,4 @@
+<?php require_once("../backend/Conexion.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -269,10 +270,7 @@
                             <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                                 <ul class="dropdown-user">
                                     <li><a href="#"><i class="ti-user"></i> Profile</a></li>
-                                    <li><a href="#"><i class="ti-wallet"></i> Balance</a></li>
-                                    <li><a href="#"><i class="ti-email"></i> Inbox</a></li>
-                                    <li><a href="#"><i class="ti-settings"></i> Setting</a></li>
-                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                    <li><a href="../backend/cerrarSesion.php"><i class="fa fa-power-off"></i> Logout</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -359,18 +357,31 @@
                             </div>
                             <div class="card-body">
                                 <div class="basic-form">
-                                    <form>
+                                    <form method="POST" action= "../backend/NuevoUsuario.php">
                                         <div class="form-group">
                                             <label>Nombre del usuario</label>
-                                            <input type="text" class="form-control" placeholder="Nombre">
+                                            <input type="text" name = "nombre" class="form-control" placeholder="Nombre">
                                         </div>
                                         <div class="form-group">
                                             <label>Cargo</label>
-                                            <input type="text" class="form-control" placeholder="Cargo">
-                                        </div>
+                                            <select class="form-control">
+                                                <option value="Ganadero">Ganadero</option>
+                                                <option value="Dueno">Dueño</option>
+                                                <option value="Criador">Criador</option>
+                                            </select>                                       </div>
                                         <div class="form-group">
                                             <label>Ganaderia</label>
-                                            <input type="text" class="form-control" placeholder="Ganaderia">
+                                            <select class = "form-control" id="">
+
+                                            
+                                            <?php
+                                                $rs = $con->query('SELECT Nombre FROM ganaderia');
+                                                while($row = $rs->fetch_array(MYSQLI_ASSOC)){
+                                                    echo "<option value = '".$row['Nombre']."'> $row['Nombre']</option>";
+                                                }
+                                            ?> 
+
+                                        </select>
                                         </div>
 
                                         <button type="submit" class="btn btn-default">Registrar</button>
