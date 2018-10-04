@@ -14,15 +14,8 @@ header {
   background: url("../assets/melinda-derksen-718747-unsplash.jpg");
   background-size: coveR;
   padding-top: 1em;
-  padding-bottom: 5em;
+  padding-bottom: 5.5em;
   margin-top: -10em;
-  -webkit-transform: skewY(-6.2deg);
-          transform: skewY(-6.2deg);
-}
-
-header .contenedor {
-  -webkit-transform: skewY(6.2deg);
-          transform: skewY(6.2deg);
 }
 
 header .contenedor ul {
@@ -63,7 +56,7 @@ header .contenedor ul div.der li {
 }
 
 header .contenedor ul div.der li a {
-  white-space: nowrap;
+  word-break: keep-all;
   font-family: 'Open Sans';
   text-decoration: none;
   color: white;
@@ -128,6 +121,12 @@ header div.contenido .botones button {
   padding-right: 4%;
 }
 
+header div.contenido .botones button a {
+  color: white;
+  text-decoration: none;
+  word-wrap: nowrap;
+}
+
 header div.contenido .botones button:hover {
   background: black;
   cursor: pointer;
@@ -150,7 +149,7 @@ section#main {
   background: #662bc5;
   z-index: 2;
   width: 100%;
-  padding-top: 2.5em;
+  padding-top: 1.5em;
 }
 
 section#main .curva {
@@ -212,7 +211,7 @@ section#main .contenedor .der p {
 }
 
 section#main .contenedor .der button {
-  padding: 0.5em;
+  padding: 0.6em;
   width: 100%;
   max-width: 200px;
   border: 1px solid rgba(255, 255, 255, 0.301);
@@ -247,12 +246,12 @@ section#carousel .contenedor {
 }
 
 section#top {
-  margin-top: 10em;
+  margin-top: 5em;
   padding-bottom: 6.5em;
 }
 
 section#top h2 {
-  margin-top: 2em;
+  margin-top: .2em;
   text-align: center;
   font-family: 'Roboto';
   font-weight: 300;
@@ -260,7 +259,7 @@ section#top h2 {
 }
 
 section#top .contenedor {
-  margin-top: 5em;
+  margin-top: 4em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
