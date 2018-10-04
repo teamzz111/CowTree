@@ -1,6 +1,6 @@
 <?php
 
-require once 'Conexion.php';
+require_once 'Conexion.php';
 session_start();
 
         $Nombre = $_POST['nombre'];
