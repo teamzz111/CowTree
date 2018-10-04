@@ -1,10 +1,10 @@
 <?php
 
   global $host, $db, $pass, $key, $user;
-  $host = "";
-  $db = "";
+  $host = "localhost";
+  $db = "bd";
   $pass = "";
-  $user = "";
+  $user = "root";
   $key = "92AE31B89FEEB2A3"; //llave
 
  ?>
