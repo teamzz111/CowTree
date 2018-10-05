@@ -89,7 +89,7 @@ $(function() {
         $('#RegistroVacas').submit(function(e){
             $.ajax({
                 type: 'POST',
-                url: '../backend/Nuevavaca.php',
+                url: '../backend/Nuevaca.php',
                 data: $(this).serialize(),
                 success: function (data) {
                     if (data == 'true') {
