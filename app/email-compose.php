@@ -1,5 +1,8 @@
 <?php require_once("../backend/Conexion.php");
     session_start();
+    if(!isset($_SESSION['loggedin'])){
+        header("Location: ../index.html");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="es">

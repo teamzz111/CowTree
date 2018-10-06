@@ -14,7 +14,7 @@ $(document).ready(function () {
                         $('#form .exito').fadeOut(1000);
                     }, 1500);
                 } else {
-                    $('#form .exito').html('¡Lo sentimos! Tus datos se han quedado en el limbo, reinicia la página e intenta de nuevo.');
+                    $('#form .exito').html('La cuenta no existe.');
                     $('#form .exito').css('display', 'block');
                     setTimeout(function () {
                         $('#pass').val("");
