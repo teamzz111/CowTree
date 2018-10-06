@@ -85,8 +85,9 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <a class="nav-link text-center" href="javascript:void(0);"> <strong>Revisar mensajes
-                                            notifications</strong> <i class="fa fa-angle-right"></i> </a>
+                                    <a class="nav-link text-center" href="javascript:void(0);"> <strong>Revisar
+                                            mensajes
+                                            Notificaciones</strong> <i class="fa fa-angle-right"></i> </a>
                                 </li>
                             </ul>
                         </div>
@@ -172,7 +173,7 @@
                         <ul aria-expanded="false" class="collapse">
                             <li><a href="form-basic.php">Registrar ganadero</a></li>
                             <li><a href="form-vaca.php">Registrar vaca</a></li>
-
+                            <li><a href="form-ganaderia.php">Registrar ganadería</a></li>
                         </ul>
                     </li>
                     <!-- 
