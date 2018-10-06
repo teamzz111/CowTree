@@ -4,9 +4,6 @@
     if(!isset($_SESSION['loggedin'])){
         header("Location: ../index.html");
     }
-    ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 ?>
 
 <!DOCTYPE html>
@@ -99,10 +96,10 @@ error_reporting(E_ALL);
                 </div>
             </div>
         </div>
-
+        <!--
         <div class="row bg-white m-l-0 m-r-0 box-shadow ">
 
-            <!-- column -->
+    
             <div class="col-lg-8">
                 <div class="card">
                     <div class="card-body">
@@ -111,9 +108,7 @@ error_reporting(E_ALL);
                     </div>
                 </div>
             </div>
-            <!-- column -->
 
-            <!-- column -->
             <div class="col-lg-4">
                 <div class="card">
                     <div class="card-body browser">
@@ -131,8 +126,8 @@ error_reporting(E_ALL);
                     </div>
                 </div>
             </div>
-            <!-- column -->
-        </div>
+ 
+        </div>-->
         <div class="row">
 
             <div class="col-lg-5">
