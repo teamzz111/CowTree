@@ -130,7 +130,9 @@
             </div>
             <!-- column -->
         </div>
-        <div class="col-lg-13">
+        <div class="row">
+
+        <div class="col-lg-5">
             <div class="card">
                 <div class="card-title">
                     <h4>Usuarios registrados </h4>
@@ -174,7 +176,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-13">
+        <div class="col-lg-7">
             <div class="card">
                 <div class="card-title">
                     <h4>Ganado registrado </h4>
@@ -207,7 +209,6 @@
                                                 } else {
                                                     echo $elemento['Nombre'];} ?></span></td>
 
-                                            
                                     <td><span>
                                             <?php echo $elemento['Estado']; ?></span></td>
                                     <td><span>
@@ -223,6 +224,7 @@
             </div>
         </div>
     </div>
+            </div>
     <div class="col-lg-6">
         <div class="card center-block">
             <div class="card-body">

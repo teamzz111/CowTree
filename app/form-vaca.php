@@ -54,7 +54,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Fecha nacimiento</label>
-                                            <input type="text" name = "fecha_nacimiento" class="form-control" placeholder="Fecha de nacimiento">
+                                            <input type="date" name = "fecha_nacimiento" class="form-control" placeholder="Fecha de nacimiento">
                                         </div>
                                         <div class="form-group">
                                             <label>Encaste</label>
@@ -68,9 +68,17 @@
                                             <label>Árbol ID</label>
                                             <input type="text" name = "arbol_id" class="form-control" placeholder="ID del arbol">
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group" >
                                             <label>Ganaderia</label>
-                                            <input type="text" name = "ganaderia_id" class="form-control" placeholder="Ganaderia">
+                                            <br>
+                                            <select name="ganaderia_id" id="ganaderia_id">
+                                            <?php
+                                                $rs = $con->query('SELECT Nombre FROM ganaderia');
+                                                while($row = $rs->fetch_array(MYSQLI_ASSOC)){
+                                            ?>
+                                            <option value = "<?php echo $row['Nombre']; ?>"> <?php echo $row['Nombre']; ?> </option>";                                        
+                                            <?php } ?>
+                                            </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Criador</label>
