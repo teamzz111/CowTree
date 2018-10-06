@@ -154,7 +154,7 @@ error_reporting(E_ALL);
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $result = $con->query('SELECT Nombre, Ganaderia_Id, Cargo FROM usuario');
+                                    $result = $con->query('SELECT ganaderia.Nombre AS ganaderia_nombre, usuario.Nombre, usuario.Cargo FROM usuario LEFT JOIN ganaderia ON usuario.Ganaderia_Id = ganaderia.Id');
                                     while($elemento = $result-> fetch_array(MYSQLI_ASSOC)){
                                 ?>
                                     <tr>
@@ -167,7 +167,7 @@ error_reporting(E_ALL);
                                             <?php echo $elemento['Nombre']; ?>
                                         </td>
                                         <td><span>
-                                                <?php echo $elemento['Ganaderia_Id']; ?></span></td>
+                                                <?php echo $elemento['ganaderia_nombre']; ?></span></td>
                                         <td><span>
                                                 <?php echo $elemento['Cargo']; ?></span></td>
                                         <td><span class="badge badge-success">Activo</span></td>
@@ -247,7 +247,7 @@ error_reporting(E_ALL);
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $result = $con->query('SELECT Id, Ubicación, Divisa, Encastes, Lineas FROM ganaderia');
+                                    $result = $con->query('SELECT Id, Nombre, Ubicación, Divisa, Encastes, Lineas FROM ganaderia');
                                     while($elemento = $result-> fetch_array(MYSQLI_ASSOC)){
                                 ?>
                                     <tr>
