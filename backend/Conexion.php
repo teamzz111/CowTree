@@ -1,5 +1,4 @@
 <?php
-
   global $host, $db, $pass, $key, $user, $con;
   $host = "localhost";
   $db = "mydb";

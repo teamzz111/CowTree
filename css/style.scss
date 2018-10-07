@@ -10,11 +10,12 @@
 }
 
 header {
-    background: url('../assets/melinda-derksen-718747-unsplash.jpg');
+    background: url('../assets/back.jpg');
     background-size: coveR;
     padding-top: 1em;
-    padding-bottom: 5.5em;
+    padding-bottom: 7.5em;
     margin-top: -10em;
+    background-position-y: -2em;
 
 
     .contenedor {
@@ -109,9 +110,13 @@ header {
                     word-wrap: nowrap;
                 }
                 &:hover {
-                    background: black;
+                    background: white;
+                    color:  black;
                     cursor: pointer;
                     transition-duration: 1s;
+                    a{
+                        color: black;
+                    }
 
                 }
             }
@@ -133,12 +138,13 @@ header {
 }
 
 section#main {
-    background: #662bc5;
+    background: #00d563;
     z-index: 2;
     width: 100%;
-    padding-top: 1.5em;
+    padding-top: 4.5em;
     .curva {
         transform: rotate(180deg);
+        padding-bottom: 2em;
         margin-bottom: -1%;
         img {
             max-height: 200px;
@@ -204,9 +210,11 @@ section#main {
 
         .izq {
             width: 50%;
-
-            img {
-                width: 100%;
+            .verdeclaro{
+                border: 10px solid #00d563;
+                img {
+                    width: 100%;
+                }
             }
         }
     }
