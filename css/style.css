@@ -17,6 +17,7 @@ header {
   padding-bottom: 7.5em;
   margin-top: -10em;
   background-position-y: -2em;
+  background-repeat: no-repeat;
 }
 
 header .contenedor ul {
@@ -252,8 +253,32 @@ section#main .contenedor .izq .verdeclaro img {
   width: 100%;
 }
 
+section#carousel {
+  background: black;
+}
+
+section#carousel .curva {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  position: relative;
+  top: -0.3em;
+  max-height: 300px;
+  height: 100%;
+}
+
 section#carousel .contenedor {
-  padding-bottom: 5em;
+  padding-top: 1em;
+  padding-bottom: 6em;
+}
+
+section#carousel .contenedor h2 {
+  color: white;
+  font-family: "Open Sans";
+  margin-top: 1em;
+  font-size: 2.5em;
+  text-align: center;
+  padding-bottom: 2em;
+  font-weight: 300;
 }
 
 section#top {
@@ -403,16 +428,54 @@ section#facil .contenedor form button:hover {
 }
 
 footer {
-  background: black;
+  background: #0f0c29;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-gradient(linear, left top, right top, from(#24243e), color-stop(#302b63), to(#0f0c29));
+  background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   padding: 1%;
   margin-top: 1eM;
   color: white;
   padding: 1em;
+  font-family: "Open Sans";
 }
 
-footer p {
+footer hr {
+  opacity: .4;
+}
+
+footer .contenedor {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+footer .contenedor .img {
   text-align: center;
-  font-family: 'Roboto';
+}
+
+footer .contenedor .img img {
+  width: 100%;
+  max-width: 80px;
+}
+
+footer .contenedor .img p {
+  margin-top: 0.5em;
+  padding-bottom: 1.3em;
+}
+
+footer .contenedor .menu {
+  margin-left: 1em;
+}
+
+footer .contenedor .menu ul li {
+  list-style-type: none;
+}
+
+footer .contenedor2 p {
+  margin-top: 0.4em;
+  text-align: center;
 }
 
 @media screen and (max-width: 854px) {

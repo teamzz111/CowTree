@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
-    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="assets/owl.carousel.min.css">
     <link rel="stylesheet" href="assets/owl.theme.green.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
@@ -66,14 +66,20 @@
                 </div>
             </div>
         </div>
+
     </section>
     <section id="carousel">
+            <div class="curva">
+                    <img src="assets/curva.svg" alt="">
+                </div>
         <div class="contenedor">
-
-            <div class="owl-carousel">
-                <div><img src="assets/vaca2.jpg" alt=""></div>
-                <div><img src="assets/vaca1.jpg" alt=""></div>
-                <div><img src="assets/12b.jpg" alt=""></div>
+            <h2>Nuestro ganado</h2>
+            <div class="owl-carousel owl-theme">
+                <div><img src="assets/toro1.jpg" alt=""></div>
+                <div><img src="assets/toro2.jpg" alt=""></div>
+                <div><img src="assets/toro3.jpg" alt=""></div>
+                <div><img src="assets/toro4.jpg" alt=""></div>
+                <div><img src="assets/toro5.jpg" alt=""></div>
             </div>
         </div>
     </section>
@@ -114,8 +120,27 @@
         </div>
     </section>
     <footer>
-        <p>Todos los derechos reservados <br> Diseño creado por Andrés Largo <br> Iconos hechos por flaticon de
-            www.flaticon.com </p>
+        <div class="contenedor">
+            <div class="img">
+                <img src="assets/logo2.png" alt="">
+                <p>CowTree v0.6(b)</p>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li style = "padding-bottom: 1em"> <strong> Menu de navegación </strong></li>
+                    <li>Iniciar sesión</li>
+                    <li>Nuestro ganado</li>
+                </ul>
+            </div>
+
+        </div>
+        <hr>
+        <div class="contenedor contenedor2">
+          
+            <p>Todos los derechos reservados, diseño realizado por Andrés Largo.</p> 
+       
+        </div>
+
     </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
@@ -130,7 +155,23 @@
             autoplayTimeout: 3000,
             autoplayHoverPause: true,
             dots: true,
-            nav: true
+            nav: true,
+            ponsiveClass:true,
+    responsive:{
+        0:{
+            items:1,
+            nav:true
+        },
+        600:{
+            items:1,
+            nav:false
+        },
+        1000:{
+            items:3,
+            nav:true,
+            loop:false
+        }
+    }
         });
         $('.play').on('click', function () {
             owl.trigger('play.owl.autoplay', [1000])
