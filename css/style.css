@@ -282,7 +282,8 @@ section#carousel .contenedor h2 {
 }
 
 section#top {
-  margin-top: 5em;
+  padding-top: 5em;
+  background: #fafafa;
   padding-bottom: 6.5em;
 }
 
@@ -479,7 +480,8 @@ footer .contenedor2 p {
 }
 
 @media screen and (max-width: 854px) {
-  section#main .contenedor .izq, section#main .contenedor .der {
+  section#main .contenedor .izq,
+  section#main .contenedor .der {
     width: 100%;
     text-align: center;
     -webkit-box-align: center;
@@ -489,12 +491,14 @@ footer .contenedor2 p {
         -ms-flex-pack: center;
             justify-content: center;
   }
-  section#main .contenedor .izq h2, section#main .contenedor .der h2 {
+  section#main .contenedor .izq h2,
+  section#main .contenedor .der h2 {
     text-align: center;
     margin-top: 1em;
     padding-bottom: 0.5em;
   }
-  section#main .contenedor .izq img, section#main .contenedor .der img {
+  section#main .contenedor .izq img,
+  section#main .contenedor .der img {
     max-width: 400px;
   }
 }

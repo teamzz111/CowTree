@@ -2,7 +2,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
+
+
 
 .contenedor {
     max-width: 1200px;
@@ -48,7 +51,7 @@ header {
                     flex-wrap: nowrap;
 
                     a {
-                       word-break: keep-all;
+                        word-break: keep-all;
                         font-family: 'Open Sans';
                         text-decoration: none;
                         color: white;
@@ -103,17 +106,20 @@ header {
                 padding: 0.7%;
                 padding-left: 4%;
                 padding-right: 4%;
-                a{
+
+                a {
                     color: white;
                     text-decoration: none;
                     word-wrap: nowrap;
                 }
+
                 &:hover {
                     background: white;
-                    color:  black;
+                    color: black;
                     cursor: pointer;
                     transition-duration: 1s;
-                    a{
+
+                    a {
                         color: black;
                     }
 
@@ -141,10 +147,12 @@ section#main {
     z-index: 2;
     width: 100%;
     padding-top: 4.5em;
+
     .curva {
         transform: rotate(180deg);
         padding-bottom: 2em;
         margin-bottom: -1%;
+
         img {
             max-height: 200px;
             width: 100%;
@@ -197,7 +205,7 @@ section#main {
                 margin-bottom: 3em;
                 font-size: 1.01em;
                 transition: .6s linear;
-            
+
                 &:hover {
                     box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.178);
                     -webkit-transform: translateY(-4px);
@@ -209,8 +217,10 @@ section#main {
 
         .izq {
             width: 50%;
-            .verdeclaro{
+
+            .verdeclaro {
                 border: 10px solid #00d563;
+
                 img {
                     width: 100%;
                 }
@@ -221,17 +231,19 @@ section#main {
 
 }
 
-section#carousel{
+section#carousel {
     background: black;
-    .curva{
+
+    .curva {
         transform: rotate(180deg);
         position: relative;
         top: -0.3em;
         max-height: 300px;
         height: 100%;
     }
-    .contenedor{
-        h2{
+
+    .contenedor {
+        h2 {
             color: white;
             font-family: "Open Sans";
             margin-top: 1em;
@@ -240,13 +252,15 @@ section#carousel{
             padding-bottom: 2em;
             font-weight: 300;
         }
-        padding-top: 1em; 
+
+        padding-top: 1em;
         padding-bottom: 6em;
     }
 }
-section#top {
-    margin-top: 5em;
 
+section#top {
+    padding-top: 5em;
+    background: #fafafa;
     h2 {
         margin-top: .2em;
         text-align: center;
@@ -262,6 +276,7 @@ section#top {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+
         .caja {
             text-align: center;
             justify-content: center;
@@ -269,6 +284,7 @@ section#top {
             min-width: 227px;
             margin-top: 2em;
             align-content: center;
+
             img {
                 width: 100%;
                 max-width: 140px;
@@ -289,8 +305,10 @@ section#top {
 
 section#facil {
     padding-bottom: 2em;
+
     .contenedor {
         font-family: 'Roboto';
+
         h2 {
             padding-top: 1.5em;
             text-align: centeR;
@@ -334,6 +352,7 @@ section#facil {
             background: white;
             border-radius: 10px;
             border: 1px solid rgba(0, 0, 0, 0.226);
+
             input,
             textarea {
                 width: 100%;
@@ -358,6 +377,7 @@ section#facil {
                 margin-top: 1em;
                 border-radius: 20px;
                 transition: 0.2s linear;
+
                 &:hover {
                     box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.178);
                     -webkit-transform: translateY(-4px);
@@ -369,63 +389,78 @@ section#facil {
     }
 }
 
-footer{
-    hr{
+footer {
+    hr {
         opacity: .4;
     }
-    background: #0f0c29;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    background: #0f0c29;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     padding: 1%;
     margin-top: 1eM;
     color: white;
     padding: 1em;
     font-family: "Open Sans";
-    .contenedor{
+
+    .contenedor {
         display: flex;
-        .img{
+
+        .img {
             text-align: center;
-            img{
+
+            img {
                 width: 100%;
                 max-width: 80px;
             }
-            p{
+
+            p {
                 margin-top: 0.5em;
                 padding-bottom: 1.3em;
             }
         }
-        .menu{
+
+        .menu {
             margin-left: 1em;
-            ul{
-                li{
+
+            ul {
+                li {
                     list-style-type: none;
                 }
             }
         }
     }
-    .contenedor2{
-        
-        p{
+
+    .contenedor2 {
+
+        p {
             margin-top: 0.4em;
             text-align: center;
         }
     }
 }
 
-@media screen and (max-width: 854px){
-    section#main{
-        .contenedor{
-            .izq, .der{
+@media screen and (max-width: 854px) {
+    section#main {
+        .contenedor {
+
+            .izq,
+            .der {
                 width: 100%;
                 text-align: center;
                 align-items: center;
                 justify-content: center;
-                h2{
+
+                h2 {
                     text-align: center;
                     margin-top: 1em;
                     padding-bottom: 0.5em;
                 }
-                img{
+
+                img {
                     max-width: 400px;
                 }
             }
