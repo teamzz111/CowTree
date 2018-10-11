@@ -174,6 +174,7 @@
                             <li><a href="form-basic.php">Registrar ganadero</a></li>
                             <li><a href="form-vaca.php">Registrar vaca</a></li>
                             <li><a href="form-ganaderia.php">Registrar ganadería</a></li>
+                          
                         </ul>
                     </li>
                     <!-- 

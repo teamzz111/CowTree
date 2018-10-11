@@ -64,6 +64,18 @@
                                             <label>Reseña</label>
                                             <input type="text" name = "reseña" class="form-control" placeholder="Reseña">
                                         </div>
+                                        
+                                        <select data-placeholder="Choose a Country..." class="standardSelect" tabindex="1">
+                                            <?php 
+                                                $rs = $con->query("SELECT Nombre, Ganaderia FROM usuario");
+                                                echo $con->error;
+                                                while($row = $rs->fetch_array(MYSQLI_ASSOC)){
+                                            ?>
+                        
+                                            <option value="criador_id"><?php echo$row['Nombre'];?></option>
+                                            <?php } 
+                                            ?>
+                                        </select>
                                         <div class="form-group">
                                             <label>Árbol ID</label>
                                             <input type="text" name = "arbol_id" class="form-control" placeholder="ID del arbol">
