@@ -67,7 +67,9 @@
                                         
                                         <select data-placeholder="Choose a Country..." class="standardSelect" tabindex="1">
                                             <?php 
-                                                $rs = $con->query("SELECT Nombre, Ganaderia FROM usuario");
+                                                $rs = $con->query("SELECT ganaderia.Nombre, usuario.Nombre
+                                                FROM usuario
+                                                LEFT JOIN ganaderia ON ganaderia.Id = usuario.Ganaderia_Id;");
                                                 echo $con->error;
                                                 while($row = $rs->fetch_array(MYSQLI_ASSOC)){
                                             ?>
