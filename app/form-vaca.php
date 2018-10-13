@@ -27,112 +27,107 @@
                             <form id="RegistroVacas">
                                 <div class="form-group">
                                     <label>Nombre del ejemplar</label>
-                                    <input type="text" name="nombre" class="form-control" placeholder="Nombre">
+                                    <input type="text" name="nombre" class="form-control" placeholder="Ingrese Nombre">
                                 </div>
                                 <div class="form-group">
                                     <label>Ejemlar</label>
-                                    <input type="text" name="ejemplar" class="form-control" placeholder="Ejemplar">
+                                    <input type="text" name="ejemplar" class="form-control" placeholder="Ingrese Ejemplar">
                                 </div>
                                 <div class="form-group">
                                     <label>Estado</label>
-                                    <input type="text" name="estado" class="form-control" placeholder="Estado">
+                                    <input type="text" name="estado" class="form-control" placeholder="Ingrese Estado">
                                 </div>
                                 <div class="form-group">
                                     <label>Destino</label>
-                                    <input type="text" name="destino" class="form-control" placeholder="Destino">
+                                    <input type="text" name="destino" class="form-control" placeholder="Ingrese Destino">
                                 </div>
                                 <div class="form-group">
                                     <label>Edad</label>
-                                    <input type="text" name="edad" class="form-control" placeholder="Edad">
+                                    <input type="number" name="edad" class="form-control" placeholder="Ingrese Edad">
                                 </div>
                                 <div class="form-group">
                                     <label>Herrado</label>
-                                    <input type="text" name="herrado" class="form-control" placeholder="Herrado">
+                                    <input type="text" name="herrado" class="form-control" placeholder="¿Está Herrado?">
                                 </div>
                                 <div class="form-group">
                                     <label>Destetado</label>
-                                    <input type="text" name="destetado" class="form-control" placeholder="Destetado">
+                                    <input type="text" name="destetado" class="form-control" placeholder="¿Está Destetado?">
                                 </div>
                                 <div class="form-group">
                                     <label>Fecha nacimiento</label>
-                                    <input type="date" name="fecha_nacimiento" class="form-control" placeholder="Fecha de nacimiento">
+                                    <input type="date" name="fecha_nacimiento" class="form-control" placeholder="Ingrese Fecha de nacimiento">
                                 </div>
                                 <div class="form-group">
                                     <label>Encaste</label>
-                                    <input type="text" name="encaste" class="form-control" placeholder="Encaste">
+                                    <input type="text" name="encaste" class="form-control" placeholder="¿Tiene encaste?">
                                 </div>
                                 <div class="form-group">
                                     <label>Reseña</label>
-                                    <input type="text" name="reseña" class="form-control" placeholder="Reseña">
+                                    <input type="text" name="reseña" class="form-control" placeholder="Ingrese Reseña">
                                 </div>
                                 <div class="form-group">
                                     <label>Ganadero</label>
-                                    <select data-placeholder="Elija un usuario o busque" id="select-beast">
+                                    <select data-placeholder="Elija un usuario o busque" id="select-beast" name="criador_id">
                                         <?php 
                                                 $rs = $con->query("SELECT ganaderia.Nombre, usuario.Nombre, usuario.Id
                                                 FROM usuario
                                                 LEFT JOIN ganaderia ON ganaderia.Id = usuario.Ganaderia_Id;");
                                                 while($row = $rs->fetch_array(MYSQLI_ASSOC)){
-                                            ?>
-
+                                        ?>
                                         <option value="<?php echo $row['Id']; ?>">
                                             <?php echo$row['Nombre'];?>
                                         </option>
-                                        <?php } 
-                                            ?>
+                                        <?php } ?>
                                     </select>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Árbol ID</label>
-                                    <input type="text" name="arbol_id" class="form-control" placeholder="ID del arbol">
+                                    <input type="text" name="arbol_id" class="form-control" placeholder="Ingrese ID del arbol">
                                 </div>
                                 <div class="form-group">
                                     <label>Ganaderia</label>
                                     <br>
                                     <select name="ganaderia_id" id="ganaderia_id">
                                         <?php
-                                                $rs = $con->query('SELECT Nombre FROM ganaderia');
+                                                $rs = $con->query('SELECT Id, Nombre FROM ganaderia');
                                                 while($row = $rs->fetch_array(MYSQLI_ASSOC)){
                                             ?>
-                                        <option value="<?php echo $row['Nombre']; ?>">
+                                        <option value="<?php echo $row['Id']; ?>">
                                             <?php echo $row['Nombre']; ?>
                                         </option>";
                                         <?php } ?>
                                     </select>
                                 </div>
-                                <div class="form-group">
-                                    <label>Criador</label>
-                                    <input type="text" name="criador_id" class="form-control" placeholder="CC del criador">
-                                </div>
+
                                 <div class="form-group">
                                     <label>Fenotipo</label>
-                                    <input type="text" name="fenotipo" class="form-control" placeholder="Fenotipo">
+                                    <input type="text" name="fenotipo" class="form-control" placeholder="Ingrese Fenotipo">
                                 </div>
                                 <div class="form-group">
                                     <label>Defectos</label>
-                                    <input type="text" name="defectos" class="form-control" placeholder="Defectos">
+                                    <input type="text" name="defectos" class="form-control" placeholder="Ingrese Defectos">
                                 </div>
                                 <div class="form-group">
                                     <label>Calificación</label>
-                                    <input type="text" name="calificacion" class="form-control" placeholder="Calificación">
+                                    <input type="text" name="calificacion" class="form-control" placeholder="Ingrese Calificación">
                                 </div>
 
                                 <div class="form-group">
                                     <label>Comportamiento</label>
-                                    <input type="text" name="comportamiento" class="form-control" placeholder="Comportamiento">
+                                    <input type="text" name="comportamiento" class="form-control" placeholder="Ingrese Comportamiento">
                                 </div>
                                 <div class="form-group">
                                     <label>Observadores</label>
-                                    <input type="text" name="observadores" class="form-control" placeholder="Observadores">
+                                    <input type="text" name="observadores" class="form-control" placeholder="Ingrese Observadores">
                                 </div>
                                 <div class="form-group">
                                     <label>Pareja</label>
-                                    <input type="text" name="idpadre" class="form-control" placeholder="Pareja">
+                                    <input type="text" name="idpadre" class="form-control" placeholder="Ingrese Pareja">
                                 </div>
                                 <div class="form-group">
                                     <label>Padre</label>
-                                    <input type="text" name="idpareja" class="form-control" placeholder="Padre">
+                                    <input type="text" name="idpareja" class="form-control" placeholder="Ingrese Padre">
                                 </div>
                                 <div class="exito" style="display: none; padding-bottom: 0.5em">
                                     <p>Usuario o contraseña incorrecta</p>
@@ -165,7 +160,7 @@
     <script src="../js/sifter.js"></script>
     <script src="../js/selectize.js"></script>
     <script>
-        $('#select-beast').selectize({
+        $('#select-beast, #ganaderia_id').selectize({
             highlight: false,
             create: false,
             sortField: 'text'

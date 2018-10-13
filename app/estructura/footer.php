@@ -10,7 +10,7 @@
     <script src="js/lib/bootstrap/js/popper.min.js"></script>
     <script src="js/lib/bootstrap/js/bootstrap.min.js"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="js/jquery.slimscroll.js"></script>
+
     <!--Menu sidebar -->
     <script src="js/sidebarmenu.js"></script>
     <!--stickey kit -->
@@ -20,8 +20,8 @@
 
     <!-- Amchart -->
     <script src="js/lib/morris-chart/raphael-min.js"></script>
-    <script src="js/lib/morris-chart/morris.js"></script>
-    <script src="js/lib/morris-chart/dashboard1-init.js"></script>
+
+
 
 
     <script src="js/lib/calendar-2/moment.latest.min.js"></script>
