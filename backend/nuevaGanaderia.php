@@ -12,7 +12,7 @@
     if ($con->connect_error) {
         echo 'false';
     } else {
-        $query = "INSERT INTO `ganaderia` (`Nombre`, `Ubicación`, `Divisa`, `Encastes`, `Lineas`) VALUES ('$name', '$ubication', '$divisa', '$encaste', '$lineas')";
+        $query = "INSERT INTO `ganaderia` (`Id`,`Nombre`, `Ubicación`, `Divisa`, `Encastes`, `Lineas`) VALUES (0,'$name', '$ubication', '$divisa', '$encaste', '$lineas')";
         $rs = $con->query($query);
         if ($rs) {
             echo 'true';
