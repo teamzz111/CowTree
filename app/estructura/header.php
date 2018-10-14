@@ -153,30 +153,28 @@
                 <ul id="sidebarnav">
                     <li class="nav-devider"></li>
                     <li class="nav-label">Inicio</li>
-                    <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span
+                    <li> <a href="index.php" aria-expanded="true"><i class="fa fa-tachometer"></i><span
                                 class="hide-menu">Panel de control <span class="label label-rouded label-primary pull-right">1</span></span></a>
-                        <ul aria-expanded="false" class="collapse">
-                            <li><a href="index.php">Ganado </a></li>
-
-                        </ul>
                     </li>
-                    <li class="nav-label">Aplicaciones</li>
-                    <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-envelope"></i><span
+                    <li class="nav-label">Aplicaciones</li><!--
+                    <li> <a class="has-arrow  " href="#" aria-expanded="true"><i class="fa fa-envelope"></i><span
                                 class="hide-menu">Mensajes</span></a>
-                        <ul aria-expanded="false" class="collapse">
+                        <ul aria-expanded="true" class="collapse">
                             <li><a href="email-compose.php">Redactar</a></li>
                             <li><a href="email-read.php">Leer</a></li>
                             <li><a href="email-inbox.php">Bandeja de entrada</a></li>
                         </ul>
-                    </li>
-                    <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fas fa-user"></i><span class="hide-menu">Registrar</span></a>
-                        <ul aria-expanded="false" class="collapse">
+                    </li>-->
+                    <li> <a href="form-vaca.php" aria-expanded="true"><i class="fas fa-horse"></i><span class="hide-menu">Registrar vaca</span></a> </li>
+                    <li> <a href="form-ganaderia.php" aria-expanded="true"><i class="fas fa-user"></i><span class="hide-menu">Registrar ganadero</span></a></li>
+                    <li> <a href="form-basic.php" aria-expanded="true"><i class="fas fa-place-of-worship"></i><span class="hide-menu">Registrar ganaderia</span></a></li>
+                      <!--  <ul aria-expanded="true" class="collapse">
                             <li><a href="form-basic.php">Registrar ganadero</a></li>
                             <li><a href="form-vaca.php">Registrar vaca</a></li>
                             <li><a href="form-ganaderia.php">Registrar ganadería</a></li>
                           
-                        </ul>
-                    </li>
+                        </ul>-->
+                    
                     <!-- 
                             <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-bar-chart"></i><span class="hide-menu">Charts</span></a>
                             <ul aria-expanded="false" class="collapse">
