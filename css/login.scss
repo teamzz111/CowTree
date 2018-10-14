@@ -101,3 +101,14 @@ body {
         }
     }
 }
+
+@media screen and (max-width: 656px){
+    .padre{
+        .izq{
+            width: 100%;
+        }
+        .der{
+            display: none;
+        }
+    }
+}
