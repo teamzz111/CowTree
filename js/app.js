@@ -5,9 +5,7 @@ $(document).ready(function () {
             url: 'backend/login.php',
             data: $('#form').serialize(),
             success: function (data) {
-
                 if (data == 'true') {
-                    alert("Bienvenido");
                     location.href = "app/index.php";
                 } else if (data == 'false') {
                     $('#form .exito').fadeIn(500);
@@ -16,7 +14,12 @@ $(document).ready(function () {
                         $('#form .exito').fadeOut(1000);
                     }, 1500);
                 } else {
-                    document.write(data);
+                    $('#form .exito').html('La cuenta no existe.');
+                    $('#form .exito').css('display', 'block');
+                    setTimeout(function () {
+                        $('#pass').val("");
+
+                    }, 2200);
                 }
             },
             error: function (data) {
