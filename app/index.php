@@ -238,6 +238,7 @@
                                         <th>Ubicación</th>
                                         <th>Divisa</th>
                                         <th>Lineas</th>
+                                        <th>Modificar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
