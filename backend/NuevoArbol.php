@@ -19,7 +19,7 @@ session_start();
         if ($rs) {echo 'true';}
         else { cho 'false'; }
 
-
+        $Tree;
         $Vaca = $_POST['vaca'];
         $con = new mysqli($host, $user);
         $con->query("SET NAMES 'utf8'");
@@ -39,8 +39,16 @@ session_start();
             }
             else
             {
-                $Vaca=$resultado['IdPadre'];
+                $row = $resultado ->fetch_array(MYSQLI_ASSOC);
+                $Vaca=$row['IdPadre'];
             }
         }
+        $query="SELECT TOP 1 Id FROM Arbol ORDER BY ID DESC";
+
+        
+                
+
+        $query="SELECT IdPadre FROM Vaca WHERE Arbol_Id=";
+
 
 ?>
