@@ -17,15 +17,12 @@ session_start();
         $query = "INSERT INTO arbol VALUES (0,'$Nombre')";
         $rs = $con->query($query);
         if ($rs) {echo 'true';}
-        else { cho 'false'; }
+        else { echo 'false'; }
 
         $Tree;
-        $Vaca = $_POST['vaca'];
+        $Vaca = $_POST['vaca']; //debe recibir el id de una vaca para generar el árbol de ella
         $con = new mysqli($host, $user);
-        $con->query("SET NAMES 'utf8'");
-        if ($con->connect_error) {
-            echo 'false';
-        }
+
         $pa=1;
         while($pa=1)
         {
@@ -33,8 +30,8 @@ session_start();
             $resultado = $con->query($query1);
 
             if ($resultado->num_rows=0) {
-                $query1="UPDATE Vaca SET Nivel='1' WHERE Id = '$Vaca'";
-                $resultado = $con->query($query1);
+                $query1="UPDATE Vaca SET Nivel='1' WHERE Ejemplar = '$Vaca'";
+                $resultado1 = $con->query($query1);
                 $pa=2;
             }
             else
@@ -43,16 +40,14 @@ session_start();
                 $Vaca=$row['IdPadre'];
             }
         }
-        $query="SELECT TOP 1 Id FROM Arbol ORDER BY ID DESC";
+        $query="SELECT TOP 1 Id FROM Arbol ORDER BY ID DESC"
+        $result= $con->query($query);     
+        $row = $result ->fetch_array(MYSQLI_ASSOC);
+        $Tree= $row['Id'];//el id del Arbol que se acaba de crear
 
-        
-                
+     //   $query="SELECT IdPadre FROM Vaca WHERE Arbol_Id=";
 
-        $query="SELECT IdPadre FROM Vaca WHERE Arbol_Id=";
-
-
-
-        $query = "SELECT count(*) FROM Vaca WHERE Arbol_Id= '$LAvariabledelarbolxd'" ;
+        $query = "SELECT count(*) FROM Vaca WHERE Arbol_Id= '$Tree'" ;
         $result = $con->query($query);
         $row = $result ->fetch_array(MYSQLI_ASSOC);
         $NumVacas = $row['count(*)'];//número de vacas en un arbol
@@ -60,7 +55,7 @@ session_start();
         $lel=0;
         for($i=0; $i<$NumVacas; $i++)
         {
-            $query = "SELECT * from Vaca WHERE Arbol_Id= '$LAvariabledelarbolxd' ORDER BY Nivel ASC";//busca todas las vacas de ese arbol y busca sus padres
+            $query = "SELECT * from Vaca WHERE Arbol_Id= '$Tree' ORDER BY Nivel ASC";//busca todas las vacas de ese arbol y busca sus padres
             $result = $con->query($query);
             $row = $result ->fetch_array(MYSQLI_ASSOC);
             $Padre = $row['IdPadre'];
@@ -70,7 +65,7 @@ session_start();
             }
             else if($lel==0)
             {
-                $query1 "SELECT Nivel FROM Vaca WHERE Id= '$Padre'";//busca el nivel del padre y le suma uno
+                $query1 "SELECT Nivel FROM Vaca WHERE Ejemplar= '$Padre'";//busca el nivel del padre y le suma uno
                 $result1= $con->query($query1);
                 $row1 = $result1 ->fetch_array(MYSQLI_ASSOC);
                 $Nivel = $row1['Nivel'];
@@ -85,7 +80,7 @@ session_start();
                 }
             }     
         }
-        $query="SELECT TOP 1 Nivel FROM Vaca WHERE Id_Arbol='$LAvariabledelarbolxd' ORDER BY Nivel DESC";//busca cuántos niveles hay viendo cuál es el de más abajo xddd
+        $query="SELECT TOP 1 Nivel FROM Vaca WHERE Id_Arbol='$Tree' ORDER BY Nivel DESC";//busca cuántos niveles hay viendo cuál es el de más abajo xddd
         $result =$con->query($query);
         $row=$result->fetch_array(MYSQLI_ASSOC);
         $Num=$row['Nivel'];
@@ -93,7 +88,7 @@ session_start();
         $a=array();   
         for($i=1; i<=$Num; $i++)
         {
-            $query="SELECT count(*) FROM Vaca WHERE Nivel= '$i' AND Arbol_id='$LAvariabledelarbolxd'";//
+            $query="SELECT count(*) FROM Vaca WHERE Nivel= '$i' AND Arbol_id='$Tree'";//
             $result=$con->query($query);
             $row = $result ->fetch_array(MYSQLI_ASSOC);
             $a[$i]=$row['count(*)'];//Guarda en un array cuántas vacas hay en cada nivel
@@ -113,6 +108,4 @@ session_start();
         /*AHORA Y TIENE ES EL NIVEL QUE TIENE MÁS VACAS Y X ES EL NÚMERO DE VACAS QUE TIENE ESE NIVEL
         EL ANCHO DEL DIV O LO QUE SEA DEPENDERÁ DE X, SERÁ UN ANCHO PARA QUE ESA CANTIDAD DE VACAS SE ACOMODEN
         */
-
-
 ?>
