@@ -1,34 +1,26 @@
 <?php
-
 require_once 'Conexion.php';
 session_start();
-
         $Nombre = $_POST['nombre'];
-
         $con = new mysqli($host, $user);
         $con->query("SET NAMES 'utf8'");
         if ($con->connect_error) {
             echo 'false';
         }
-
         $query1="SELECT * FROM arbol WHERE Id = '$Id'";
         $resultado = $con->query($query1);
-
         $query = "INSERT INTO arbol VALUES (0,'$Nombre')";
         $rs = $con->query($query);
         if ($rs) {echo 'true';}
         else { echo 'false'; }
-
         $Tree;
         $Vaca = $_POST['vaca']; //debe recibir el id de una vaca para generar el árbol de ella
         $con = new mysqli($host, $user);
-
         $pa=1;
         while($pa=1)
         {
             $query1="SELECT IdPadre FROM Vaca WHERE Id = '$Vaca'";
             $resultado = $con->query($query1);
-
             if ($resultado->num_rows=0) {
                 $query1="UPDATE Vaca SET Nivel='1' WHERE Ejemplar = '$Vaca'";
                 $resultado1 = $con->query($query1);
@@ -44,14 +36,11 @@ session_start();
         $result= $con->query($query);     
         $row = $result ->fetch_array(MYSQLI_ASSOC);
         $Tree= $row['Id'];//el id del Arbol que se acaba de crear
-
      //   $query="SELECT IdPadre FROM Vaca WHERE Arbol_Id=";
-
         $query = "SELECT count(*) FROM Vaca WHERE Arbol_Id= '$Tree'" ;
         $result = $con->query($query);
         $row = $result ->fetch_array(MYSQLI_ASSOC);
         $NumVacas = $row['count(*)'];//número de vacas en un arbol
-
         $lel=0;
         for($i=0; $i<$NumVacas; $i++)
         {
@@ -70,7 +59,6 @@ session_start();
                 $row1 = $result1 ->fetch_array(MYSQLI_ASSOC);
                 $Nivel = $row1['Nivel'];
                 $Nivel++;
-
                 if($result1)
                 {
                     $query2 = "UPDATE Vaca SET Nivel= '$Nivel' WHERE IdPadre= '$Padre'"; //pone el nivel de su padre +1 a las vacas
@@ -84,7 +72,6 @@ session_start();
         $result =$con->query($query);
         $row=$result->fetch_array(MYSQLI_ASSOC);
         $Num=$row['Nivel'];
-
         $a=array();   
         for($i=1; i<=$Num; $i++)
         {
@@ -108,4 +95,5 @@ session_start();
         /*AHORA Y TIENE ES EL NIVEL QUE TIENE MÁS VACAS Y X ES EL NÚMERO DE VACAS QUE TIENE ESE NIVEL
         EL ANCHO DEL DIV O LO QUE SEA DEPENDERÁ DE X, SERÁ UN ANCHO PARA QUE ESA CANTIDAD DE VACAS SE ACOMODEN
         */
+        $ancho= $x*190; //ESTE SERÁ EL ANCHO QUE DEBE TENER EJ MAIN.JS PARA QUE QUEPAN TODAS LAS VACAS
 ?>
