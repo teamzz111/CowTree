@@ -2,7 +2,7 @@ var graph = new joint.dia.Graph();
 
 var paper = new joint.dia.Paper({
     el: $('#paper'),
-    width: '800',
+    width: 2000,
     height: 600,
     gridSize: 1,
     model: graph,
@@ -48,16 +48,16 @@ function link(source, target, breakpoints) {
 }
 
 var bart = member(300, 70, 'CEO', 'Bart Simpson', 'male.png', '#30d0c6');
-var homer = member(90, 180, 'VP Marketing', 'Homer Simpson', 'male.png', '#7c68fd', '#f1f1f1');
+var homer = member(90, 200, 'VP Marketing', 'Homer Simpson', 'male.png', '#7c68fd', '#f1f1f1');
 var marge = member(300, 200, 'VP Sales', 'Marge Simpson', 'female.png', '#7c68fd', '#f1f1f1');
-var lisa = member(480, 200, 'VP Production' , 'Lisa Simpson', 'female.png', '#7c68fd', '#f1f1f1');
+var lisa = member(500, 200, 'VP Production' , 'Lisa Simpson', 'female.png', '#7c68fd', '#f1f1f1');
 var maggie = member(400, 350, 'Manager', 'Maggie Simpson', 'female.png', '#feb563');
 var lenny = member(190, 350, 'Manager', 'Lenny Leonard', 'male.png', '#feb563');
 var carl = member(190, 500, 'Manager', 'Carl Carlson', 'male.png', '#feb563');
 
 
 
-link(bart, marge, [{x: 385, y: 200}]);
+link(bart, marge, [{x: 385, y: 180}]);
 link(bart, homer, [{x: 385, y: 180}, {x: 175, y: 180}]);
 link(bart, lisa, [{x: 385, y: 180}, {x: 585, y: 180}]);
 link(homer, lenny, [{x:175 , y: 380}]);
