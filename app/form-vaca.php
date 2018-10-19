@@ -51,7 +51,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Destetado</label>
-                                    <input type="text" name="destetado" class="form-control" placeholder="¿Está Destetado?">
+                                    <br>
+                                    <select name="destetado" id="" class="name">
+                                        <option value="si">Sí</option>
+                                        <option value="no">No</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Fecha nacimiento</label>
@@ -59,7 +63,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Encaste</label>
-                                    <input type="text" name="encaste" class="form-control" placeholder="¿Tiene encaste?">
+                                    <br>
+                                    <select name="encaste" id="" class="name">
+                                        <option value="si">Sí</option>
+                                        <option value="no">No</option>
+                                    </select>
+
                                 </div>
                                 <div class="form-group">
                                     <label>Reseña</label>
@@ -110,7 +119,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Calificación</label>
-                                    <input type="text" name="calificacion" class="form-control" placeholder="Ingrese Calificación">
+                                    <input type="number" name="calificacion" class="form-control" placeholder="Ingrese Calificación">
                                 </div>
 
                                 <div class="form-group">

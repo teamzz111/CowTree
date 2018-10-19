@@ -37,9 +37,9 @@
                                         <div class="form-group">
                                             <label>Cargo</label>
                                             <select class="form-control" name = "cargo">
-                                                <option value="Ganadero">Ganadero</option>
-                                                <option value="Dueno">Dueño</option>
-                                                <option value="Criador">Criador</option>
+                                                <option value="ganadero">Ganadero</option>
+                                                <option value="administrador">Administrador</option>
+                                                <option value="criador">Criador</option>
                                             </select>                                       </div>
                                         <div class="form-group" >
                                             <label>Ganaderia</label>
