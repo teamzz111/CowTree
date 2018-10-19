@@ -1,38 +1,45 @@
 <?php
 require_once 'Conexion.php';
 session_start();
-        $Nombre = $_POST['nombre'];
-        $con = new mysqli($host, $user);
+        $Nombre = "";
+        $con = new mysqli($host, $user, $pass, $db);
         $con->query("SET NAMES 'utf8'");
+        
         if ($con->connect_error) {
             echo 'false';
         }
-        $query1="SELECT * FROM arbol WHERE Id = '$Id'";
-        $resultado = $con->query($query1);
-        $query = "INSERT INTO arbol VALUES (0,'$Nombre')";
+        $query = "INSERT INTO arbol VALUES ('0','$Nombre')";
         $rs = $con->query($query);
         if ($rs) {echo 'true';}
-        else { echo 'false'; }
+        else { echo 'false'; echo $con->error;}
         $Tree;
-        $Vaca = $_POST['vaca']; //debe recibir el id de una vaca para generar el árbol de ella
-        $con = new mysqli($host, $user);
+        $Vaca = 1; //debe recibir el id de una vaca para generar el árbol de ella
+        $con = new mysqli($host, $user, $pass, $db);
         $pa=1;
-        while($pa=1)
+        while($pa<3)
         {
-            $query1="SELECT IdPadre FROM Vaca WHERE Id = '$Vaca'";
+            $query1="SELECT IdPadre FROM Vaca WHERE Ejemplar = '$Vaca'";
+            echo "vida hpta $Vaca";
+            ?>
+            <br>
+            <?php
             $resultado = $con->query($query1);
-            if ($resultado->num_rows=0) {
+            if ($resultado->num_rows==0 || $pa==2) {
                 $query1="UPDATE Vaca SET Nivel='1' WHERE Ejemplar = '$Vaca'";
+                echo $query1;
                 $resultado1 = $con->query($query1);
-                $pa=2;
+                $pa=3;
             }
             else
             {
                 $row = $resultado ->fetch_array(MYSQLI_ASSOC);
-                $Vaca=$row['IdPadre'];
+                if($row['IdPadre']=='')
+                {$pa=2;}
+                else
+                {$Vaca=$row['IdPadre'];}
             }
         }
-        $query="SELECT TOP 1 Id FROM Arbol ORDER BY ID DESC"
+        $query="SELECT TOP 1 Id FROM Arbol ORDER BY ID DESC";
         $result= $con->query($query);     
         $row = $result ->fetch_array(MYSQLI_ASSOC);
         $Tree= $row['Id'];//el id del Arbol que se acaba de crear
@@ -54,7 +61,7 @@ session_start();
             }
             else if($lel==0)
             {
-                $query1 "SELECT Nivel FROM Vaca WHERE Ejemplar= '$Padre'";//busca el nivel del padre y le suma uno
+                $query1 ="SELECT Nivel FROM Vaca WHERE Ejemplar= '$Padre'";//busca el nivel del padre y le suma uno
                 $result1= $con->query($query1);
                 $row1 = $result1 ->fetch_array(MYSQLI_ASSOC);
                 $Nivel = $row1['Nivel'];
