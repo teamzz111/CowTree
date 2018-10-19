@@ -13,45 +13,76 @@ session_start();
         if ($rs) {echo 'true';}
         else { echo 'false'; echo $con->error;}
         $Tree;
-        $Vaca = 1; //debe recibir el id de una vaca para generar el árbol de ella
-        $con = new mysqli($host, $user, $pass, $db);
+        $vaca = 1; //debe recibir el id de una vaca para generar el árbol de ella
+        $Padre;
+
         $pa=1;
-        while($pa<3)
+        while($pa<3) //LES PONE LOS NIVELES A LAS VACAS SEGÚN SUS PADRES
         {
-            $query1="SELECT IdPadre FROM Vaca WHERE Ejemplar = '$Vaca'";
-            echo "vida hpta $Vaca";
-            ?>
-            <br>
-            <?php
+            $query1="SELECT IdPadre FROM vaca WHERE Ejemplar = '$vaca'";
             $resultado = $con->query($query1);
             if ($resultado->num_rows==0 || $pa==2) {
-                $query1="UPDATE Vaca SET Nivel='1' WHERE Ejemplar = '$Vaca'";
-                echo $query1;
+                $query1="UPDATE vaca SET Nivel='1' WHERE Ejemplar = '$vaca'";
                 $resultado1 = $con->query($query1);
                 $pa=3;
             }
             else
             {
                 $row = $resultado ->fetch_array(MYSQLI_ASSOC);
-                if($row['IdPadre']=='')
+                if($row['IdPadre']=='')    
                 {$pa=2;}
                 else
-                {$Vaca=$row['IdPadre'];}
+                {$vaca=$row['IdPadre'];}
             }
         }
-        $query="SELECT TOP 1 Id FROM Arbol ORDER BY ID DESC";
-        $result= $con->query($query);     
+
+        $query="SELECT Id FROM arbol ORDER BY ID DESC LIMIT 1"; //BUSCA EL ÚLTIMO ÁRBOL QUE FUE CREADO PARA METER LAS VACAS AHÍ
+        $result= $con->query($query); 
+        if (!$result) {
+            trigger_error('Invalid query: ' . $con->error);
+        }   
+        echo $query;
         $row = $result ->fetch_array(MYSQLI_ASSOC);
         $Tree= $row['Id'];//el id del Arbol que se acaba de crear
-     //   $query="SELECT IdPadre FROM Vaca WHERE Arbol_Id=";
-        $query = "SELECT count(*) FROM Vaca WHERE Arbol_Id= '$Tree'" ;
+
+        $pa=1;
+        while($pa<3) //LES PONE LOS NIVELES A LAS VACAS SEGÚN SUS PADRES
+        {
+            $query1="SELECT IdPadre FROM vaca WHERE Ejemplar = '$vaca'";//////////////////////////////en contruccion
+            $resultado = $con->query($query1);//////////////////////////////en contruccion
+            if ($resultado->num_rows==0 || $pa==2) {//////////////////////////////en contruccion
+                $query1="UPDATE vaca SET Nivel='1' WHERE Ejemplar = '$vaca'";//////////////////////////////en contruccion
+                $resultado1 = $con->query($query1);//////////////////////////////en contruccion
+                $pa=3;//////////////////////////////en contruccion
+            }
+            else
+            {//////////////////////////////en contruccion
+                $row = $resultado ->fetch_array(MYSQLI_ASSOC);
+                if($row['IdPadre']=='')    
+                {$pa=2;}//////////////////////////////en contruccion
+                else
+                {$vaca=$row['IdPadre'];}//////////////////////////////en contruccion
+            }
+        }
+        $query2 = "UPDATE vaca SET Arbol_Id= '$Tree' WHERE IdPadre= '$Padre'"; //////////////////////////////en contruccion
+        $result2=$con->query($query2); //////////////////////////////en contruccion
+        if ($result2) {echo 'true';}//////////////////////////////en contruccion
+        else {echo 'false'; }  //////////////////////////////en contruccion
+
+        
+
+     //   $query="SELECT IdPadre FROM vaca WHERE Arbol_Id=";
+
+        
+
+        $query = "SELECT count(*) FROM vaca WHERE Arbol_Id= '$Tree'" ;
         $result = $con->query($query);
         $row = $result ->fetch_array(MYSQLI_ASSOC);
-        $NumVacas = $row['count(*)'];//número de vacas en un arbol
+        $Numvacas = $row['count(*)'];//número de vacas en un arbol
         $lel=0;
-        for($i=0; $i<$NumVacas; $i++)
+        for($i=0; $i<$Numvacas; $i++)
         {
-            $query = "SELECT * from Vaca WHERE Arbol_Id= '$Tree' ORDER BY Nivel ASC";//busca todas las vacas de ese arbol y busca sus padres
+            $query = "SELECT * from vaca WHERE Arbol_Id= '$Tree' ORDER BY Nivel ASC";//busca todas las vacas de ese arbol y busca sus padres
             $result = $con->query($query);
             $row = $result ->fetch_array(MYSQLI_ASSOC);
             $Padre = $row['IdPadre'];
@@ -61,30 +92,31 @@ session_start();
             }
             else if($lel==0)
             {
-                $query1 ="SELECT Nivel FROM Vaca WHERE Ejemplar= '$Padre'";//busca el nivel del padre y le suma uno
+                $query1 ="SELECT Nivel FROM vaca WHERE Ejemplar= '$Padre'";//busca el nivel del padre y le suma uno
                 $result1= $con->query($query1);
                 $row1 = $result1 ->fetch_array(MYSQLI_ASSOC);
                 $Nivel = $row1['Nivel'];
                 $Nivel++;
                 if($result1)
                 {
-                    $query2 = "UPDATE Vaca SET Nivel= '$Nivel' WHERE IdPadre= '$Padre'"; //pone el nivel de su padre +1 a las vacas
+                    $query2 = "UPDATE vaca SET Nivel= '$Nivel' WHERE IdPadre= '$Padre'"; //pone el nivel de su padre +1 a las vacas
                     $result2=$con->query($query2); 
                     if ($result2) {echo 'true';}
                     else {echo 'false'; }  
                 }
             }     
         }
-        $query="SELECT TOP 1 Nivel FROM Vaca WHERE Id_Arbol='$Tree' ORDER BY Nivel DESC";//busca cuántos niveles hay viendo cuál es el de más abajo xddd
-        $result =$con->query($query);
+        $query="SELECT Nivel FROM vaca WHERE Arbol_Id='$Tree' ORDER BY Nivel DESC LIMIT 1";//busca cuántos niveles hay viendo cuál es el de más abajo xddd
         $row=$result->fetch_array(MYSQLI_ASSOC);
         $Num=$row['Nivel'];
+        echo $query;
         $a=array();   
-        for($i=1; i<=$Num; $i++)
+        for($i=1; $i<=$Num; $i++)
         {
-            $query="SELECT count(*) FROM Vaca WHERE Nivel= '$i' AND Arbol_id='$Tree'";//
+            $query="SELECT count(*) FROM vaca WHERE Nivel= '$i' AND Arbol_id='$Tree'";//
             $result=$con->query($query);
             $row = $result ->fetch_array(MYSQLI_ASSOC);
+            echo $row['count(*)'];
             $a[$i]=$row['count(*)'];//Guarda en un array cuántas vacas hay en cada nivel
         }
         //buscar cuál tiene más vacas viendo cuál es el mayor número en el array a y su posición +1 será el nivel con más vacas,
@@ -99,8 +131,8 @@ session_start();
             }
         }
         $y++;
-        /*AHORA Y TIENE ES EL NIVEL QUE TIENE MÁS VACAS Y X ES EL NÚMERO DE VACAS QUE TIENE ESE NIVEL
-        EL ANCHO DEL DIV O LO QUE SEA DEPENDERÁ DE X, SERÁ UN ANCHO PARA QUE ESA CANTIDAD DE VACAS SE ACOMODEN
+        /*AHORA Y TIENE ES EL NIVEL QUE TIENE MÁS vacaS Y X ES EL NÚMERO DE vacaS QUE TIENE ESE NIVEL
+        EL ANCHO DEL DIV O LO QUE SEA DEPENDERÁ DE X, SERÁ UN ANCHO PARA QUE ESA CANTIDAD DE vacaS SE ACOMODEN
         */
-        $ancho= $x*190; //ESTE SERÁ EL ANCHO QUE DEBE TENER EJ MAIN.JS PARA QUE QUEPAN TODAS LAS VACAS
+        $ancho= $x*190; //ESTE SERÁ EL ANCHO QUE DEBE TENER EJ MAIN.JS PARA QUE QUEPAN TODAS LAS vacaS
 ?>
