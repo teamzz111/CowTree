@@ -225,7 +225,6 @@
                                                     echo "Sin definir";
                                                 } else {
                                                     echo $elemento['Nombre'];} ?></span></td>
-
                                         <td><span>
                                                 <?php echo $elemento['Ubicación']; ?></span></td>
                                         <td><span>

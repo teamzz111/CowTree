@@ -93,40 +93,6 @@
                         </div>
                     </li>
                     <!-- End Comment -->
-                    <!-- Messages -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-muted  " href="#" id="2" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false"> <i class="fa fa-envelope"></i>
-                            <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right mailbox animated zoomIn" aria-labelledby="2">
-                            <ul>
-                                <li>
-                                    <div class="drop-title">Tienes un mensaje nuevo</div>
-                                </li>
-                                <li>
-                                    <div class="message-center">
-                                        <!-- Message -->
-                                        <a href="#">
-                                            <div class="user-img"> <img src="images/users/5.jpg" alt="user" class="img-circle">
-                                                <span class="profile-status online pull-right"></span> </div>
-                                            <div class="mail-contnet">
-                                                <h5>Andrés Largo</h5> <span class="mail-desc">Soy todo un administrador</span>
-                                                <span class="time">9:30 AM</span>
-                                            </div>
-                                        </a>
-                                        <!-- Message -->
-
-                                    </div>
-                                </li>
-                                <li>
-                                    <a class="nav-link text-center" href="javascript:void(0);"> <strong>Mirar todos los
-                                            mensajes</strong> <i class="fa fa-angle-right"></i> </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <!-- End Messages -->
                     <!-- Profile -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true"
@@ -134,7 +100,7 @@
                         <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                             <ul class="dropdown-user">
                                 <li><a href="#"><i class="ti-user"></i> Perfil</a></li>
-                                <li><a href="#"><i class="ti-email"></i> Mensajes</a></li>
+                       
                                 <li><a href="../backend/cerrarSesion.php"><i class="fa fa-power-off"></i> Cerrar sesión</a></li>
                             </ul>
                         </div>
