@@ -47,7 +47,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Herrado</label>
-                                    <input type="text" name="herrado" class="form-control" placeholder="¿Está Herrado?">
+                                    <br>
+                                    <select name="herrado" id="" class="name">
+                                        <option value="si">Sí</option>
+                                        <option value="no">No</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Destetado</label>
@@ -81,12 +85,12 @@
                                                 $rs = $con->query("SELECT ganaderia.Nombre, usuario.Nombre, usuario.Id
                                                 FROM usuario
                                                 LEFT JOIN ganaderia ON ganaderia.Id = usuario.Ganaderia_Id;");
-                                                while($row = $rs->fetch_array(MYSQLI_ASSOC)){
+                                                while($row = $rs->fetch_array(MYSQLI_ASSOC)):
                                         ?>
                                         <option value="<?php echo $row['Id']; ?>">
                                             <?php echo$row['Nombre'];?>
                                         </option>
-                                        <?php } ?>
+                                        <?php endwhile; ?>
                                     </select>
                                 </div>
 
@@ -99,13 +103,13 @@
                                     <br>
                                     <select name="ganaderia_id" id="ganaderia_id">
                                         <?php
-                                                $rs = $con->query('SELECT Id, Nombre FROM ganaderia');
-                                                while($row = $rs->fetch_array(MYSQLI_ASSOC)){
-                                            ?>
-                                        <option value="<?php echo $row['Id']; ?>">
-                                            <?php echo $row['Nombre']; ?>
-                                        </option>";
-                                        <?php } ?>
+                                            $rs = $con->query('SELECT Id, Nombre FROM ganaderia');
+                                            while($row = $rs->fetch_array(MYSQLI_ASSOC)):
+                                        ?>
+                                            <option value="<?php echo $row['Id']; ?>">
+                                                <?php echo $row['Nombre']; ?>
+                                            </option>
+                                        <?php endwhile; ?>
                                     </select>
                                 </div>
 
@@ -153,17 +157,7 @@
         </div>
         <!-- /# row -->
     </div>
-    </div>
-    <!-- /# column -->
 
-    <!-- /# column -->
-    </div>
-    <!-- /# row -->
-
-    <!-- End PAge Content -->
-    </div>
-    <!-- End Container fluid  -->
-    <!-- footer -->
     <?php include("estructura/footer.php"); ?>
     <script src="../js/microplugin.js"></script>
     <script src="../js/sifter.js"></script>
