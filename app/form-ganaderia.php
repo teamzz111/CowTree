@@ -55,22 +55,8 @@
                     </div>
                 </div>
             </div>
-            <!-- /# column -->
-            <!-- /# column -->
         </div>
-        <!-- /# row -->
     </div>
-    </div>
-    <!-- /# column -->
-
-    <!-- /# column -->
-    </div>
-    <!-- /# row -->
-
-    <!-- End PAge Content -->
-    </div>
-    <!-- End Container fluid  -->
-    <!-- footer -->
     <?php include("estructura/footer.php"); ?>
 </body>
 

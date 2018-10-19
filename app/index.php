@@ -96,38 +96,7 @@
                 </div>
             </div>
         </div>
-        <!--
-        <div class="row bg-white m-l-0 m-r-0 box-shadow ">
-
-    
-            <div class="col-lg-8">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">Machos vs Hembras</h4>
-                        <div id="extra-area-chart"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4">
-                <div class="card">
-                    <div class="card-body browser">
-                        <p class="f-w-600">Machos <span class="pull-right">75%</span></p>
-                        <div class="progress ">
-                            <div role="progressbar" style="width: 75%; height:8px;" class="progress-bar bg-danger wow animated progress-animated">
-                                <span class="sr-only">60% Complete</span> </div>
-                        </div>
-
-                        <p class="m-t-30 f-w-600">Hembras<span class="pull-right">25%</span></p>
-                        <div class="progress">
-                            <div role="progressbar" style="width: 25%; height:8px;" class="progress-bar bg-info wow animated progress-animated">
-                                <span class="sr-only">60% Complete</span> </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
  
-        </div>-->
         <div class="row">
 
             <div class="col-lg-5">
@@ -149,9 +118,9 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $result = $con->query('SELECT ganaderia.Nombre AS ganaderia_nombre, usuario.Nombre, usuario.Cargo FROM usuario LEFT JOIN ganaderia ON usuario.Ganaderia_Id = ganaderia.Id');
-                                    while($elemento = $result-> fetch_array(MYSQLI_ASSOC)){
-                                ?>
+                                        $result = $con->query('SELECT ganaderia.Nombre AS ganaderia_nombre, usuario.Nombre, usuario.Cargo FROM usuario LEFT JOIN ganaderia ON usuario.Ganaderia_Id = ganaderia.Id');
+                                        while($elemento = $result-> fetch_array(MYSQLI_ASSOC)):
+                                    ?>
                                     <tr>
                                         <td>
                                             <div class="round-img">
@@ -167,7 +136,7 @@
                                                 <?php echo $elemento['Cargo']; ?></span></td>
                                         <td><span class="badge badge-success">Activo</span></td>
                                     </tr>
-                                    <?php  } ?>
+                                    <?php endwhile; ?>
                                 </tbody>
                             </table>
                         </div>
@@ -194,7 +163,7 @@
                                 <tbody>
                                     <?php
                                     $result = $con->query('SELECT Ejemplar, Nombre, Estado, Destino, Encaste FROM vaca');
-                                    while($elemento = $result-> fetch_array(MYSQLI_ASSOC)){
+                                    while($elemento = $result-> fetch_array(MYSQLI_ASSOC)):
                                 ?>
                                     <tr>
                                         <td>
@@ -214,7 +183,7 @@
                                         <td><span>
                                                 <?php echo $elemento['Encaste']; ?></span></td>
                                     </tr>
-                                    <?php  } ?>
+                                    <?php endwhile; ?>
                                 </tbody>
                             </table>
                         </div>
@@ -238,13 +207,13 @@
                                         <th>Ubicación</th>
                                         <th>Divisa</th>
                                         <th>Lineas</th>
-                                        <th>Modificar</th>
+            
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
                                     $result = $con->query('SELECT Id, Nombre, Ubicación, Divisa, Encastes, Lineas FROM ganaderia');
-                                    while($elemento = $result-> fetch_array(MYSQLI_ASSOC)){
+                                    while($elemento = $result-> fetch_array(MYSQLI_ASSOC)):
                                 ?>
                                     <tr>
                                         <td>
@@ -256,7 +225,6 @@
                                                     echo "Sin definir";
                                                 } else {
                                                     echo $elemento['Nombre'];} ?></span></td>
-
                                         <td><span>
                                                 <?php echo $elemento['Ubicación']; ?></span></td>
                                         <td><span>
@@ -264,7 +232,7 @@
                                         <td><span>
                                                 <?php echo $elemento['Lineas']; ?></span></td>
                                     </tr>
-                                    <?php  } ?>
+                                    <?php endwhile; ?>
                                 </tbody>
                             </table>
                         </div>
@@ -272,25 +240,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-lg-6">
-        <div class="card center-block">
-            <div class="card-body">
-                <div class="year-calendar"></div>
-            </div>
-        </div>
-    </div>
-
-
-    </div>
-    </div>
-
-
-
-    </div>
-
-
-    <!-- End PAge Content -->
     </div>
     <!-- End Container fluid  -->
     <?php include("estructura/footer.php"); ?>

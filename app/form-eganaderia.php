@@ -37,7 +37,7 @@
                                 <tbody>
                                     <?php
                                     $result = $con->query('SELECT Id, Nombre, Ubicación, Divisa, Encastes, Lineas FROM ganaderia');
-                                    while($elemento = $result-> fetch_array(MYSQLI_ASSOC)){
+                                    while($elemento = $result-> fetch_array(MYSQLI_ASSOC)):
                                 ?>
                                     <tr>
                                         <td>
@@ -49,7 +49,6 @@
                                                     echo "Sin definir";
                                                 } else {
                                                     echo $elemento['Nombre'];} ?></span></td>
-
                                         <td><span>
                                                 <?php echo $elemento['Ubicación']; ?></span></td>
                                         <td><span>
@@ -64,7 +63,7 @@
                                             <button type="button" class="btn btn-danger">Eliminar</button>
                                         </td>
                                     </tr>
-                                    <?php  } ?>
+                                    <?php endwhile; ?>
                                 </tbody>
                             </table>
                         </div>
@@ -72,19 +71,7 @@
                 </div>
             </div>
         </div>
-        <!-- /# row -->
     </div>
-    </div>
-    <!-- /# column -->
-
-    <!-- /# column -->
-    </div>
-    <!-- /# row -->
-
-    <!-- End PAge Content -->
-    </div>
-    <!-- End Container fluid  -->
-    <!-- footer -->
     <?php include("estructura/footer.php"); ?>
 </body>
 

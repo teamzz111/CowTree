@@ -93,40 +93,6 @@
                         </div>
                     </li>
                     <!-- End Comment -->
-                    <!-- Messages -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-muted  " href="#" id="2" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false"> <i class="fa fa-envelope"></i>
-                            <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right mailbox animated zoomIn" aria-labelledby="2">
-                            <ul>
-                                <li>
-                                    <div class="drop-title">Tienes un mensaje nuevo</div>
-                                </li>
-                                <li>
-                                    <div class="message-center">
-                                        <!-- Message -->
-                                        <a href="#">
-                                            <div class="user-img"> <img src="images/users/5.jpg" alt="user" class="img-circle">
-                                                <span class="profile-status online pull-right"></span> </div>
-                                            <div class="mail-contnet">
-                                                <h5>Andrés Largo</h5> <span class="mail-desc">Soy todo un administrador</span>
-                                                <span class="time">9:30 AM</span>
-                                            </div>
-                                        </a>
-                                        <!-- Message -->
-
-                                    </div>
-                                </li>
-                                <li>
-                                    <a class="nav-link text-center" href="javascript:void(0);"> <strong>Mirar todos los
-                                            mensajes</strong> <i class="fa fa-angle-right"></i> </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <!-- End Messages -->
                     <!-- Profile -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true"
@@ -134,7 +100,7 @@
                         <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                             <ul class="dropdown-user">
                                 <li><a href="#"><i class="ti-user"></i> Perfil</a></li>
-                                <li><a href="#"><i class="ti-email"></i> Mensajes</a></li>
+                       
                                 <li><a href="../backend/cerrarSesion.php"><i class="fa fa-power-off"></i> Cerrar sesión</a></li>
                             </ul>
                         </div>
@@ -157,49 +123,26 @@
                                 de control <span class="label label-rouded label-primary pull-right">1</span></span></a>
                     </li>
                     <li class="nav-label">REGISTROS</li>
-                    <!--
-                    <li> <a class="has-arrow  " href="#" aria-expanded="true"><i class="fa fa-envelope"></i><span
-                                class="hide-menu">Mensajes</span></a>
-                        <ul aria-expanded="true" class="collapse">
-                            <li><a href="email-compose.php">Redactar</a></li>
-                            <li><a href="email-read.php">Leer</a></li>
-                            <li><a href="email-inbox.php">Bandeja de entrada</a></li>
-                        </ul>
-                    </li>-->
+
                     <li> <a href="form-vaca.php" aria-expanded="true"><i class="fas fa-horse"></i><span class="hide-menu">Registrar
-                                vaca</span></a> </li>
-                    <li> <a href="form-ganaderia.php" aria-expanded="true"><i class="fas fa-user"></i><span class="hide-menu">Registrar
-                                ganadero</span></a></li>
-                    <li> <a href="form-basic.php" aria-expanded="true"><i class="fas fa-place-of-worship"></i><span
-                                class="hide-menu">Registrar ganaderia</span></a></li>
-                    <!--  <ul aria-expanded="true" class="collapse">
-                            <li><a href="form-basic.php">Registrar ganadero</a></li>
-                            <li><a href="form-vaca.php">Registrar vaca</a></li>
-                            <li><a href="form-ganaderia.php">Registrar ganadería</a></li>
-                          
-                        </ul>-->
+                                ganado</span></a> </li>
+                    <?php if($_SESSION['cargo'] == "administrador"): ?>
+                        <li> <a href="form-ganaderia.php" aria-expanded="true"><i class="fas fa-user"></i><span class="hide-menu">Registrar
+                                    ganadero</span></a></li>
+                        <li> <a href="form-basic.php" aria-expanded="true"><i class="fas fa-place-of-worship"></i><span
+                                    class="hide-menu">Registrar ganaderia</span></a></li>
+                    <?php endif; ?>
+
                     <li class="nav-label">MODIFICAR</li>
                     <li> <a href="form-vaca.php" aria-expanded="true"><i class="fas fa-horse"></i><span class="hide-menu">Modificar
-                                vaca</span></a> </li>
-                    <li> <a href="form-eganaderia.php" aria-expanded="true"><i class="fas fa-user"></i><span class="hide-menu">Modificar
-                                ganadero</span></a></li>
-                    <li> <a href="form-basic.php" aria-expanded="true"><i class="fas fa-place-of-worship"></i><span
-                                class="hide-menu">Modificar ganaderia</span></a></li>
+                                ganado</span></a> </li>
+                    <?php if($_SESSION['cargo'] == "administrador"): ?>
+                        <li> <a href="form-eganaderia.php" aria-expanded="true"><i class="fas fa-user"></i><span class="hide-menu">Modificar
+                                    ganadería</span></a></li>
+                        <li> <a href="form-basic.php" aria-expanded="true"><i class="fas fa-place-of-worship"></i><span
+                                    class="hide-menu">Modificar ganadero</span></a></li>
+                    <?php endif; ?>
 
-                    <!-- 
-                            <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-bar-chart"></i><span class="hide-menu">Charts</span></a>
-                            <ul aria-expanded="false" class="collapse">
-                                <li><a href="chart-flot.html">Flot</a></li>
-                                <li><a href="chart-morris.html">Morris</a></li>
-                                <li><a href="chart-chartjs.html">ChartJs</a></li>
-                                <li><a href="chart-chartist.html">Chartist </a></li>
-                                <li><a href="chart-amchart.html">AmChart</a></li>
-                                <li><a href="chart-echart.html">EChart</a></li>
-                                <li><a href="chart-sparkline.html">Sparkline</a></li>
-                                <li><a href="chart-peity.html">Peity</a></li>
-                            </ul>
-</li>-->
-                    <!-- End Sidebar navigation -->
         </div>
         <!-- End Sidebar scroll-->
     </div>
