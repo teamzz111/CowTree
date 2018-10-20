@@ -134,12 +134,12 @@
                     <?php endif; ?>
 
                     <li class="nav-label">MODIFICAR</li>
-                    <li> <a href="form-vaca.php" aria-expanded="true"><i class="fas fa-horse"></i><span class="hide-menu">Modificar
+                    <li> <a href="form-evaca.php" aria-expanded="true"><i class="fas fa-horse"></i><span class="hide-menu">Modificar
                                 ganado</span></a> </li>
                     <?php if($_SESSION['cargo'] == "administrador"): ?>
                         <li> <a href="form-eganaderia.php" aria-expanded="true"><i class="fas fa-user"></i><span class="hide-menu">Modificar
                                     ganadería</span></a></li>
-                        <li> <a href="form-basic.php" aria-expanded="true"><i class="fas fa-place-of-worship"></i><span
+                        <li> <a href="form-ebasic.php" aria-expanded="true"><i class="fas fa-place-of-worship"></i><span
                                     class="hide-menu">Modificar ganadero</span></a></li>
                     <?php endif; ?>
 

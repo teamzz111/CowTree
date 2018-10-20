@@ -22,7 +22,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table">
+                            <table class="table" id = "dtBasicExample">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
@@ -73,6 +73,9 @@
         </div>
     </div>
     <?php include("estructura/footer.php"); ?>
+    <script>
+
+    </script>
 </body>
 
 </html>

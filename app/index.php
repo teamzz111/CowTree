@@ -118,7 +118,7 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                        $result = $con->query('SELECT ganaderia.Nombre AS ganaderia_nombre, usuario.Nombre, usuario.Cargo FROM usuario LEFT JOIN ganaderia ON usuario.Ganaderia_Id = ganaderia.Id');
+                                        $result = $con->query('SELECT ganaderia.Nombre AS ganaderia_nombre, usuario.Nombre, usuario.Cargo FROM usuario LEFT JOIN ganaderia ON usuario.Ganaderia_Id = ganaderia.Id LIMIT 10');
                                         while($elemento = $result-> fetch_array(MYSQLI_ASSOC)):
                                     ?>
                                     <tr>
@@ -162,7 +162,7 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $result = $con->query('SELECT Ejemplar, Nombre, Estado, Destino, Encaste FROM vaca');
+                                    $result = $con->query('SELECT Ejemplar, Nombre, Estado, Destino, Encaste FROM vaca  LIMIT 10');
                                     while($elemento = $result-> fetch_array(MYSQLI_ASSOC)):
                                 ?>
                                     <tr>
@@ -212,7 +212,7 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $result = $con->query('SELECT Id, Nombre, Ubicación, Divisa, Encastes, Lineas FROM ganaderia');
+                                    $result = $con->query('SELECT Id, Nombre, Ubicación, Divisa, Encastes, Lineas FROM ganaderia LIMIT 10');
                                     while($elemento = $result-> fetch_array(MYSQLI_ASSOC)):
                                 ?>
                                     <tr>

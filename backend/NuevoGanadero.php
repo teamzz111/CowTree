@@ -8,7 +8,7 @@ session_start();
         $Ubicacion=$_POST["ubicacion"];
         $Divisa=$_POST["divisa"];
         $Encastes=$_POST["encastes"];
-        $Lineas=$_POST["lineas"];
+ ;       $Lineas=$_POST["lineas"]
 
         $con = new mysqli($host, $user, $pass, $db);
         $con->query("SET NAMES 'utf8'");

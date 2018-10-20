@@ -18,7 +18,7 @@
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-title">
-                        <h4>Ganaderías registradas</h4>
+                        <h4>Ganado registrado</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
