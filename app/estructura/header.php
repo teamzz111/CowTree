@@ -100,7 +100,6 @@
                         <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                             <ul class="dropdown-user">
                                 <li><a href="#"><i class="ti-user"></i> Perfil</a></li>
-                       
                                 <li><a href="../backend/cerrarSesion.php"><i class="fa fa-power-off"></i> Cerrar sesión</a></li>
                             </ul>
                         </div>

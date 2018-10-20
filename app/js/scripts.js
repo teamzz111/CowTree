@@ -101,13 +101,13 @@ $(function () {
                 } else if (data == 'false') {
                     $(".exito").text("¡REGISTRO SIN ÉXITO, NO TENEMOS MÁS INFORMACIÓN");
                     $('.exito').fadeIn(2000, function () {
-                        window.location.reload(true);
+                        //window.location.reload(true);
                     });
 
                 } else {
                     $(".exito").text("EL USUARIO YA SE ENCUENTRA REGISTRADO");
                     $('.exito').fadeIn(2000, function () {
-                        window.location.reload(true);
+                       // window.location.reload(true);
                     });
                 }
             },

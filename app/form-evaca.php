@@ -15,24 +15,24 @@
     <?php include("estructura/header.php"); ?>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xl-12">
-                <div class="card">
+            <div class="col-xl-12 ">
+                <div class="card ">
                     <div class="card-title">
                         <h4>Ganado registrado</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table">
+                            <table class="table center-block">
                                 <thead>
                                     <tr>
                                         <th>Nombre</th>
-                                        <th>Ejemplar</th>
-                                        <th>Estado</th>
-                                        <th>Edad</th>
-                                        <th>Herrado</th>
-                                        <th>Destetado</th>
+                                        <th class="hidden-sm-down">Ejemplar</th>
+                                        <th class="hidden-sm-down">Estado</th>
+                                        <th class="hidden-md-down">Edad</th>
+                                        <th class="hidden-md-down">Herrado</t>
+                                        <th class="hidden-md-down">Destetado</th>
                                         <th>Modificar</th>
-                                        <th>Borrar</th>
+                                        <th class = "hidden-xs-down">Borrar</th>
 
                                     </tr>
                                 </thead>
@@ -49,21 +49,22 @@
                                                     echo "Sin definir";
                                                 } else {
                                                     echo $elemento['Nombre'];} ?></span></td>
-                                        <td><span>
+                                        <td class="hidden-sm-down"> <span>
                                                 <?php echo $elemento['Ejemplar']; ?></span></td>
-                                        <td><span>
+                                        <td class="hidden-sm-down"><span>
                                                 <?php echo $elemento['Estado']; ?></span></td>
-                                        <td><span>
+                                        <td class="hidden-md-down"><span>
                                                 <?php echo $elemento['Edad']; ?></span></td>
-                                        <td><span>
+                                        <td class="hidden-md-down"><span>
                                                 <?php echo $elemento['Destetado']; ?></span></td>
-                                                <td><span>
+                                        <td class="hidden-md-down"><span>
                                                 <?php echo $elemento['Herrado']; ?></span></td>
                                         <td>
-
-                                            <button type="button" class="btn btn-success" onclick="function(<?php echo $elemento['Ejemplar']; ?>)">Modificar</button>
+                                            
+                                                <button type="button" class="btn btn-success" onclick="function(<?php echo $elemento['Ejemplar']; ?>)">Modificar</button>
+                                           
                                         </td>
-                                        <td>
+                                        <td class = "hidden-xs-down">
                                             <button type="button" class="btn btn-danger">Eliminar</button>
                                         </td>
                                     </tr>

@@ -49,7 +49,7 @@
                                     <label>Herrado</label>
                                     <br>
                                     <select name="herrado" id="" class="name">
-                                        <option value="si">Sí</option>
+                                        <option value="sí">Sí</option>
                                         <option value="no">No</option>
                                     </select>
                                 </div>
@@ -57,7 +57,7 @@
                                     <label>Destetado</label>
                                     <br>
                                     <select name="destetado" id="" class="name">
-                                        <option value="si">Sí</option>
+                                        <option value="sí">Sí</option>
                                         <option value="no">No</option>
                                     </select>
                                 </div>
@@ -69,7 +69,7 @@
                                     <label>Encaste</label>
                                     <br>
                                     <select name="encaste" id="" class="name">
-                                        <option value="si">Sí</option>
+                                        <option value="sí">Sí</option>
                                         <option value="no">No</option>
                                     </select>
 
@@ -96,7 +96,17 @@
 
                                 <div class="form-group">
                                     <label>Árbol ID</label>
-                                    <input type="text" name="arbol_id" class="form-control" placeholder="Ingrese ID del arbol">
+                                    <select data-placeholder="Elija un usuario o busque" id="arbol" name="arbol_id">
+                                            <?php 
+                                                $rs = $con->query("SELECT * FROM arbol"); 
+                                                while($row = $rs->fetch_array(MYSQLI_ASSOC)):
+                                            ?>
+                                            <option value="<?php echo $row['Id']; ?>">
+                                                   <?php echo$row['Nombre'];?>
+                                            </option>
+                                            <?php endwhile; ?>
+                                    </select>                                    
+                
                                 </div>
                                 <div class="form-group">
                                     <label>Ganaderia</label>
@@ -163,7 +173,7 @@
     <script src="../js/sifter.js"></script>
     <script src="../js/selectize.js"></script>
     <script>
-        $('#select-beast, #ganaderia_id').selectize({
+        $('#select-beast, #ganaderia_id, #arbol').selectize({
             highlight: false,
             create: false,
             sortField: 'text'

@@ -25,13 +25,13 @@
                             <table class="table" id = "dtBasicExample">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
+                                        <th class = "hidden-md-down">ID</th>
                                         <th>Nombre</th>
-                                        <th>Ubicación</th>
-                                        <th>Divisa</th>
-                                        <th>Lineas</th>
+                                        <th class = "hidden-xs-down">Ubicación</th>
+                                        <th class = "hidden-sm-down">Divisa</th>
+                                        <th class = "hidden-md-down">Lineas</th>
                                         <th>Modificar</th>
-                                        <th>Eliminar</th>
+                                        <th class = "hidden-xs-down">Eliminar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -40,7 +40,7 @@
                                     while($elemento = $result-> fetch_array(MYSQLI_ASSOC)):
                                 ?>
                                     <tr>
-                                        <td>
+                                        <td class = "hidden-md-down">
                                             <?php echo $elemento['Id']; ?>
                                         </td>
                                         <td><span>
@@ -49,17 +49,17 @@
                                                     echo "Sin definir";
                                                 } else {
                                                     echo $elemento['Nombre'];} ?></span></td>
-                                        <td><span>
+                                        <td class = "hidden-xs-down" ><span>
                                                 <?php echo $elemento['Ubicación']; ?></span></td>
-                                        <td><span>
+                                        <td class = "hidden-sm-down"><span>
                                                 <?php echo $elemento['Divisa']; ?></span></td>
-                                        <td><span>
+                                        <td class = "hidden-md-down"><span>
                                                 <?php echo $elemento['Lineas']; ?></span></td>
                                         <td>
 
                                             <button type="button" class="btn btn-success" onclick="function(<?php echo $elemento['Id']; ?>)">Modificar</button>
                                         </td>
-                                        <td>
+                                        <td class = "hidden-xs-down">
                                             <button type="button" class="btn btn-danger">Eliminar</button>
                                         </td>
                                     </tr>

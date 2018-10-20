@@ -109,11 +109,11 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
+                                        <th class = "hidden-sm-down">#</th>
                                         <th>Nombre</th>
                                         <th>Ganaderia</th>
-                                        <th>Cargo</th>
-                                        <th>Estado</th>
+                                        <th class="hidden-sm-down">Cargo</th>
+                                        <th class="hidden-md-down">Estado</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -122,7 +122,7 @@
                                         while($elemento = $result-> fetch_array(MYSQLI_ASSOC)):
                                     ?>
                                     <tr>
-                                        <td>
+                                        <td class = "hidden-xs-down">
                                             <div class="round-img">
                                                 <a href=""><img src="images/avatar/4.jpg" alt=""></a>
                                             </div>
@@ -132,9 +132,9 @@
                                         </td>
                                         <td><span>
                                                 <?php echo $elemento['ganaderia_nombre']; ?></span></td>
-                                        <td><span>
+                                        <td class="hidden-sm-down"><span>
                                                 <?php echo $elemento['Cargo']; ?></span></td>
-                                        <td><span class="badge badge-success">Activo</span></td>
+                                        <td class="hidden-md-down"><span class="badge badge-success">Activo</span></td>
                                     </tr>
                                     <?php endwhile; ?>
                                 </tbody>
@@ -155,9 +155,9 @@
                                     <tr>
                                         <th>Ejemplar</th>
                                         <th>Nombre</th>
-                                        <th>Estado</th>
-                                        <th>Destino</th>
-                                        <th>Encaste</th>
+                                        <th class="hidden-sm-down">Estado</th>
+                                        <th class="hidden-md-down">Destino</th>
+                                        <th class="hidden-md-down">Encaste</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -176,11 +176,11 @@
                                                 } else {
                                                     echo $elemento['Nombre'];} ?></span></td>
 
-                                        <td><span>
+                                        <td class="hidden-sm-down"><span>
                                                 <?php echo $elemento['Estado']; ?></span></td>
-                                        <td><span>
+                                        <td class="hidden-md-down"><span>
                                                 <?php echo $elemento['Destino']; ?></span></td>
-                                        <td><span>
+                                        <td class="hidden-md-down"><span>
                                                 <?php echo $elemento['Encaste']; ?></span></td>
                                     </tr>
                                     <?php endwhile; ?>
@@ -205,8 +205,8 @@
                                         <th>ID</th>
                                         <th>Nombre</th>
                                         <th>Ubicación</th>
-                                        <th>Divisa</th>
-                                        <th>Lineas</th>
+                                        <th class="hidden-md-down">Divisa</th>
+                                        <th class="hidden-md-down">Lineas</th>
             
                                     </tr>
                                 </thead>
@@ -227,9 +227,9 @@
                                                     echo $elemento['Nombre'];} ?></span></td>
                                         <td><span>
                                                 <?php echo $elemento['Ubicación']; ?></span></td>
-                                        <td><span>
+                                        <td class="hidden-md-down"><span>
                                                 <?php echo $elemento['Divisa']; ?></span></td>
-                                        <td><span>
+                                        <td class="hidden-md-down"><span>
                                                 <?php echo $elemento['Lineas']; ?></span></td>
                                     </tr>
                                     <?php endwhile; ?>

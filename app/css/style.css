@@ -5453,7 +5453,7 @@ tbody tr td {
 .table td,
 .table th {
   padding: 0.55rem;
-  text-align: center;
+  text-align: left;
 }
 .table .round-img img {
   width: 38px;

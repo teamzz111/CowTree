@@ -1,4 +1,4 @@
-    <footer class="footer"> © 2018 Todos los derechos reservados. Diseñada por <a href="https://colorlib.com">Colorlib</a> modificada por <a href="http://www.andreslargo.com">Andrés Largo </a> & Erika Infante</footer>
+    <footer  class="footer"> © 2018 Todos los derechos reservados. Diseñada por <a href="https://colorlib.com">Colorlib</a> modificada por <a href="http://www.andreslargo.com">Andrés Largo </a> & Erika Infante</footer>
     <!-- End footer -->
     </div>
     <!-- End Page wrapper  -->

@@ -25,12 +25,12 @@
                             <table class="table" id = "dtBasicExample">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
+                                        <th class="hidden-md-down">ID</th>
                                         <th>Nombre</th>
-                                        <th>Ganaderia</th>
-                                        <th>Cargo</th>
+                                        <th class="hidden-sm-down">Ganaderia</th>
+                                        <th class = "hidden-xs-down">Cargo</th>
                                         <th>Modificar</th>
-                                        <th>Eliminar</th>
+                                        <th class = "hidden-xs-down">Eliminar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -41,7 +41,7 @@
                                 while($elemento = $result-> fetch_array(MYSQLI_ASSOC)):
                                 ?>
                                     <tr>
-                                        <td>
+                                        <td class="hidden-md-down">
                                             <?php echo $elemento['Id']; ?>
                                         </td>
                                         <td><span>
@@ -50,15 +50,15 @@
                                                     echo "Sin definir";
                                                 } else {
                                                     echo $elemento['Nombre'];} ?></span></td>
-                                        <td><span>
+                                        <td class="hidden-sm-down"> <span>
                                                 <?php echo $elemento['ganaderia_nombre']; ?></span></td>
-                                        <td><span>
+                                        <td class = "hidden-xs-down"><span>
                                                 <?php echo $elemento['Cargo']; ?></span></td>                            
                                         <td>
 
                                             <button type="button" class="btn btn-success" onclick="function(<?php echo $elemento['Id']; ?>)">Modificar</button>
                                         </td>
-                                        <td>
+                                        <td class = "hidden-xs-down">
                                             <button type="button" class="btn btn-danger">Eliminar</button>
                                         </td>
                                     </tr>

@@ -40,7 +40,7 @@
     }
     else{
         $query = "INSERT INTO vaca VALUES (
-        '$Ejemplar','$Nombre' ,'$Estado','','$Destino','$Edad','$Herrado','$Destetado','$fecha_nacimiento','$Encaste',
+        '$Ejemplar','$Nombre' ,'$Estado','$Destino','$Edad','$Herrado','$Destetado','$fecha_nacimiento','$Encaste',
         '$Reseña','$Arbol_id','$Ganaderia','$Criador','$Fenotipo','$Defector','$Calificacion','$Comportamiento',
         '$Observadores','$Pareja','$Padre')";
         $rs = $con->query($query);
