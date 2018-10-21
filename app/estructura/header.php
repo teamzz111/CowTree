@@ -73,18 +73,6 @@
                                     <div class="drop-title">Notificaciones</div>
                                 </li>
                                 <li>
-                                    <div class="message-center">
-                                        <!-- Message -->
-                                        <a href="#">
-                                            <div class="btn btn-danger btn-circle m-r-10"><i class="fa fa-link"></i></div>
-                                            <div class="mail-contnet">
-                                                <h5></h5> <span class="mail-desc">¡Míreme Pablo, soy el admin!</span>
-                                                <span class="time">9:30 AM</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li>
                                     <a class="nav-link text-center" href="javascript:void(0);"> <strong>Revisar
                                             mensajes
                                             Notificaciones</strong> <i class="fa fa-angle-right"></i> </a>
@@ -96,7 +84,7 @@
                     <!-- Profile -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false"><img src="images/users/5.jpg" alt="user" class="profile-pic" /></a>
+                            aria-expanded="false"><img src="images/users/largo.png" alt="user" class="profile-pic" /></a>
                         <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                             <ul class="dropdown-user">
                                 <li><a href="#"><i class="ti-user"></i> Perfil</a></li>
