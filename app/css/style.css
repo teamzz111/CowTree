@@ -1786,6 +1786,7 @@ textarea {
   .mini-sidebar .left-sidebar {
     position: fixed;
     left: -240px;
+    overflow-y: auto;
   }
   .mini-sidebar .sidebar-footer {
     left: -240px;

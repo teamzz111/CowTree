@@ -98,7 +98,7 @@
     </div>
     <!-- End header header -->
     <!-- Left Sidebar  -->
-    <div class="left-sidebar">
+    <div class="left-sidebar" style = "overflow-y: auto;">
         <!-- Sidebar scroll-->
         <div class="scroll-sidebar">
             <!-- Sidebar navigation-->
