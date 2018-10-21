@@ -122,16 +122,16 @@
                     <?php endif; ?>
 
                     <li class="nav-label">MODIFICAR</li>
-                    <li> <a href="form-evaca.php" aria-expanded="true"><i class="fas fa-horse"></i><span class="hide-menu">Modificar
+                    <li> <a href="form-evaca.php" aria-expanded="true"><i class="fas fa-pen"></i><span class="hide-menu">Modificar
                                 ganado</span></a> </li>
                     <?php if($_SESSION['cargo'] == "administrador"): ?>
-                        <li> <a href="form-eganaderia.php" aria-expanded="true"><i class="fas fa-user"></i><span class="hide-menu">Modificar
+                        <li> <a href="form-eganaderia.php" aria-expanded="true"><i class="fas fa-pen"></i><span class="hide-menu">Modificar
                                     ganadería</span></a></li>
-                        <li> <a href="form-ebasic.php" aria-expanded="true"><i class="fas fa-place-of-worship"></i><span
+                        <li> <a href="form-ebasic.php" aria-expanded="true"><i class="fas fa-pen"></i><span
                                     class="hide-menu">Modificar ganadero</span></a></li>
                     <?php endif; ?>
                     <li class="nav-label">REPORTES</li>
-                       <li> <a href="form-reporte.php" aria-expanded="true"><i class="fas fa-user"></i><span class="hide-menu">
+                       <li> <a href="form-reporte.php" aria-expanded="true"><i class="fas fa-chart-pie"></i><span class="hide-menu">
                                     Ganado</span></a></li>
                     
 
