@@ -60,7 +60,7 @@
                                                 <?php echo $elemento['Herrado']; ?></span></td>
                                         <td>
                                             
-                                                <button type="button" class="btn btn-warning" onclick="location.href = 'pdf.php'">Generar</button>
+                                                <button type="button" class="btn btn-warning" onclick="location.href = 'pdf.php?id=<?php echo $elemento['Ejemplar'] ?>'">Generar</button>
                                            
                                         </td>
 
