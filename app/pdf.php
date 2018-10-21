@@ -94,7 +94,7 @@
                 <td>Es lindo</td>
             </tr>
         </table>
-    EOF;
+EOF;
 
     // output the HTML content
     $pdf->writeHTML($html, true, false, true, false, '');
@@ -113,53 +113,6 @@
 //============================================================+
 ?>
 		 
-        <!--
-        
-<!doctype html>
-<html lang="es">
-<head>
-<meta charset="utf-8">
-<title>Exportar a PDF - Miguel Angel Caro Rojas</title>
-<meta name="keywords" content="">
-<meta name="description" content="">
- Meta Mobil
-================================================== 
-<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
-</head>
 
-<body>
-	<div class="container-fluid">
-        <div class="row padding">
-        	<div class="col-md-12">
-
-            </div>
-        </div>
-    	<div class="row">
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>DNI</th>
-            <th>A. PATERNO</th>
-            <th>A. MATERNO</th>
-            <th>NOMBRES</th>
-            <th>AREA</th>
-            <th>SUELDO</th>
-          </tr>
-        </thead>
-        <tbody>
-
-        </tbody>
-      </table>
-              <div class="col-md-12">
-              	<form method="post">
-                	<input type="hidden" name="reporte_name" value="<?php ?>">
-                	<input type="submit" name="create_pdf" class="btn btn-danger pull-right" value="Generar PDF">
-                </form>
-              </div>
-      	</div>
-    </div>
-</body>
-</html>-->
+?>
