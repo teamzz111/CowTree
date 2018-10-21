@@ -116,6 +116,7 @@
             <!-- Sidebar navigation-->
             <nav class="sidebar-nav">
                 <ul id="sidebarnav">
+
                     <li class="nav-devider"></li>
                     <li class="nav-label">Inicio</li>
                     <li> <a href="index.php" aria-expanded="true"><i class="fa fa-tachometer"></i><span class="hide-menu">Panel
@@ -141,6 +142,10 @@
                         <li> <a href="form-ebasic.php" aria-expanded="true"><i class="fas fa-place-of-worship"></i><span
                                     class="hide-menu">Modificar ganadero</span></a></li>
                     <?php endif; ?>
+                    <li class="nav-label">REPORTES</li>
+                       <li> <a href="form-reporte.php" aria-expanded="true"><i class="fas fa-user"></i><span class="hide-menu">
+                                    Ganado</span></a></li>
+                    
 
         </div>
         <!-- End Sidebar scroll-->

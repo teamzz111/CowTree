@@ -1534,6 +1534,7 @@ textarea {
 }
 .fix-sidebar .left-sidebar {
   position: fixed;
+  overflow-y: auto;
 }
 .sidebar-footer {
   position: fixed;
