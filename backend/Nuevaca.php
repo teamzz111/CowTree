@@ -46,7 +46,7 @@
         if ($rs) { echo 'true';}
         else{echo 'false';}
         
-        $arbol="Arbol de $Nombre";
+        $arbol="Arbol de $Nombre";//holi
         if($Padre=="")
         {
             $query= "INSERT INTO arbol VALUES (0, '$arbol')";
