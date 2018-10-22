@@ -1,6 +1,6 @@
 <?php
 
-    require_once 'Conexion.php';
+    require_once ('Conexion.php');
     session_start();
 
     $Nombre = $_POST['nombre'];
@@ -72,8 +72,7 @@
             }
             else{echo 'false';}
         }
-        else 
-        }
+    }
 
     
         
