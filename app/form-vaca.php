@@ -30,7 +30,7 @@
                                     <input type="text" name="nombre" class="form-control" placeholder="Ingrese Nombre">
                                 </div>
                                 <div class="form-group">
-                                    <label>Ejemlar</label>
+                                    <label>Ejemplar</label>
                                     <input type="text" name="ejemplar" class="form-control" placeholder="Ingrese Ejemplar">
                                 </div>
                                 <div class="form-group">
@@ -95,20 +95,6 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Árbol ID</label>
-                                    <select data-placeholder="Elija un usuario o busque" id="arbol" name="arbol_id">
-                                            <?php 
-                                                $rs = $con->query("SELECT * FROM arbol"); 
-                                                while($row = $rs->fetch_array(MYSQLI_ASSOC)):
-                                            ?>
-                                            <option value="<?php echo $row['Id']; ?>">
-                                                   <?php echo$row['Nombre'];?>
-                                            </option>
-                                            <?php endwhile; ?>
-                                    </select>                                    
-                
-                                </div>
-                                <div class="form-group">
                                     <label>Ganaderia</label>
                                     <br>
                                     <select name="ganaderia_id" id="ganaderia_id">
@@ -143,10 +129,6 @@
                                 <div class="form-group">
                                     <label>Observadores</label>
                                     <input type="text" name="observadores" class="form-control" placeholder="Ingrese Observadores">
-                                </div>
-                                <div class="form-group">
-                                    <label>Pareja</label>
-                                    <input type="text" name="idpadre" class="form-control" placeholder="Ingrese Pareja">
                                 </div>
                                 <div class="form-group">
                                     <label>Padre</label>

@@ -42,7 +42,7 @@
                                         <option value="criador">Criador</option>
                                     </select> </div>
                                 <div class="form-group">
-                                    <label>Ganaderia</label>
+                                    <label>Ganadería</label>
                                     <select class="form-control" id="" name="ganaderia">
                                         <?php
                                                 $rs = $con->query('SELECT Nombre FROM ganaderia');
