@@ -115,9 +115,9 @@
                     <li> <a href="form-vaca.php" aria-expanded="true"><i class="fas fa-horse"></i><span class="hide-menu">Registrar
                                 ganado</span></a> </li>
                     <?php if($_SESSION['cargo'] == "administrador"): ?>
-                        <li> <a href="form-ganaderia.php" aria-expanded="true"><i class="fas fa-user"></i><span class="hide-menu">Registrar
+                        <li> <a href="form-basic.php" aria-expanded="true"><i class="fas fa-user"></i><span class="hide-menu">Registrar
                                     ganadero</span></a></li>
-                        <li> <a href="form-basic.php" aria-expanded="true"><i class="fas fa-place-of-worship"></i><span
+                        <li> <a href="form-ganaderia.php" aria-expanded="true"><i class="fas fa-place-of-worship"></i><span
                                     class="hide-menu">Registrar ganaderia</span></a></li>
                     <?php endif; ?>
 
