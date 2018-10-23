@@ -136,7 +136,7 @@ $(function () {
                 } else if (data == 'false') {
                     $(".exito").text("¡REGISTRO SIN ÉXITO, NO TENEMOS MÁS INFORMACIÓN");
                     $('.exito').fadeIn(2000, function () {
-                        window.location.reload(true);
+                    //    window.location.reload(true);
                     });
 
                 } else {
