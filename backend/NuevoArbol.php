@@ -14,15 +14,14 @@ session_start();
         else { echo 'false'; echo $con->error;}
         $Tree;
         $vaca = 1; //debe recibir el id de una vaca para generar el árbol de ella
-        $Padre;
 
         $pa=1;
-        while($pa<3) //LES PONE LOS NIVELES A LAS VACAS SEGÚN SUS PADRES
+        while($pa<3) //BUSCA LA VACA PADRE DE TODAS
         {
             $query1="SELECT IdPadre FROM vaca WHERE Ejemplar = '$vaca'";
             $resultado = $con->query($query1);
             if ($resultado->num_rows==0 || $pa==2) {
-                $query1="UPDATE vaca SET Nivel='1' WHERE Ejemplar = '$vaca'";
+                $query1="UPDATE vaca SET Nivel='1' WHERE Ejemplar = '$vaca'";            
                 $resultado1 = $con->query($query1);
                 $pa=3;
             }
@@ -45,35 +44,7 @@ session_start();
         $row = $result ->fetch_array(MYSQLI_ASSOC);
         $Tree= $row['Id'];//el id del Arbol que se acaba de crear
 
-        $pa=1;
-        while($pa<3) //LES PONE LOS NIVELES A LAS VACAS SEGÚN SUS PADRES
-        {
-            $query1="SELECT IdPadre FROM vaca WHERE Ejemplar = '$vaca'";//////////////////////////////en contruccion
-            $resultado = $con->query($query1);//////////////////////////////en contruccion
-            if ($resultado->num_rows==0 || $pa==2) {//////////////////////////////en contruccion
-                $query1="UPDATE vaca SET Nivel='1' WHERE Ejemplar = '$vaca'";//////////////////////////////en contruccion
-                $resultado1 = $con->query($query1);//////////////////////////////en contruccion
-                $pa=3;//////////////////////////////en contruccion
-            }
-            else
-            {//////////////////////////////en contruccion
-                $row = $resultado ->fetch_array(MYSQLI_ASSOC);
-                if($row['IdPadre']=='')    
-                {$pa=2;}//////////////////////////////en contruccion
-                else
-                {$vaca=$row['IdPadre'];}//////////////////////////////en contruccion
-            }
-        }
-        $query2 = "UPDATE vaca SET Arbol_Id= '$Tree' WHERE IdPadre= '$Padre'"; //////////////////////////////en contruccion
-        $result2=$con->query($query2); //////////////////////////////en contruccion
-        if ($result2) {echo 'true';}//////////////////////////////en contruccion
-        else {echo 'false'; }  //////////////////////////////en contruccion
 
-        
-
-     //   $query="SELECT IdPadre FROM vaca WHERE Arbol_Id=";
-
-        
 
         $query = "SELECT count(*) FROM vaca WHERE Arbol_Id= '$Tree'" ;
         $result = $con->query($query);
