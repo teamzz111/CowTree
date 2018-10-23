@@ -204,7 +204,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Nombre</th>
-                                        <th>Ubicación</th>
+                                        <th>Ubicacion</th>
                                         <th class="hidden-md-down">Divisa</th>
                                         <th class="hidden-md-down">Lineas</th>
             
@@ -212,7 +212,7 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $result = $con->query('SELECT Id, Nombre, Ubicación, Divisa, Encastes, Lineas FROM ganaderia LIMIT 10');
+                                    $result = $con->query('SELECT Id, Nombre, Ubicacion, Divisa, Encastes, Lineas FROM ganaderia LIMIT 10');
                                     while($elemento = $result-> fetch_array(MYSQLI_ASSOC)):
                                 ?>
                                     <tr>
@@ -226,7 +226,7 @@
                                                 } else {
                                                     echo $elemento['Nombre'];} ?></span></td>
                                         <td><span>
-                                                <?php echo $elemento['Ubicación']; ?></span></td>
+                                                <?php echo $elemento['Ubicacion']; ?></span></td>
                                         <td class="hidden-md-down"><span>
                                                 <?php echo $elemento['Divisa']; ?></span></td>
                                         <td class="hidden-md-down"><span>
