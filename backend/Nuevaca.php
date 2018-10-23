@@ -1,6 +1,6 @@
 <?php
 
-    require_once ('Conexion.php');
+    require_once 'Conexion.php';
     session_start();
 
     $Nombre = $_POST['nombre'];
@@ -40,14 +40,14 @@
     else{
         $query = "INSERT INTO vaca VALUES (
         '$Ejemplar','$Nombre' ,'$Estado','$Destino','$Edad','$Sexo','$Herrado','$Destetado','$fecha_nacimiento','$Encaste',
-        '$Reseña','','$Ganaderia','$Criador','$Fenotipo','$Defector','$Calificacion','$Comportamiento',
+        '$Reseña',''.'','$Ganaderia','$Criador','$Fenotipo','$Defector','$Calificacion','$Comportamiento',
         '$Observadores','$Padre',$Madre)";
         $rs = $con->query($query);
         if ($rs) { echo 'true';}
         else{echo 'false';}
         
         $arbol="Arbol de $Nombre";//holi
-        if($Padre=="")
+        if($Padre=='' && $Madre=='')
         {
             $query= "INSERT INTO arbol VALUES (0, '$arbol')";
             $rs=$con->query($query);
@@ -72,7 +72,40 @@
             }
             else{echo 'false';}
         }
-    }
+        else 
+        {
+            if($Padre!='')
+            {
+                $query="SELECT Arbol_IdP FROM vaca WHERE Ejemplar=$Padre";
+                $result = $con->query($query);
+                $row = $result ->fetch_array(MYSQLI_ASSOC);
+                $Tree = $row['Arbol_IdP'];
+                if($result)
+                {
+                    $query1="UPDATE vaca SET Arbol_IdP = '$Tree' WHERE Ejemplar='$Ejemplar'";
+                    $resul = $con->query($query1);
+                    $row = $resul ->fetch_array(MYSQLI_ASSOC);
+                    if($resul){echo true;}
+                    else {echo false;}
+                }
+            }
+            if($Madre!='')
+            {
+                $query="SELECT Arbol_IdP FROM vaca WHERE Ejemplar=$Madre";
+                $result = $con->query($query);
+                $row = $result ->fetch_array(MYSQLI_ASSOC);
+                $Tree = $row['Arbol_IdP'];
+                if($result)
+                {
+                    $query1="UPDATE vaca SET Arbol_IdM = '$Tree' WHERE Ejemplar='$Ejemplar'";
+                    $resul = $con->query($query1);
+                    $row = $resul ->fetch_array(MYSQLI_ASSOC);
+                    if($resul){echo true;}
+                    else {echo false;}
+                }
+            }
+        }        
+        }
 
     
         

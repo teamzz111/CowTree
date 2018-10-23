@@ -1,5 +1,5 @@
 <?php
-
+    
 $query = "SELECT count(*) FROM Vaca WHERE Arbol_Id= '$LAvariabledelarbolxd'" ;
 $result = $con->query($query);
 $row = $result ->fetch_array(MYSQLI_ASSOC);

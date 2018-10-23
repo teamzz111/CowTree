@@ -1,7 +1,7 @@
 <?php
   global $host, $db, $pass, $key, $user, $con;
   $host = "localhost";
-  $db = "mydb";
+  $db = "u532626708_cow";
   $pass = "";
   $user = "root";
   $key = "92AE31B89FEEB2A3"; //llave

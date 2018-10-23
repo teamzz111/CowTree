@@ -18,7 +18,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-title">
-                        <h4>Registro de ganado</h4>
+                        <h4>Registro de ganadería</h4>
                         <br>
                     </div>
                     <div class="card-body">
@@ -41,8 +41,8 @@
                                     <input type="text" name="encastes" class="form-control" placeholder="Ingrese encaste">
                                 </div>
                                 <div class="form-group">
-                                    <label>Lineas</label>
-                                    <input type="text" name="lineas" class="form-control" placeholder="Lineas">
+                                    <label>Líneas</label>
+                                    <input type="text" name="lineas" class="form-control" placeholder="Líneas">
                                 </div>
 
                                 <div class="exito" style="display: none; padding-bottom: 0.5em">
