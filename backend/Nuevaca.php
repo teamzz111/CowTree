@@ -59,7 +59,7 @@
                 }
                 else 
                 {
-                    echo $query;
+                  
                     $row = $result ->fetch_array(MYSQLI_ASSOC);
                     $Tree= $row['Id'];//el id del árbol que se acaba de crear
     
@@ -69,7 +69,7 @@
                     else{echo 'false';} 
                 }  
             }
-            else{echo 'false';}
+            else{echo 'false'; echo $con->error;}
         }
     }
 
