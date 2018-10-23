@@ -61,6 +61,14 @@
                                         <option value="no">No</option>
                                     </select>
                                 </div>
+                                                                <div class="form-group">
+                                    <label>Sexo</label>
+                                    <br>
+                                    <select name="sexo" id="" class="name">
+                                        <option value="macho">Macho</option>
+                                        <option value="hembra">Hembra</option>
+                                    </select>
+                                </div>
                                 <div class="form-group">
                                     <label>Fecha nacimiento</label>
                                     <input type="date" name="fecha_nacimiento" class="form-control" placeholder="Ingrese Fecha de nacimiento">
