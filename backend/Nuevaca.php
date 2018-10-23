@@ -67,7 +67,7 @@
                     else{echo 'false';} 
                 }  
             }
-            else{echo 'false';}
+            else{echo 'false'; echo $con->error;}
         }
         else 
         {
