@@ -65,14 +65,10 @@
                                     <label>Fecha nacimiento</label>
                                     <input type="date" name="fecha_nacimiento" class="form-control" placeholder="Ingrese Fecha de nacimiento">
                                 </div>
+                                </div>
                                 <div class="form-group">
                                     <label>Encaste</label>
-                                    <br>
-                                    <select name="encaste" id="" class="name">
-                                        <option value="sí">Sí</option>
-                                        <option value="no">No</option>
-                                    </select>
-
+                                    <input type="text" name="encaste" class="form-control" placeholder="Ingrese encaste">
                                 </div>
                                 <div class="form-group">
                                     <label>Sexo</label>
