@@ -105,7 +105,7 @@ $(function () {
                     });
 
                 } else {
-                    $(".exito").text("EL USUARIO YA SE ENCUENTRA REGISTRADO");
+                    $(".exito").text("EL EJEMPLAR YA SE ENCUENTRA REGISTRADO");
                     $('.exito').fadeIn(2000, function () {
                        // window.location.reload(true);
                     });
@@ -140,7 +140,7 @@ $(function () {
                     });
 
                 } else {
-                    $(".exito").text("EL USUARIO YA SE ENCUENTRA REGISTRADO");
+                    $(".exito").text("LA GANADERÍA YA SE ENCUENTRA REGISTRADA");
                     $('.exito').fadeIn(2000, function () {
                        // window.location.reload(true);
                     });

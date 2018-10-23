@@ -14,7 +14,6 @@
 	$fecha_nacimiento=$_POST["fecha_nacimiento"];
 	$Encaste=$_POST["encaste"];
 	$Reseña=$_POST["reseña"];
-	$Arbol_id=$_POST["arbol_id"];
 	$Ganaderia=$_POST["ganaderia_id"];
 	$Criador=$_POST["criador_id"];
 	$Fenotipo=$_POST["fenotipo"];
@@ -40,14 +39,14 @@
     else{
         $query = "INSERT INTO vaca VALUES (
         '$Ejemplar','$Nombre' ,'$Estado','$Destino','$Edad','$Sexo','$Herrado','$Destetado','$fecha_nacimiento','$Encaste',
-        '$Reseña','','$Ganaderia','$Criador','$Fenotipo','$Defector','$Calificacion','$Comportamiento',
+        '$Reseña','$Ganaderia','$Criador','$Fenotipo','$Defector','$Calificacion','$Comportamiento',
         '$Observadores','$Padre',$Madre)";
         $rs = $con->query($query);
         if ($rs) { echo 'true';}
         else{echo 'false';}
         
         $arbol="Arbol de $Nombre";//holi
-        if($Padre=="")
+        if($Padre=='' && $Madre=='')
         {
             $query= "INSERT INTO arbol VALUES (0, '$arbol')";
             $rs=$con->query($query);
