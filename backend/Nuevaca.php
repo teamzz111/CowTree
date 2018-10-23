@@ -47,7 +47,7 @@
         else{echo 'false';}
         
         $arbol="Arbol de $Nombre";//holi
-        if($Padre=="")
+        if($Padre=='' && $Madre=='')
         {
             $query= "INSERT INTO arbol VALUES (0, '$arbol')";
             $rs=$con->query($query);
@@ -73,6 +73,22 @@
             else{echo 'false';}
         }
         else 
+        {
+            if($Padre!='')
+            {
+                $query="SELECT Arbol_Id FROM vaca WHERE Ejemplar=$Padre";
+                $result = $con->query($query);
+                $row = $result ->fetch_array(MYSQLI_ASSOC);
+                $Tree = $row['Arbol_Id'];
+            }
+            if($Madre!='')
+            {
+                $query="SELECT Arbol_Id FROM vaca WHERE Ejemplar=$Madre";
+                $result = $con->query($query);
+                $row = $result ->fetch_array(MYSQLI_ASSOC);
+                $Tree = $row['Arbol_Id'];
+            }
+        }        
         }
 
     
