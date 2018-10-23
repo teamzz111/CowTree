@@ -132,7 +132,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Padre</label>
-                                    <input type="text" name="idpareja" class="form-control" placeholder="Ingrese Padre">
+                                    <input type="text" name="idpadre" class="form-control" placeholder="Ingrese Padre">
+                                </div>
+                                <div class="form-group">
+                                    <label>Madre</label>
+                                    <input type="text" name="idmadre" class="form-control" placeholder="Ingrese Madre">
                                 </div>
                                 <div class="exito" style="display: none; padding-bottom: 0.5em">
                                     <p>Usuario o contraseña incorrecta</p>
