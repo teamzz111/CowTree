@@ -63,6 +63,7 @@
     
                     $query1= "UPDATE vaca SET Arbol_IdP= '$Tree', Arbol_IdM='$Tree' WHERE Ejemplar='$Ejemplar'"; //introduce la vaca al árbol recien creado    
                     $rs = $con->query($query1);
+                    echo $query1;
                     if ($rs) { echo 'true';}
                     else{echo 'false';} 
                 }  
@@ -71,6 +72,8 @@
         }
         else 
         {
+            $res=false;
+            $res1=false;
             if($Padre!='')
             {
                 $query="SELECT Arbol_IdP FROM vaca WHERE Ejemplar=$Padre";
@@ -80,10 +83,8 @@
                 if($result)
                 {
                     $query1="UPDATE vaca SET Arbol_IdP = '$Tree' WHERE Ejemplar='$Ejemplar'";
-                    $resul = $con->query($query1);
-                    $row = $resul ->fetch_array(MYSQLI_ASSOC);
-                    if($resul){echo true;}
-                    else {echo false;}
+                    $res = $con->query($query1);
+                    if(!$res) {echo false;}
                 }
             }
             if($Madre!='')
@@ -95,12 +96,11 @@
                 if($result)
                 {
                     $query1="UPDATE vaca SET Arbol_IdM = '$Tree' WHERE Ejemplar='$Ejemplar'";
-                    $resul = $con->query($query1);
-                    $row = $resul ->fetch_array(MYSQLI_ASSOC);
-                    if($resul){echo true;}
-                    else {echo false;}
+                    $res1 = $con->query($query1);
+                    if(!$res1){echo false;}
                 }
             }
+            if($res || $res1) {echo "true";}
         }        
         }
         
