@@ -32,7 +32,7 @@
                                         <th class="hidden-md-down">Herrado</t>
                                         <th class="hidden-md-down">Destetado</th>
                                         <th>Modificar</th>
-                                        <th class = "hidden-xs-down">Borrar</th>
+                                     
 
                                     </tr>
                                 </thead>
@@ -64,9 +64,7 @@
                                                 <button type="button" class="btn btn-success" onclick="function(<?php echo $elemento['Ejemplar']; ?>)">Modificar</button>
                                            
                                         </td>
-                                        <td class = "hidden-xs-down">
-                                            <button type="button" class="btn btn-danger">Eliminar</button>
-                                        </td>
+
                                     </tr>
                                     <?php endwhile; ?>
                                 </tbody>

@@ -104,6 +104,10 @@ $(function () {
                         //window.location.reload(true);
                     });
 
+                } else if (data == 0){
+                    $(".exito").text("GANADO REPETIDO");
+                                
+                
                 } else {
                     $(".exito").text("EL EJEMPLAR YA SE ENCUENTRA REGISTRADO");
                     $('.exito').fadeIn(2000, function () {
@@ -114,7 +118,7 @@ $(function () {
             error: function (data) {
                 $(".exito").text("¡REGISTRO SIN ÉXITO, NO TENEMOS MÁS INFORMACIÓN");
                 $('.exito').fadeIn(2000, function () {
-                    window.location.reload(true);
+              ///      window.location.reload(true);
                 });
             }
         });

@@ -213,6 +213,7 @@
                                 <tbody>
                                     <?php
                                     $result = $con->query('SELECT Id, Nombre, Ubicacion, Divisa, Encastes, Lineas FROM ganaderia LIMIT 10');
+                                   
                                     while($elemento = $result-> fetch_array(MYSQLI_ASSOC)):
                                 ?>
                                     <tr>
