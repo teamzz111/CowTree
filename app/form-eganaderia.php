@@ -36,7 +36,7 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $result = $con->query('SELECT Id, Nombre, Ubicación, Divisa, Encastes, Lineas FROM ganaderia');
+                                    $result = $con->query('SELECT Id, Nombre, Ubicacion, Divisa, Encastes, Lineas FROM ganaderia');
                                     while($elemento = $result-> fetch_array(MYSQLI_ASSOC)):
                                 ?>
                                     <tr>
@@ -50,7 +50,7 @@
                                                 } else {
                                                     echo $elemento['Nombre'];} ?></span></td>
                                         <td class = "hidden-xs-down" ><span>
-                                                <?php echo $elemento['Ubicación']; ?></span></td>
+                                                <?php echo $elemento['Ubicacion']; ?></span></td>
                                         <td class = "hidden-sm-down"><span>
                                                 <?php echo $elemento['Divisa']; ?></span></td>
                                         <td class = "hidden-md-down"><span>

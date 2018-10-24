@@ -19,6 +19,7 @@
         }
         else {
             echo 'false';
+            echo $con->error;       
         }
     }
 ?>

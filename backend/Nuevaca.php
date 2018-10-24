@@ -34,7 +34,8 @@
     $resultado = $con->query($query1);
 
     if ($resultado->num_rows>0) {
-        echo ('ese id ya está registrado');
+        echo ('0');
+        exit;
     }
     else{
         $query = "INSERT INTO vaca VALUES (
@@ -63,7 +64,7 @@
     
                     $query1= "UPDATE vaca SET Arbol_IdP= '$Tree', Arbol_IdM='$Tree' WHERE Ejemplar='$Ejemplar'"; //introduce la vaca al árbol recien creado    
                     $rs = $con->query($query1);
-                    echo $query1;
+          
                     if ($rs) { echo 'true';}
                     else{echo 'false';} 
                 }  
