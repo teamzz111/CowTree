@@ -38,20 +38,19 @@
     }
     else{
         $query = "INSERT INTO vaca VALUES (
-        '$Ejemplar','$Nombre' ,'$Estado','','$Destino','$Edad','$Sexo','$Herrado','$Destetado','$fecha_nacimiento','$Encaste',
-        '$Reseña','','','$Ganaderia','$Criador','$Fenotipo','$Defector','$Calificacion','$Comportamiento',
+        '$Ejemplar','$Nombre' ,'$Estado','$Destino','$Edad','$Sexo','$Herrado','$Destetado','$fecha_nacimiento','$Encaste',
+        '$Reseña','$Ganaderia','$Criador','$Fenotipo','$Defector','$Calificacion','$Comportamiento',
         '$Observadores','$Padre','$Madre')";
         $rs = $con->query($query);
         if (!$rs) {echo 'false';}
         
         $arbol="Arbol de $Nombre";
-        if($Padre=='' && $Madre=='')
-        {
-            $query= "INSERT INTO arbol VALUES (0, '$arbol')";
+        
+            $query= "INSERT INTO arbol VALUES (0, '$arbol')";//SE CREA EL ÁRBOL DE LA VACA QUE SE ACABA DE INSERTAR
             $rs=$con->query($query);
-            if ($rs) // si la vaca que se acaba de crear no tiene padre, se crea un árbol y se le pone a la misma el id de ese arbol nuevo
+            if ($rs) 
             {
-                $query="SELECT Id FROM arbol ORDER BY ID DESC LIMIT 1"; //BUSCA EL ÚLTIMO ÁRBOL QUE FUE CREADO PARA METER LAS VACAS AHÍ
+                $query="SELECT Id FROM arbol ORDER BY ID DESC LIMIT 1"; //BUSCA EL ÚLTIMO ÁRBOL QUE FUE CREADO PARA METER LA VACAS AHÍ
                 $result= $con->query($query); 
                 if (!$result) {
                     trigger_error('Invalid query: ' . $con->error);
@@ -61,48 +60,54 @@
                     $row = $result ->fetch_array(MYSQLI_ASSOC);
                     $Tree= $row['Id'];//el id del árbol que se acaba de crear
     
-                    $query1= "UPDATE vaca SET Arbol_IdP= '$Tree', Arbol_IdM='$Tree' WHERE Ejemplar='$Ejemplar'"; //introduce la vaca al árbol recien creado    
+                    $query1= "INSERT INTO rama VALUES ('$Tree','$Ejemplar','1')"; //introduce la vaca al árbol recien creado    
                     $rs = $con->query($query1);
-                    if ($rs) { echo 'true';}
-                    else{echo 'false';} 
+                    if (!$rs){echo 'false';} 
                 }  
             }
             else{echo 'false'; echo $con->error;}
-        }
-        else 
-        {
+        
+        
+            $result=false;
+            $resul=false;
             if($Padre!='')
             {
-                $query="SELECT Arbol_IdP FROM vaca WHERE Ejemplar=$Padre";
+                $query="SELECT IdArbol FROM rama WHERE IdVaca='$Padre'";
                 $result = $con->query($query);
-                $row = $result ->fetch_array(MYSQLI_ASSOC);
-                $Tree = $row['Arbol_IdP'];
-                if($result)
+                echo $con->error;
+                while($fila=$result->fetch_array(MYSQLI_ASSOC))
                 {
-                    $query1="UPDATE vaca SET Arbol_IdP = '$Tree' WHERE Ejemplar='$Ejemplar'";
-                    $resul = $con->query($query1);
-                    $row = $resul ->fetch_array(MYSQLI_ASSOC);
-                    if($resul){echo true;}
-                    else {echo false;}
+                    $lel=$fila['IdArbol'];
+                    $query1="SELECT Nivel FROM rama WHERE IdArbol=$lel AND IdVaca=$Padre";
+                    $row = $result ->fetch_array(MYSQLI_ASSOC);
+                    $lvl = $row['Nivel']+1;
+                    
+                    $query1="INSERT INTO rama VALUES ('$lel','$Ejemplar','$lvl')";
+                    $result1 = $con->query($query);
+                    if(!$result1){echo "false";}
                 }
             }
             if($Madre!='')
             {
-                $query="SELECT Arbol_IdP FROM vaca WHERE Ejemplar=$Madre";
-                $result = $con->query($query);
-                $row = $result ->fetch_array(MYSQLI_ASSOC);
-                $Tree = $row['Arbol_IdP'];
-                if($result)
+                $query="SELECT IdArbol FROM rama WHERE IdVaca=$Madre";
+                $resul = $con->query($query);
+
+                while($fila=$resul->fetch_array(MYSQLI_ASSOC))
                 {
-                    $query1="UPDATE vaca SET Arbol_IdM = '$Tree' WHERE Ejemplar='$Ejemplar'";
-                    $resul = $con->query($query1);
+                    $lel=$fila['IdArbol'];
+                    $query1="SELECT Nivel FROM rama WHERE IdArbol=$lel AND IdVaca=$Madre";
                     $row = $resul ->fetch_array(MYSQLI_ASSOC);
-                    if($resul){echo true;}
-                    else {echo false;}
+                    $lvl = $row['Nivel']+1;
+                    
+                    $query1="INSERT INTO rama VALUES ('$lel','$Ejemplar','$lvl')";
+                    $result1 = $con->query($query);
+                    if(!$result1){echo "false";}
                 }
             }
+            if(($resul || $result) || $rs){echo "true";}
+            else {echo false;}
         }        
-        }
+        
         
     
 ?>
