@@ -1,10 +1,68 @@
-var graph = new joint.dia.Graph();
+<?php 
+
+require_once ('Conexion.php');
+session_start();
+
+//$Vaca=$_POST['vaca'];
+$Vaca=1;
+
+$query="SELECT * FROM rama WHERE IdVaca=$Vaca AND Nivel='1'";// busca el árbol en el que esta vaca es padre
+$result = $con->query($query);
+$row = $result ->fetch_array(MYSQLI_ASSOC);
+$Tree=$row['IdArbol'];
+
+$query="SELECT Nivel FROM rama WHERE IdArbol='$Tree' ORDER BY Nivel DESC LIMIT 1";//busca cuántos niveles hay viendo cuál es el de más abajo xddd
+$result=$con->query($query);
+$row=$result->fetch_array(MYSQLI_ASSOC);
+$Num=$row['Nivel'];
+echo $query;    
+echo "Número ->$Num <-";
+$a=array();   
+for($i=1; $i<=$Num; $i++)
+{
+    $query="SELECT count(*) FROM rama WHERE Nivel= '$i' AND IdArbol='$Tree'";//
+    $result=$con->query($query);
+    $row = $result ->fetch_array(MYSQLI_ASSOC);
+    array_push($a, $row['count(*)']);//Guarda en un array cuántas vacas hay en cada nivel
+}
+//buscar cuál tiene más vacas viendo cuál es el mayor número en el array a y su posición +1 será el nivel con más vacas,
+$x=$a[0];
+$y=0;
+for($i=1; $i<$Num; $i++)
+{
+    if($a[$i]>$x)
+    {
+        $x=$a[$i];
+        $y=$i;
+    }
+}
+$y++;
+/*AHORA Y TIENE ES EL NIVEL QUE TIENE MÁS VACAS Y X ES EL NÚMERO DE vacaS QUE TIENE ESE NIVEL
+EL ANCHO DEL DIV O LO QUE SEA DEPENDERÁ DE X, SERÁ UN ANCHO PARA QUE ESA CANTIDAD DE vacaS SE ACOMODEN
+*/
+$ancho= $x*190; //ESTE SERÁ EL ANCHO QUE DEBE TENER EJ MAIN.JS PARA QUE QUEPAN TODAS LAS vacaS
+?>
+<link rel="stylesheet" type="text/css" href="Arbol/joint.css" />
+<link rel="stylesheet" href="Arbol/style.css">
+
+<div style="width: 100%; overflow: scroll;">
+    <div style="width: 100%;" id="paper" class="lol" >
+
+    </div>
+</div>
+
+<script src="Arbol/jquery.js"></script>
+<script src="Arbol/lodash.js"></script>
+<script src="Arbol/backbone.js"></script>
+<script src="Arbol/joint.js"></script>
+<script>
+    var graph = new joint.dia.Graph();
 
 var paper = new joint.dia.Paper({
     el: $('#paper'),
-    width: 2000,
-    height: 600,
-    gridSize: 1,
+    width: '100%',
+    height:600,
+    gridSize: 5,
     model: graph,
     perpendicularLinks: true,
     restrictTranslate: true
@@ -37,7 +95,7 @@ function link(source, target, breakpoints) {
             '.connection': {
                 'fill': 'none',
                 'stroke-linejoin': 'round',
-                'stroke-width': '1',
+                'stroke-width': '2',
                 'stroke': '#4b4a67'
             }
         }
@@ -63,3 +121,9 @@ link(bart, lisa, [{x: 385, y: 180}, {x: 585, y: 180}]);
 link(homer, lenny, [{x:175 , y: 380}]);
 link(homer, carl, [{x:175 , y: 530}]);
 link(marge, maggie, [{x:385 , y: 380}]);
+</script>
+
+
+<?php
+
+?>

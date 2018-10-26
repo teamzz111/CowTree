@@ -70,52 +70,21 @@
         
             //$result=false;
             $resul=false;
+            $result=false;
             if($Padre!='')
-            {                
-               /* $query="SELECT count(*) FROM rama WHERE IdVaca='$Padre'";
-                $result=$con->query($query);
-                $row = $result ->fetch_array(MYSQLI_ASSOC);
-                $Numvacas = $row['count(*)'];
-                echo $Numvacas;*/
-
+            {    
                 $query="SELECT * FROM rama WHERE IdVaca=$Padre";
                 $result=$con->query($query);
-                $row = $result ->fetch_array(MYSQLI_ASSOC);
-                while ($row = mysqli_fetch_assoc($result))
+                
+                while ($row = $result->fetch_array(MYSQLI_ASSOC))
                 {
-                    $Tree=$row['IdArbol'];
                     $lvl=$row['Nivel']+1;
+                    $Tree=$row['IdArbol'];
                     $query1="INSERT INTO rama VALUES ('$Tree', '$Ejemplar', '$lvl')";
                     $resultado=$con->query($query1);
-                    if($resultado)
-                    {
-                        echo "FUNCIONA!";
-                    }
+                    echo $con->error;                 
+                    if(!$resultado) {echo "false";}
                 }
-
-                /*for($i=0; $i<$Numvacas; $i++)
-                {
-                    $query="SELECT IdArbol FROM rama WHERE IdVaca=$Padre";     
-                    $query"INSERT INTO rama VALUES ('$a[$i]','$Ejemplar',)";
-                    
-                }
-
-               /* 
-                
-                
-                while($fila=$result->fetch_array(MYSQLI_ASSOC))
-                {
-                    $lel=$fila['IdArbol'];
-                    $query="SELECT IdArbol FROM rama WHERE IdVaca=$Padre";
-                    echo $lel;
-                    $query1="SELECT Nivel FROM rama WHERE IdArbol=$lel AND IdVaca=$Padre";
-                    $row = $result ->fetch_array(MYSQLI_ASSOC);
-                    $lvl = $row['Nivel']+1;
-                    
-                    $query1="INSERT INTO rama VALUES ('$lel','$Ejemplar','$lvl')";
-                    $result1 = $con->query($query);
-                    if(!$result1){echo "false";}
-                }*/
             }
             if($Madre!='')
             {
@@ -135,8 +104,8 @@
                     if(!$result1){echo "false";}
                 }
             }
-            //if(($resul || $result) || $rs){echo "true";}
-            //else {echo false;}
+            if(($resul || $result) || $rs){echo "true";}
+            else {echo false;}
         }        
         
         
