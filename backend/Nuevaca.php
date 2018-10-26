@@ -68,16 +68,31 @@
             else{echo 'false'; echo $con->error;}
         
         
-            $result=false;
+            //$result=false;
             $resul=false;
             if($Padre!='')
-            {
-                $query="SELECT IdArbol FROM rama WHERE IdVaca='$Padre'";
-                $result = $con->query($query);
-                echo $con->error;
+            {                
+                $query="SELECT count(*) FROM rama WHERE IdVaca='$Padre'";
+                $result=$con->query($query);
+                $row = $result ->fetch_array(MYSQLI_ASSOC);
+                $Numvacas = $row['count(*)'];
+                echo $Numvacas;
+
+                /*for($i=0; $i<$Numvacas; $i++)
+                {
+                    $query="SELECT IdArbol FROM rama WHERE IdVaca=$Padre";     
+                    $query"INSERT INTO rama VALUES ('$a[$i]','$Ejemplar',)";
+                    
+                }
+
+               /* 
+                
+                
                 while($fila=$result->fetch_array(MYSQLI_ASSOC))
                 {
                     $lel=$fila['IdArbol'];
+                    $query="SELECT IdArbol FROM rama WHERE IdVaca=$Padre";
+                    echo $lel;
                     $query1="SELECT Nivel FROM rama WHERE IdArbol=$lel AND IdVaca=$Padre";
                     $row = $result ->fetch_array(MYSQLI_ASSOC);
                     $lvl = $row['Nivel']+1;
@@ -85,12 +100,13 @@
                     $query1="INSERT INTO rama VALUES ('$lel','$Ejemplar','$lvl')";
                     $result1 = $con->query($query);
                     if(!$result1){echo "false";}
-                }
+                }*/
             }
             if($Madre!='')
             {
                 $query="SELECT IdArbol FROM rama WHERE IdVaca=$Madre";
                 $resul = $con->query($query);
+                echo $con->error;
 
                 while($fila=$resul->fetch_array(MYSQLI_ASSOC))
                 {
@@ -104,8 +120,8 @@
                     if(!$result1){echo "false";}
                 }
             }
-            if(($resul || $result) || $rs){echo "true";}
-            else {echo false;}
+            //if(($resul || $result) || $rs){echo "true";}
+            //else {echo false;}
         }        
         
         

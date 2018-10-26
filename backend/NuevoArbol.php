@@ -8,52 +8,53 @@ session_start();
         if ($con->connect_error) {
             echo 'false';
         }
-        $query = "INSERT INTO arbol VALUES ('0','$Nombre')";
-        $rs = $con->query($query);
-        if ($rs) {echo 'true';}
-        else { echo 'false'; echo $con->error;}
         $Tree;
-        $vaca = 1; //debe recibir el id de una vaca para generar el árbol de ella
+        $vaca = $_POST['nombre']; //debe recibir el id de una vaca para generar el árbol de ella
+        $Seleccion=$_POST['seleccion'];
+        $result=false;
 
-        $pa=1;
-        while($pa<3) //BUSCA LA VACA PADRE DE TODAS
+        if($Seleccion=='Padre')
         {
-            $query1="SELECT IdPadre FROM vaca WHERE Ejemplar = '$vaca'";
-            $resultado = $con->query($query1);
-            if ($resultado->num_rows==0 || $pa==2) {
-                $query1="UPDATE vaca SET Nivel='1' WHERE Ejemplar = '$vaca'";            
-                $resultado1 = $con->query($query1);
-                $pa=3;
-            }
-            else
-            {
-                $row = $resultado ->fetch_array(MYSQLI_ASSOC);
-                if($row['IdPadre']=='')    
-                {$pa=2;}
-                else
-                {$vaca=$row['IdPadre'];}
-            }
+            $query="SELECT Id FROM arbol, vaca WHERE arbol.Id=vaca.Arbol_IdP AND vaca.Ejemplar=$vaca"; 
+            $result= $con->query($query); 
+            if (!$result)
+            { trigger_error('Invalid query: ' . $con->error); }   
         }
-
-        $query="SELECT Id FROM arbol ORDER BY ID DESC LIMIT 1"; //BUSCA EL ÚLTIMO ÁRBOL QUE FUE CREADO PARA METER LAS VACAS AHÍ
-        $result= $con->query($query); 
-        if (!$result) {
-            trigger_error('Invalid query: ' . $con->error);
-        }   
-        echo $query;
+        else
+        {
+            $query="SELECT Id FROM arbol, vaca WHERE arbol.Id=vaca.Arbol_IdM AND vaca.Ejemplar=$vaca"; 
+            $result= $con->query($query); 
+            if (!$result)
+            { trigger_error('Invalid query: ' . $con->error); } 
+        }
+        
         $row = $result ->fetch_array(MYSQLI_ASSOC);
-        $Tree= $row['Id'];//el id del Arbol que se acaba de crear
+        $Tree= $row['Id'];//el id del Arbol que el usuario escogió
 
 
+        ////////////////////////////////////////////////////*quizá así
+        /*
+         while ($fila = mysqli_fetch_assoc($resultado)) {
+                $encuesta = $fila['idEncuesta'];
+                $user = $_SESSION['username'];
+                $query = "SELECT * FROM Realizado WHERE IdEmpleado = '$user' AND IdEncuesta = '$encuesta'";
+                $nresultado = $con->query($query);
+                if($nresultado->num_rows == 0){
+                     $contador++;
+                     $array[] = array_map('html_entity_decode', $fila);
+                }
+            }*/
+        /////////////////////////////////////////////////////
 
-        $query = "SELECT count(*) FROM vaca WHERE Arbol_Id= '$Tree'" ;
+
+        $query = "SELECT count(*) FROM vaca WHERE Arbol_IdP= '$Tree' OR Arbol_IdM='$Tree'" ;
         $result = $con->query($query);
         $row = $result ->fetch_array(MYSQLI_ASSOC);
         $Numvacas = $row['count(*)'];//número de vacas en un arbol
         $lel=0;
         for($i=0; $i<$Numvacas; $i++)
         {
-            $query = "SELECT * from vaca WHERE Arbol_Id= '$Tree' ORDER BY Nivel ASC";//busca todas las vacas de ese arbol y busca sus padres
+            $query = "SELECT * from vaca WHERE Arbol_IdM= '$Tree' OR Arbol_IdP='$Tree' ORDER BY Nivel ASC";//busca todas las vacas de ese arbol y busca sus padres
             $result = $con->query($query);
             $row = $result ->fetch_array(MYSQLI_ASSOC);
             $Padre = $row['IdPadre'];
