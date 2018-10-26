@@ -72,11 +72,26 @@
             $resul=false;
             if($Padre!='')
             {                
-                $query="SELECT count(*) FROM rama WHERE IdVaca='$Padre'";
+               /* $query="SELECT count(*) FROM rama WHERE IdVaca='$Padre'";
                 $result=$con->query($query);
                 $row = $result ->fetch_array(MYSQLI_ASSOC);
                 $Numvacas = $row['count(*)'];
-                echo $Numvacas;
+                echo $Numvacas;*/
+
+                $query="SELECT * FROM rama WHERE IdVaca=$Padre";
+                $result=$con->query($query);
+                $row = $result ->fetch_array(MYSQLI_ASSOC);
+                while ($row = mysqli_fetch_assoc($result))
+                {
+                    $Tree=$row['IdArbol'];
+                    $lvl=$row['Nivel']+1;
+                    $query1="INSERT INTO rama VALUES ('$Tree', '$Ejemplar', '$lvl')";
+                    $resultado=$con->query($query1);
+                    if($resultado)
+                    {
+                        echo "FUNCIONA!";
+                    }
+                }
 
                 /*for($i=0; $i<$Numvacas; $i++)
                 {
