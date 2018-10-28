@@ -4,19 +4,22 @@ require_once ('Conexion.php');
 session_start();
 
 //$Vaca=$_POST['vaca'];
-$Vaca=1;
+$Vaca=2;
 
 $query="SELECT * FROM rama WHERE IdVaca=$Vaca AND Nivel='1'";// busca el árbol en el que esta vaca es padre
 $result = $con->query($query);
 $row = $result ->fetch_array(MYSQLI_ASSOC);
 $Tree=$row['IdArbol'];
 
+$query="SELECT count(*) FROM arbol WHERE Id=$Tree";// busca cuántas vacas hay en el árbol
+$result = $con->query($query);
+$row = $result ->fetch_array(MYSQLI_ASSOC);
+$Cant=$row['count(*)'];
+
 $query="SELECT Nivel FROM rama WHERE IdArbol='$Tree' ORDER BY Nivel DESC LIMIT 1";//busca cuántos niveles hay viendo cuál es el de más abajo xddd
 $result=$con->query($query);
 $row=$result->fetch_array(MYSQLI_ASSOC);
 $Num=$row['Nivel'];
-echo $query;    
-echo "Número ->$Num <-";
 $a=array();   
 for($i=1; $i<=$Num; $i++)
 {
@@ -40,7 +43,39 @@ $y++;
 /*AHORA Y TIENE ES EL NIVEL QUE TIENE MÁS VACAS Y X ES EL NÚMERO DE vacaS QUE TIENE ESE NIVEL
 EL ANCHO DEL DIV O LO QUE SEA DEPENDERÁ DE X, SERÁ UN ANCHO PARA QUE ESA CANTIDAD DE vacaS SE ACOMODEN
 */
-$ancho= $x*190; //ESTE SERÁ EL ANCHO QUE DEBE TENER EJ MAIN.JS PARA QUE QUEPAN TODAS LAS vacaS
+
+$ancho= ($x*190); //ESTE SERÁ EL ANCHO QUE DEBE TENER EJ MAIN.JS PARA QUE QUEPAN TODAS LAS vacaS
+echo "anchooooo $ ";
+
+///////////////////////
+$Niveles=array();
+
+    for($i=1; $i<=$Num; $i++)
+    {
+        $query1="SELECT * FROM rama WHERE IdArbol=$Tree AND Nivel=$i";
+        $result1=$con->query($query1);
+        while ($row = $result1->fetch_array(MYSQLI_ASSOC))
+        {
+            $les=$row['IdVaca'];
+            echo $les;
+            $query="SELECT * FROM vaca WHERE Ejemplar=$les";
+            echo $query;
+            $result=$con->query($query);
+            $row1 = $result->fetch_array(MYSQLI_ASSOC);
+            $Nombre=$row1['Nombre'];
+            print "<pre>"; 
+            echo "      LA VACA: $les";
+            print "<pre>"; 
+            //$Niveles["N$i"][]=$les;
+            $Niveles["$i"][$les]=$Nombre;
+            //$Niveles["Nombre$i"][]=$Nombre;
+        }
+    }
+print "<pre>"; 
+print_r($Niveles);
+print "</pre>";
+
+
 ?>
 <link rel="stylesheet" type="text/css" href="Arbol/joint.css" />
 <link rel="stylesheet" href="Arbol/style.css">
@@ -104,7 +139,14 @@ function link(source, target, breakpoints) {
     graph.addCell(cell);
     return cell;
 }
+<?php
+//foreach($Niveles)
 
+for ($i=1; $i<=$Cant; $i++)
+{
+    
+}
+?>
 var bart = member(300, 70, 'CEO', 'Bart Simpson', 'male.png', '#30d0c6');
 var homer = member(90, 200, 'VP Marketing', 'Homer Simpson', 'male.png', '#7c68fd', '#f1f1f1');
 var marge = member(300, 200, 'VP Sales', 'Marge Simpson', 'female.png', '#7c68fd', '#f1f1f1');
