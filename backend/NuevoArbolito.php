@@ -1,10 +1,23 @@
-<?php 
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="Arbol/joint.css" />
+    <link rel="stylesheet" href="Arbol/style.css">
+</head>
+
+<body>
+    <?php 
 
 require_once ('Conexion.php');
 session_start();
 
 //$Vaca=$_POST['vaca'];
-$Vaca=2;
+$Vaca=1;
 
 $query="SELECT * FROM rama WHERE IdVaca=$Vaca AND Nivel='1'";// busca el árbol en el que esta vaca es padre
 $result = $con->query($query);
@@ -50,122 +63,153 @@ echo "anchooooo $ ";
 ///////////////////////
 $Niveles=array();
 
-    for($i=1; $i<=$Num; $i++)
+for($i=1; $i<=$Num; $i++)
+{
+    $query1="SELECT * FROM rama WHERE IdArbol=$Tree AND Nivel=$i";
+    $result1=$con->query($query1);
+    while ($row = $result1->fetch_array(MYSQLI_ASSOC))
     {
-        $query1="SELECT * FROM rama WHERE IdArbol=$Tree AND Nivel=$i";
-        $result1=$con->query($query1);
-        while ($row = $result1->fetch_array(MYSQLI_ASSOC))
-        {
-            $les=$row['IdVaca'];
-            echo $les;
-            $query="SELECT * FROM vaca WHERE Ejemplar=$les";
-            echo $query;
-            $result=$con->query($query);
-            $row1 = $result->fetch_array(MYSQLI_ASSOC);
-            $Nombre=$row1['Nombre'];
-            print "<pre>"; 
-            echo "      LA VACA: $les";
-            print "<pre>"; 
-            //$Niveles["N$i"][]=$les;
-            $Niveles["$i"][$les]=$Nombre;
-            //$Niveles["Nombre$i"][]=$Nombre;
-        }
+        $les=$row['IdVaca'];
+        echo $les;
+        $query="SELECT * FROM vaca WHERE Ejemplar=$les";
+        echo $query;
+        $result=$con->query($query);
+        $row1 = $result->fetch_array(MYSQLI_ASSOC);
+        $Nombre=$row1['Nombre'];
+        print "<pre>"; 
+        echo "      LA VACA: $les";
+        print "<pre>"; 
+        $Niveles[$i][]=$les;
+        //$Niveles["$i"][$les]=$Nombre;
+        //$Niveles["Nombre$i"][]=$Nombre;
     }
+}
+
 print "<pre>"; 
 print_r($Niveles);
 print "</pre>";
-
-
 ?>
-<link rel="stylesheet" type="text/css" href="Arbol/joint.css" />
-<link rel="stylesheet" href="Arbol/style.css">
 
-<div style="width: 100%; overflow: scroll;">
-    <div style="width: 100%;" id="paper" class="lol" >
 
+    <div style="width: 100%; overflow: scroll;">
+        <div style="width: 100%;" id="paper" class="lol">
+
+        </div>
     </div>
-</div>
 
-<script src="Arbol/jquery.js"></script>
-<script src="Arbol/lodash.js"></script>
-<script src="Arbol/backbone.js"></script>
-<script src="Arbol/joint.js"></script>
-<script>
-    var graph = new joint.dia.Graph();
+    <script src="Arbol/jquery.js"></script>
+    <script src="Arbol/lodash.js"></script>
+    <script src="Arbol/backbone.js"></script>
+    <script src="Arbol/joint.js"></script>
+    <script>
+        var graph = new joint.dia.Graph();
 
-var paper = new joint.dia.Paper({
-    el: $('#paper'),
-    width: '100%',
-    height:600,
-    gridSize: 5,
-    model: graph,
-    perpendicularLinks: true,
-    restrictTranslate: true
-});
+        var paper = new joint.dia.Paper({
+            el: $('#paper'),
+            width: '100%',
+            height: 600,
+            gridSize: 5,
+            model: graph,
+            perpendicularLinks: true,
+            restrictTranslate: true
+        });
 
-var member = function(x, y, rank, name, image, background, textColor) {
+        var member = function (x, y, rank, name, image, background, textColor) {
 
-    textColor = textColor || "#000";
+            textColor = textColor || "#000";
 
-    var cell = new joint.shapes.org.Member({
-        position: { x: x, y: y },
-        attrs: {
-            '.card': { fill: background, stroke: 'none'},
-              image: { 'xlink:href': 'images/'+ image, opacity: 0.7 },
-            '.rank': { text: rank, fill: textColor, 'word-spacing': '-5px', 'letter-spacing': 0},
-            '.name': { text: name, fill: textColor, 'font-size': 13, 'font-family': 'Arial', 'letter-spacing': 0 }
+            var cell = new joint.shapes.org.Member({
+                position: {
+                    x: x,
+                    y: y
+                },
+                attrs: {
+                    '.card': {
+                        fill: background,
+                        stroke: 'none'
+                    },
+                    image: {
+                        'xlink:href': 'images/' + image,
+                        opacity: 0.7
+                    },
+                    '.rank': {
+                        text: rank,
+                        fill: textColor,
+                        'word-spacing': '-5px',
+                        'letter-spacing': 0
+                    },
+                    '.name': {
+                        text: name,
+                        fill: textColor,
+                        'font-size': 13,
+                        'font-family': 'Arial',
+                        'letter-spacing': 0
+                    }
+                }
+            });
+            graph.addCell(cell);
+            return cell;
+        };
+
+        function link(source, target, breakpoints) {
+
+            var cell = new joint.shapes.org.Arrow({
+                source: {
+                    id: source.id
+                },
+                target: {
+                    id: target.id
+                },
+                vertices: breakpoints,
+                attrs: {
+                    '.connection': {
+                        'fill': 'none',
+                        'stroke-linejoin': 'round',
+                        'stroke-width': '2',
+                        'stroke': '#4b4a67'
+                    }
+                }
+
+            });
+            graph.addCell(cell);
+            return cell;
         }
-    });
-    graph.addCell(cell);
-    return cell;
-};
 
-function link(source, target, breakpoints) {
-
-    var cell = new joint.shapes.org.Arrow({
-        source: { id: source.id },
-        target: { id: target.id },
-        vertices: breakpoints,
-        attrs: {
-            '.connection': {
-                'fill': 'none',
-                'stroke-linejoin': 'round',
-                'stroke-width': '2',
-                'stroke': '#4b4a67'
-            }
-        }
-
-    });
-    graph.addCell(cell);
-    return cell;
-}
-<?php
-//foreach($Niveles)
-
-for ($i=1; $i<=$Cant; $i++)
+</script>
+        <?php
+echo "VERGAAAAAAA";
+for ($i=1;  $i<=$Num; $i++)
 {
-    
+    foreach($Niveles as $i=>$valor)
+    {
+        $Alto=$i*100;
+        foreach($valor as $t=>$g)
+        {
+        ?>
+        <script>var <?php echo "v$g";?> = member(300, <?php echo $Alto;?>, 'CEO', '<?php echo $g;?>', 'male.png', '#30d0c6');</script>
+        <?php
+        } 
+    }
 }
 ?>
-var bart = member(300, 70, 'CEO', 'Bart Simpson', 'male.png', '#30d0c6');
-var homer = member(90, 200, 'VP Marketing', 'Homer Simpson', 'male.png', '#7c68fd', '#f1f1f1');
-var marge = member(300, 200, 'VP Sales', 'Marge Simpson', 'female.png', '#7c68fd', '#f1f1f1');
-var lisa = member(500, 200, 'VP Production' , 'Lisa Simpson', 'female.png', '#7c68fd', '#f1f1f1');
-var maggie = member(400, 350, 'Manager', 'Maggie Simpson', 'female.png', '#feb563');
-var lenny = member(190, 350, 'Manager', 'Lenny Leonard', 'male.png', '#feb563');
-var carl = member(190, 500, 'Manager', 'Carl Carlson', 'male.png', '#feb563');
+<script>
+link(v1, v07, [{x: 385, y: 180}]);
+        /*
+        var bart = member(300, 70, 'CEO', 'Bart Simpson', 'male.png', '#30d0c6');
+        var homer = member(90, 200, 'VP Marketing', 'Homer Simpson', 'male.png', '#7c68fd', '#f1f1f1');
+        var marge = member(300, 200, 'VP Sales', 'Marge Simpson', 'female.png', '#7c68fd', '#f1f1f1');
+        var lisa = member(500, 200, 'VP Production' , 'Lisa Simpson', 'female.png', '#7c68fd', '#f1f1f1');
+        var maggie = member(400, 350, 'Manager', 'Maggie Simpson', 'female.png', '#feb563');
+        var lenny = member(190, 350, 'Manager', 'Lenny Leonard', 'male.png', '#feb563');
+        var carl = member(190, 500, 'Manager', 'Carl Carlson', 'male.png', '#feb563');
 
-
-
-link(bart, marge, [{x: 385, y: 180}]);
-link(bart, homer, [{x: 385, y: 180}, {x: 175, y: 180}]);
-link(bart, lisa, [{x: 385, y: 180}, {x: 585, y: 180}]);
-link(homer, lenny, [{x:175 , y: 380}]);
-link(homer, carl, [{x:175 , y: 530}]);
-link(marge, maggie, [{x:385 , y: 380}]);
-</script>
-
-
-<?php
-
+       
+        link(bart, homer, [{x: 385, y: 180}, {x: 175, y: 180}]);
+        link(bart, lisa, [{x: 385, y: 180}, {x: 585, y: 180}]);
+        link(homer, lenny, [{x:175 , y: 380}]);
+        link(homer, carl, [{x:175 , y: 530}]);
+        link(marge, maggie, [{x:385 , y: 380}]);*/
+    </script>
+</body>
+<?php 
 ?>
