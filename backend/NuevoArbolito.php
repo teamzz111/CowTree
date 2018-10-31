@@ -63,7 +63,7 @@ echo "anchooooo $ ";
 ///////////////////////
 $Niveles=array();
 
-for($i=1; $i<=$Num; $i++)
+for($i=1; $i<=$Num; $i++)//guarda en un array todas las vacas
 {
     $query1="SELECT * FROM rama WHERE IdArbol=$Tree AND Nivel=$i";
     $result1=$con->query($query1);
@@ -85,6 +85,24 @@ for($i=1; $i<=$Num; $i++)
     }
 }
 
+for($i=1; $i<$Num; $i++)
+{
+    $N=1;
+    $query1="SELECT idVaca FROM rama WHERE Nivel=$i AND IdArbol= $Tree";
+    $result1=$con->query($query1);
+    while ($row1 = $result1->fetch_array(MYSQLI_ASSOC))
+    {
+        $query="SELECT Ejemplar FROM arbol WHERE IdPadre=$row['IdVaca']";
+        $result=$con->query($query);
+        while ($row = $result->fetch_array(MYSQLI_ASSOC))
+        {
+            $query2="UPDATE rama SET posicion=$N WHERE IdVaca=$row[Ejemplar] AND IdArbol=$Tree AND Nivel=$i";
+            $resultado=$con->query($query2);            
+            if(!$resultado) {echo "false";}
+        }
+    }
+}
+
 print "<pre>"; 
 print_r($Niveles);
 print "</pre>";
@@ -92,6 +110,7 @@ print "</pre>";
 
 
     <div style="width: 100%; overflow: scroll;">
+
         <div style="width: 100%;" id="paper" class="lol">
 
         </div>
