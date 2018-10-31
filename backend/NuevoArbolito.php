@@ -58,33 +58,9 @@ EL ANCHO DEL DIV O LO QUE SEA DEPENDERÁ DE X, SERÁ UN ANCHO PARA QUE ESA CANTI
 */
 
 $ancho= ($x*190); //ESTE SERÁ EL ANCHO QUE DEBE TENER EJ MAIN.JS PARA QUE QUEPAN TODAS LAS vacaS
-echo "anchooooo $ ";
+
 
 ///////////////////////
-$Niveles=array();
-
-for($i=1; $i<=$Num; $i++)//guarda en un array todas las vacas
-{
-    $query1="SELECT * FROM rama WHERE IdArbol=$Tree AND Nivel=$i";
-    $result1=$con->query($query1);
-    while ($row = $result1->fetch_array(MYSQLI_ASSOC))
-    {
-        $les=$row['IdVaca'];
-        echo $les;
-        $query="SELECT * FROM vaca WHERE Ejemplar=$les";
-        echo $query;
-        $result=$con->query($query);
-        $row1 = $result->fetch_array(MYSQLI_ASSOC);
-        $Nombre=$row1['Nombre'];
-        print "<pre>"; 
-        echo "      LA VACA: $les";
-        print "<pre>"; 
-        $Niveles[$i][]=$les;
-        //$Niveles["$i"][$les]=$Nombre;
-        //$Niveles["Nombre$i"][]=$Nombre;
-    }
-}
-
 for($i=1; $i<$Num; $i++)
 {
     $N=1;
@@ -93,20 +69,44 @@ for($i=1; $i<$Num; $i++)
     while ($row1 = $result1->fetch_array(MYSQLI_ASSOC))
     {
         $okii= $row1['IdVaca'];
-        $query="SELECT Ejemplar FROM arbol WHERE IdPadre=$okii";
+        $query="SELECT Ejemplar FROM vaca WHERE IdPadre=$okii";
         $result=$con->query($query);
         while ($row = $result->fetch_array(MYSQLI_ASSOC))
         {
-            $query2="UPDATE rama SET posicion=$N WHERE IdVaca=$row[Ejemplar] AND IdArbol=$Tree AND Nivel=$i";
+            $nivel=$i+1;
+            $query2="UPDATE rama SET posicion=$N WHERE IdVaca=$row[Ejemplar] AND IdArbol=$Tree AND Nivel=$nivel";
+            $N++;
+            ECHO $query2;
+            print "</pre>";
             $resultado=$con->query($query2);            
             if(!$resultado) {echo "false";}
         }
     }
 }
 
+$Niveles=array();
+
+for($i=1; $i<=$Num; $i++)//guarda en un array todas las vacas en orden según sus padres
+{
+    $N=1;
+    $query1="SELECT * FROM rama WHERE IdArbol=$Tree AND Nivel=$i ORDER BY posicion ASC";
+    $result1=$con->query($query1);
+    while ($row = $result1->fetch_array(MYSQLI_ASSOC))
+    {
+        $les=$row['IdVaca'];
+        $query="SELECT * FROM vaca WHERE Ejemplar=$les";
+        $result=$con->query($query);
+        $row1 = $result->fetch_array(MYSQLI_ASSOC);
+        $Nombre=$row1['Nombre'];
+        $Niveles[$i][]=$les;
+    }
+}
 print "<pre>"; 
 print_r($Niveles);
 print "</pre>";
+
+
+
 ?>
 
 
@@ -197,7 +197,6 @@ print "</pre>";
 
 </script>
         <?php
-echo "VERGAAAAAAA";
 for ($i=1;  $i<=$Num; $i++)
 {
     foreach($Niveles as $i=>$valor)
@@ -205,15 +204,23 @@ for ($i=1;  $i<=$Num; $i++)
         $Alto=$i*100;
         foreach($valor as $t=>$g)
         {
+            $query="SELECT r.posicion, a.Nombre FROM rama as r, vaca as a WHERE r.IdVaca=$g and r.IdArbol=$Tree and a.Ejemplar=$g";
+            $result=$con->query($query);
+            $row1 = $result->fetch_array(MYSQLI_ASSOC);
+            $p=$row1['posicion'];
+            $vaquita=$row1['Nombre'];
+            if($p==1){ $posicion=($ancho/sizeof($valor))/2;}
+            else { $posicion+=($ancho/sizeof($valor));}
+            
         ?>
-        <script>var <?php echo "v$g";?> = member(300, <?php echo $Alto;?>, 'CEO', '<?php echo $g;?>', 'male.png', '#30d0c6');</script>
+        <script>var <?php echo "v$g";?> = member(<?php echo "$posicion, $Alto";?>, 'CEO', '<?php echo $vaquita;?>', 'male.png', '#30d0c6');</script>
         <?php
         } 
     }
 }
 ?>
 <script>
-link(v1, v07, [{x: 385, y: 180}]);
+//link(v1, v07, [{x: 385, y: 180}]);
         /*
         var bart = member(300, 70, 'CEO', 'Bart Simpson', 'male.png', '#30d0c6');
         var homer = member(90, 200, 'VP Marketing', 'Homer Simpson', 'male.png', '#7c68fd', '#f1f1f1');

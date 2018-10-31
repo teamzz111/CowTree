@@ -60,7 +60,7 @@
                     $row = $result ->fetch_array(MYSQLI_ASSOC);
                     $Tree= $row['Id'];//el id del árbol que se acaba de crear
     
-                    $query1= "INSERT INTO rama VALUES ('$Tree','$Ejemplar','1')"; //introduce la vaca al árbol recien creado    
+                    $query1= "INSERT INTO rama VALUES ('$Tree','$Ejemplar','1','1')"; //introduce la vaca al árbol recien creado    
                     $rs = $con->query($query1);
                     if (!$rs){echo 'false';} 
                 }  
@@ -80,7 +80,7 @@
                 {
                     $lvl=$row['Nivel']+1;
                     $Tree=$row['IdArbol'];
-                    $query1="INSERT INTO rama VALUES ('$Tree', '$Ejemplar', '$lvl')";
+                    $query1="INSERT INTO rama VALUES ('$Tree', '$Ejemplar', '$lvl','')";
                     $resultado=$con->query($query1);
                     echo $con->error;                 
                     if(!$resultado) {echo "false";}
@@ -99,7 +99,7 @@
                     $row = $resul ->fetch_array(MYSQLI_ASSOC);
                     $lvl = $row['Nivel']+1;
                     
-                    $query1="INSERT INTO rama VALUES ('$lel','$Ejemplar','$lvl')";
+                    $query1="INSERT INTO rama VALUES ('$lel','$Ejemplar','$lvl','')";
                     $result1 = $con->query($query);
                     if(!$result1){echo "false";}
                 }
