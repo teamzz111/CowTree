@@ -26,7 +26,7 @@ $Tree=$row['IdArbol'];
 
 $query="SELECT count(*) FROM arbol WHERE Id=$Tree";// busca cuántas vacas hay en el árbol
 $result = $con->query($query);
-$row = $result ->fetch_array(MYSQLI_ASSOC);
+$row = $result->fetch_array(MYSQLI_ASSOC);
 $Cant=$row['count(*)'];
 
 $query="SELECT Nivel FROM rama WHERE IdArbol='$Tree' ORDER BY Nivel DESC LIMIT 1";//busca cuántos niveles hay viendo cuál es el de más abajo xddd
@@ -88,11 +88,12 @@ for($i=1; $i<=$Num; $i++)//guarda en un array todas las vacas
 for($i=1; $i<$Num; $i++)
 {
     $N=1;
-    $query1="SELECT idVaca FROM rama WHERE Nivel=$i AND IdArbol= $Tree";
+    $query1="SELECT IdVaca FROM rama WHERE Nivel=$i AND IdArbol= $Tree";
     $result1=$con->query($query1);
     while ($row1 = $result1->fetch_array(MYSQLI_ASSOC))
     {
-        $query="SELECT Ejemplar FROM arbol WHERE IdPadre=$row['IdVaca']";
+        $okii= $row1['IdVaca'];
+        $query="SELECT Ejemplar FROM arbol WHERE IdPadre=$okii";
         $result=$con->query($query);
         while ($row = $result->fetch_array(MYSQLI_ASSOC))
         {
