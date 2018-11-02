@@ -19,6 +19,9 @@ session_start();
 //$Vaca=$_POST['vaca'];
 $Vaca=1;
 
+$query="UPDATE rama SET posicion=1 WHERE IdVaca=$Vaca AND Nivel='1'";// busca el árbol en el que esta vaca es padre
+$result=$con->query($query);   
+
 $query="SELECT * FROM rama WHERE IdVaca=$Vaca AND Nivel='1'";// busca el árbol en el que esta vaca es padre
 $result = $con->query($query);
 $row = $result ->fetch_array(MYSQLI_ASSOC);
@@ -197,6 +200,7 @@ print "</pre>";
 
 </script>
         <?php
+        $posicion=0;
 for ($i=1;  $i<=$Num; $i++)
 {
     foreach($Niveles as $i=>$valor)
@@ -204,22 +208,38 @@ for ($i=1;  $i<=$Num; $i++)
         $Alto=$i*100;
         foreach($valor as $t=>$g)
         {
-            $query="SELECT r.posicion, a.Nombre FROM rama as r, vaca as a WHERE r.IdVaca=$g and r.IdArbol=$Tree and a.Ejemplar=$g";
+            $query="SELECT r.posicion, a.Nombre, a.IdPadre FROM rama as r, vaca as a WHERE r.IdVaca=$g and r.IdArbol=$Tree and a.Ejemplar=$g";
             $result=$con->query($query);
             $row1 = $result->fetch_array(MYSQLI_ASSOC);
             $p=$row1['posicion'];
+            $papu=$row1['IdPadre'];
             $vaquita=$row1['Nombre'];
-            if($p==1){ $posicion=($ancho/sizeof($valor))/2;}
-            else { $posicion+=($ancho/sizeof($valor));}
-            
+            if($p==1 && $i==1){ $posicion=($ancho/sizeof($valor))/2;}
+            else
+            {   
+                if ($p==1){$posicion=($ancho/sizeof($valor))/2;}
+                else {$posicion+=($ancho/sizeof($valor));}
+                $query2="SELECT posicion FROM rama WHERE IdVaca=$papu AND IdArbol=$Tree";
+                $res=$con->query($query2);
+                $ro=$res->fetch_array(MYSQLI_ASSOC);
+                $pp=$ro['posicion'];
+            }
+            $query2="UPDATE rama SET posicion=$posicion WHERE IdVaca=$g AND IdArbol=$Tree";
+            $result1=$con->query($query2);
+            echo "VACAAA $vaquita LA ESTÚPIDA I ES $i"; 
+            print "<pre>";
         ?>
         <script>var <?php echo "v$g";?> = member(<?php echo "$posicion, $Alto";?>, 'CEO', '<?php echo $vaquita;?>', 'male.png', '#30d0c6');</script>
+        <?php 
+        if ($i>1) {?>  <script>  link(<?php echo "v$papu";?>,<?php echo "v$g";?>, [{x: <?php echo $pp+95;?>, y: <?php echo $Alto-15;?>}, {x:<?php echo $posicion+95;?> , y: <?php echo $Alto-15;?>}]); </script> <?php } ?>
+        
         <?php
         } 
     }
 }
 ?>
 <script>
+
 //link(v1, v07, [{x: 385, y: 180}]);
         /*
         var bart = member(300, 70, 'CEO', 'Bart Simpson', 'male.png', '#30d0c6');
@@ -231,7 +251,7 @@ for ($i=1;  $i<=$Num; $i++)
         var carl = member(190, 500, 'Manager', 'Carl Carlson', 'male.png', '#feb563');
 
        
-        link(bart, homer, [{x: 385, y: 180}, {x: 175, y: 180}]);
+        
         link(bart, lisa, [{x: 385, y: 180}, {x: 585, y: 180}]);
         link(homer, lenny, [{x:175 , y: 380}]);
         link(homer, carl, [{x:175 , y: 530}]);
