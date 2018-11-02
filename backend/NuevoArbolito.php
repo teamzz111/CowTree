@@ -67,7 +67,7 @@ $ancho= ($x*190); //ESTE SERÁ EL ANCHO QUE DEBE TENER EJ MAIN.JS PARA QUE QUEPA
 for($i=1; $i<$Num; $i++)
 {
     $N=1;
-    $query1="SELECT IdVaca FROM rama WHERE Nivel=$i AND IdArbol= $Tree";
+    $query1="SELECT IdVaca FROM rama WHERE Nivel=$i AND IdArbol= $Tree ORDER BY posicion ASC";
     $result1=$con->query($query1);
     while ($row1 = $result1->fetch_array(MYSQLI_ASSOC))
     {
@@ -76,10 +76,12 @@ for($i=1; $i<$Num; $i++)
         $result=$con->query($query);
         while ($row = $result->fetch_array(MYSQLI_ASSOC))
         {
+            $ejemplar=$row['Ejemplar'];
             $nivel=$i+1;
-            $query2="UPDATE rama SET posicion=$N WHERE IdVaca=$row[Ejemplar] AND IdArbol=$Tree AND Nivel=$nivel";
+            $query2="UPDATE rama SET posicion=$N WHERE IdVaca=$ejemplar AND IdArbol=$Tree AND Nivel=$nivel";
             $N++;
-            ECHO $query2;
+            print "<pre>";
+            echo $query2;
             print "</pre>";
             $resultado=$con->query($query2);            
             if(!$resultado) {echo "false";}
@@ -136,7 +138,7 @@ print "</pre>";
             perpendicularLinks: true,
             restrictTranslate: true
         });
-
+        console.log(paper);
         var member = function (x, y, rank, name, image, background, textColor) {
 
             textColor = textColor || "#000";
@@ -224,9 +226,9 @@ for ($i=1;  $i<=$Num; $i++)
                 $ro=$res->fetch_array(MYSQLI_ASSOC);
                 $pp=$ro['posicion'];
             }
+            //if($g==8 || $g==3) {$posicion+=200; $Alto+=10;}
             $query2="UPDATE rama SET posicion=$posicion WHERE IdVaca=$g AND IdArbol=$Tree";
             $result1=$con->query($query2);
-            echo "VACAAA $vaquita LA ESTÚPIDA I ES $i"; 
             print "<pre>";
         ?>
         <script>var <?php echo "v$g";?> = member(<?php echo "$posicion, $Alto";?>, 'CEO', '<?php echo $vaquita;?>', 'male.png', '#30d0c6');</script>
