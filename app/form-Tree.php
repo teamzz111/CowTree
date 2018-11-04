@@ -20,7 +20,7 @@
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-title">
-                        <h4>Ganaderos registrados</h4>
+                        <h4>Árbol genealógico</h4>
                     </div>
                     <div class="card-body">
                     <?php 
