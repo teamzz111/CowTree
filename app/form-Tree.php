@@ -237,7 +237,6 @@ for ($i=1;  $i<=$Num; $i++)
             //if($g==8 || $g==3) {$posicion+=200; $Alto+=10;}
             $query2="UPDATE rama SET posicion=$posicion WHERE IdVaca=$g AND IdArbol=$Tree";
             $result1=$con->query($query2);
-            print "<pre>";
         ?>
         <script>var <?php echo "v$g";?> = member(<?php echo "$posicion, $Alto";?>, 'CEO', '<?php echo $vaquita;?>', 'male.png', '#30d0c6');</script>
         <?php 
