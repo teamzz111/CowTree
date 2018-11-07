@@ -88,20 +88,17 @@
             }
             if($Madre!='')
             {
-                $query="SELECT IdArbol FROM rama WHERE IdVaca=$Madre";
-                $resul = $con->query($query);
-                echo $con->error;
-
-                while($fila=$resul->fetch_array(MYSQLI_ASSOC))
+                $query="SELECT * FROM rama WHERE IdVaca=$Madre";
+                $result=$con->query($query);
+                
+                while ($row = $result->fetch_array(MYSQLI_ASSOC))
                 {
-                    $lel=$fila['IdArbol'];
-                    $query1="SELECT Nivel FROM rama WHERE IdArbol=$lel AND IdVaca=$Madre";
-                    $row = $resul ->fetch_array(MYSQLI_ASSOC);
-                    $lvl = $row['Nivel']+1;
-                    
-                    $query1="INSERT INTO rama VALUES ('$lel','$Ejemplar','$lvl','')";
-                    $result1 = $con->query($query);
-                    if(!$result1){echo "false";}
+                    $lvl=$row['Nivel']+1;
+                    $Tree=$row['IdArbol'];
+                    $query1="INSERT INTO rama VALUES ('$Tree', '$Ejemplar', '$lvl','')";
+                    $resultado=$con->query($query1);
+                    echo $con->error;                 
+                    if(!$resultado) {echo "false";}
                 }
             }
             if(($resul || $result) || $rs){echo "true";}

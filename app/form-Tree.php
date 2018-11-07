@@ -82,7 +82,7 @@ for($i=1; $i<$Num; $i++)
     while ($row1 = $result1->fetch_array(MYSQLI_ASSOC))
     {
         $okii= $row1['IdVaca'];
-        $query="SELECT Ejemplar FROM vaca WHERE IdPadre=$okii";
+        $query="SELECT Ejemplar FROM vaca WHERE IdPadre=$okii OR IdMadre=$okii";
         $result=$con->query($query);
         while ($row = $result->fetch_array(MYSQLI_ASSOC))
         {
@@ -209,11 +209,20 @@ for ($i=1;  $i<=$Num; $i++)
         $Alto=$i*100;
         foreach($valor as $t=>$g)
         {
-            $query="SELECT r.posicion, a.Nombre, a.IdPadre FROM rama as r, vaca as a WHERE r.IdVaca=$g and r.IdArbol=$Tree and a.Ejemplar=$g";
+            $query="SELECT r.posicion, a.Nombre, a.IdPadre, a.IdMadre FROM rama as r, vaca as a WHERE r.IdVaca=$g and r.IdArbol=$Tree and a.Ejemplar=$g";
             $result=$con->query($query);
             $row1 = $result->fetch_array(MYSQLI_ASSOC);
             $p=$row1['posicion'];
             $papu=$row1['IdPadre'];
+            $query1="SELECT * FROM rama WHERE IdVaca=$papu";
+            $resultado = $con->query($query1);
+            if ($papu=="" || !$resultado) {
+                $papu=$row1['IdMadre'];
+            }
+            else if ($resultado->num_rows<1)
+            {
+                $papu=$row1['IdMadre'];
+            }
             $vaquita=$row1['Nombre'];
             if($p==1 && $i==1){ $posicion=($ancho/sizeof($valor))/2;}
             else
@@ -225,6 +234,7 @@ for ($i=1;  $i<=$Num; $i++)
                 $ro=$res->fetch_array(MYSQLI_ASSOC);
                 $pp=$ro['posicion'];
             }
+            //if($g==8 || $g==3) {$posicion+=200; $Alto+=10;}
             $query2="UPDATE rama SET posicion=$posicion WHERE IdVaca=$g AND IdArbol=$Tree";
             $result1=$con->query($query2);
             print "<pre>";
