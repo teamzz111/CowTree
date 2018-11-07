@@ -133,7 +133,7 @@
                     <li class="nav-label">REPORTES</li>
                        <li> <a href="form-reporte.php" aria-expanded="true"><i class="fas fa-chart-pie"></i><span class="hide-menu">
                                     Ganado</span></a></li>
-                        <li> <a href="form-reporte.php" aria-expanded="true"><i class="fas fa-tree"></i><span class="hide-menu">
+                        <li> <a href="form-arbol.php" aria-expanded="true"><i class="fas fa-tree"></i><span class="hide-menu">
                                     Árbol</span></a></li>
                                     
                     

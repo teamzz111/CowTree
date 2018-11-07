@@ -27,8 +27,8 @@
 
 require_once ('../backend/Conexion.php');
 
-//$Vaca=$_POST['vaca'];
-$Vaca=1;
+$Vaca=$_GET['id'];
+//$Vaca=1;
 
 $query="UPDATE rama SET posicion=1 WHERE IdVaca=$Vaca AND Nivel='1'";// busca el árbol en el que esta vaca es padre
 $result=$con->query($query);   
