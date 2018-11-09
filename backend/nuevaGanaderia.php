@@ -4,10 +4,10 @@
 
     $name = $_POST['name'];
     $ubication = $_POST["ubication"];
- 
+
     $divisa = $_POST["divisa"];
     $encaste = $_POST["encastes"];
-    $lineas  = $_POST["lineas"];
+    $lineas = $_POST["lineas"];
 
     if ($con->connect_error) {
         echo 'false';
@@ -16,10 +16,10 @@
         $rs = $con->query($query);
         if ($rs) {
             echo 'true';
-        }
-        else {
+        } else {
             echo 'false';
-            echo $con->error;       
+            echo $con->error;
         }
     }
 ?>
+

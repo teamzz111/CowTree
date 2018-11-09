@@ -1,20 +1,21 @@
-<?php require_once("../backend/Conexion.php");
+<?php 
+    require_once "../backend/Conexion.php";
     session_start();
-    if(!isset($_SESSION['loggedin'])){
-        //header("Location: ../index.html");
+    if (!isset($_SESSION['loggedin'])) {
+        header("Location: ../index.html");
     }
 ?>
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
-    <?php include("estructura/head.php"); ?>
+    <?php include "estructura/head.php";?>
     <link rel="stylesheet" type="text/css" href="../backend/Arbol/joint.css" />
     <link rel="stylesheet" href="../backend/Arbol/style.css">
 </head>
 
 <body class="fix-header fix-sidebar">
-    <?php include("estructura/header.php"); ?>
+    <?php include "estructura/header.php";?>
     <div class="container-fluid">
         <div class="row">
             <div class="col-xl-12">
@@ -23,232 +24,222 @@
                         <h4>Árbol genealógico</h4>
                     </div>
                     <div class="card-body">
-                    <?php 
+                        <?php
 
-require_once ('../backend/Conexion.php');
+                        $Vaca = $_GET['id'];
 
-$Vaca=$_GET['id'];
-//$Vaca=1;
+                        $query = "UPDATE rama SET posicion=1 WHERE IdVaca=$Vaca AND Nivel='1'"; // busca el árbol en el que esta vaca es padre
+                        $result = $con->query($query);
 
-$query="UPDATE rama SET posicion=1 WHERE IdVaca=$Vaca AND Nivel='1'";// busca el árbol en el que esta vaca es padre
-$result=$con->query($query);   
+                        $query = "SELECT * FROM rama WHERE IdVaca=$Vaca AND Nivel='1'"; // busca el árbol en el que esta vaca es padre
+                        $result = $con->query($query);
+                        $row = $result->fetch_array(MYSQLI_ASSOC);
+                        $Tree = $row['IdArbol'];
 
-$query="SELECT * FROM rama WHERE IdVaca=$Vaca AND Nivel='1'";// busca el árbol en el que esta vaca es padre
-$result = $con->query($query);
-$row = $result ->fetch_array(MYSQLI_ASSOC);
-$Tree=$row['IdArbol'];
+                        $query = "SELECT count(*) FROM arbol WHERE Id=$Tree"; // busca cuántas vacas hay en el árbol
+                        $result = $con->query($query);
+                        $row = $result->fetch_array(MYSQLI_ASSOC);
+                        $Cant = $row['count(*)'];
 
-$query="SELECT count(*) FROM arbol WHERE Id=$Tree";// busca cuántas vacas hay en el árbol
-$result = $con->query($query);
-$row = $result->fetch_array(MYSQLI_ASSOC);
-$Cant=$row['count(*)'];
+                        $query = "SELECT Nivel FROM rama WHERE IdArbol='$Tree' ORDER BY Nivel DESC LIMIT 1"; //busca cuántos niveles hay viendo cuál es el de más abajo xddd
+                        $result = $con->query($query);
+                        $row = $result->fetch_array(MYSQLI_ASSOC);
+                        $Num = $row['Nivel'];
+                        $a = array();
+                        for ($i = 1; $i <= $Num; $i++) {
+                            $query = "SELECT count(*) FROM rama WHERE Nivel= '$i' AND IdArbol='$Tree'"; //
+                            $result = $con->query($query);
+                            $row = $result->fetch_array(MYSQLI_ASSOC);
+                            array_push($a, $row['count(*)']); //Guarda en un array cuántas vacas hay en cada nivel
+                        }
+                        //buscar cuál tiene más vacas viendo cuál es el mayor número en el array a y su posición +1 será el nivel con más vacas,
+                        $x = $a[0];
+                        $y = 0;
+                        for ($i = 1; $i < $Num; $i++) {
+                            if ($a[$i] > $x) {
+                                $x = $a[$i];
+                                $y = $i;
+                            }
+                        }
+                        $y++;
+                        /*AHORA Y TIENE ES EL NIVEL QUE TIENE MÁS VACAS Y X ES EL NÚMERO DE vacaS QUE TIENE ESE NIVEL
+                        EL ANCHO DEL DIV O LO QUE SEA DEPENDERÁ DE X, SERÁ UN ANCHO PARA QUE ESA CANTIDAD DE vacaS SE ACOMODEN
+                        */
+                        if ($x > 4) {$ancho = ($x * 190);} else { $ancho = 800;}
+                        //ESTE SERÁ EL ANCHO QUE DEBE TENER EJ MAIN.JS PARA QUE QUEPAN TODAS LAS vacaS
 
-$query="SELECT Nivel FROM rama WHERE IdArbol='$Tree' ORDER BY Nivel DESC LIMIT 1";//busca cuántos niveles hay viendo cuál es el de más abajo xddd
-$result=$con->query($query);
-$row=$result->fetch_array(MYSQLI_ASSOC);
-$Num=$row['Nivel'];
-$a=array();   
-for($i=1; $i<=$Num; $i++)
-{
-    $query="SELECT count(*) FROM rama WHERE Nivel= '$i' AND IdArbol='$Tree'";//
-    $result=$con->query($query);
-    $row = $result ->fetch_array(MYSQLI_ASSOC);
-    array_push($a, $row['count(*)']);//Guarda en un array cuántas vacas hay en cada nivel
-}
-//buscar cuál tiene más vacas viendo cuál es el mayor número en el array a y su posición +1 será el nivel con más vacas,
-$x=$a[0];
-$y=0;
-for($i=1; $i<$Num; $i++)
-{
-    if($a[$i]>$x)
-    {
-        $x=$a[$i];
-        $y=$i;
-    }
-}
-$y++;
-/*AHORA Y TIENE ES EL NIVEL QUE TIENE MÁS VACAS Y X ES EL NÚMERO DE vacaS QUE TIENE ESE NIVEL
-EL ANCHO DEL DIV O LO QUE SEA DEPENDERÁ DE X, SERÁ UN ANCHO PARA QUE ESA CANTIDAD DE vacaS SE ACOMODEN
-*/
-if($x>4)
-{$ancho= ($x*190);}
-else {$ancho=800;}
- //ESTE SERÁ EL ANCHO QUE DEBE TENER EJ MAIN.JS PARA QUE QUEPAN TODAS LAS vacaS
+                        for ($i = 1; $i < $Num; $i++) {
+                            $N = 1;
+                            $query1 = "SELECT IdVaca FROM rama WHERE Nivel=$i AND IdArbol= $Tree ORDER BY posicion ASC";
+                            $result1 = $con->query($query1);
+                            while ($row1 = $result1->fetch_array(MYSQLI_ASSOC)) {
+                                $okii = $row1['IdVaca'];
+                                $query = "SELECT Ejemplar FROM vaca WHERE IdPadre=$okii OR IdMadre=$okii";
+                                $result = $con->query($query);
+                                while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+                                    $ejemplar = $row['Ejemplar'];
+                                    $nivel = $i + 1;
+                                    $query2 = "UPDATE rama SET posicion=$N WHERE IdVaca=$ejemplar AND IdArbol=$Tree AND Nivel=$nivel";
+                                    $N++;
+                                    $resultado = $con->query($query2);
+                                    if (!$resultado) {echo "false";}
+                                }
+                            }
+                        }
 
+                        $Niveles = array();
 
-for($i=1; $i<$Num; $i++)
-{
-    $N=1;
-    $query1="SELECT IdVaca FROM rama WHERE Nivel=$i AND IdArbol= $Tree ORDER BY posicion ASC";
-    $result1=$con->query($query1);
-    while ($row1 = $result1->fetch_array(MYSQLI_ASSOC))
-    {
-        $okii= $row1['IdVaca'];
-        $query="SELECT Ejemplar FROM vaca WHERE IdPadre=$okii OR IdMadre=$okii";
-        $result=$con->query($query);
-        while ($row = $result->fetch_array(MYSQLI_ASSOC))
-        {
-            $ejemplar=$row['Ejemplar'];
-            $nivel=$i+1;
-            $query2="UPDATE rama SET posicion=$N WHERE IdVaca=$ejemplar AND IdArbol=$Tree AND Nivel=$nivel";
-            $N++;
-            $resultado=$con->query($query2);            
-            if(!$resultado) {echo "false";}
-        }
-    }
-}
+                        for ($i = 1; $i <= $Num; $i++) //guarda en un array todas las vacas en orden según sus padres
+                        {
+                            $N = 1;
+                            $query1 = "SELECT * FROM rama WHERE IdArbol=$Tree AND Nivel=$i ORDER BY posicion ASC";
+                            $result1 = $con->query($query1);
+                            while ($row = $result1->fetch_array(MYSQLI_ASSOC)) {
+                                $les = $row['IdVaca'];
+                                $query = "SELECT * FROM vaca WHERE Ejemplar=$les";
+                                $result = $con->query($query);
+                                $row1 = $result->fetch_array(MYSQLI_ASSOC);
+                                $Nombre = $row1['Nombre'];
+                                $Niveles[$i][] = $les;
+                            }
+                        }
+                        ?>
+                        <div style="width: 100%; overflow: scroll;">
 
-$Niveles=array();
+                            <div style="width: <?php echo $ancho + ($x * 30); ?>px;" id="paper" class="lol">
 
-for($i=1; $i<=$Num; $i++)//guarda en un array todas las vacas en orden según sus padres
-{
-    $N=1;
-    $query1="SELECT * FROM rama WHERE IdArbol=$Tree AND Nivel=$i ORDER BY posicion ASC";
-    $result1=$con->query($query1);
-    while ($row = $result1->fetch_array(MYSQLI_ASSOC))
-    {
-        $les=$row['IdVaca'];
-        $query="SELECT * FROM vaca WHERE Ejemplar=$les";
-        $result=$con->query($query);
-        $row1 = $result->fetch_array(MYSQLI_ASSOC);
-        $Nombre=$row1['Nombre'];
-        $Niveles[$i][]=$les;
-    }
-}
-?>
-    <div style="width: 100%; overflow: scroll;">
+                            </div>
+                        </div>
 
-        <div style="width: <?php echo $ancho+($x*30);?>px;" id="paper" class="lol">
+                        <script src="../backend/Arbol/jquery.js"></script>
+                        <script src="../backend/Arbol/lodash.js"></script>
+                        <script src="../backend/Arbol/backbone.js"></script>
+                        <script src="../backend/Arbol/joint.js"></script>
+                        <script>
+                            var graph = new joint.dia.Graph();
 
-        </div>
-    </div>
+                            var paper = new joint.dia.Paper({
+                                el: $('#paper'),
+                                width: '100%',
+                                height: 600,
+                                gridSize: 5,
+                                model: graph,
+                                perpendicularLinks: true,
+                                restrictTranslate: true
+                            });
 
-    <script src="../backend/Arbol/jquery.js"></script>
-    <script src="../backend/Arbol/lodash.js"></script>
-    <script src="../backend/Arbol/backbone.js"></script>
-    <script src="../backend/Arbol/joint.js"></script>
-    <script>
-        var graph = new joint.dia.Graph();
+                            var member = function (x, y, rank, name, image, background, textColor) {
 
-        var paper = new joint.dia.Paper({
-            el: $('#paper'),
-            width: '100%',
-            height: 600,
-            gridSize: 5,
-            model: graph,
-            perpendicularLinks: true,
-            restrictTranslate: true
-        });
-        console.log(paper);
-        var member = function (x, y, rank, name, image, background, textColor) {
+                                textColor = textColor || "#000";
 
-            textColor = textColor || "#000";
+                                var cell = new joint.shapes.org.Member({
+                                    position: {
+                                        x: x,
+                                        y: y
+                                    },
+                                    attrs: {
+                                        '.card': {
+                                            fill: background,
+                                            stroke: 'none'
+                                        },
+                                        image: {
+                                            'xlink:href': 'images/' + image,
+                                            opacity: 0.7
+                                        },
+                                        '.rank': {
+                                            text: rank,
+                                            fill: textColor,
+                                            'word-spacing': '-5px',
+                                            'letter-spacing': 0
+                                        },
+                                        '.name': {
+                                            text: name,
+                                            fill: textColor,
+                                            'font-size': 13,
+                                            'font-family': 'Arial',
+                                            'letter-spacing': 0
+                                        }
+                                    }
+                                });
+                                graph.addCell(cell);
+                                return cell;
+                            };
 
-            var cell = new joint.shapes.org.Member({
-                position: {
-                    x: x,
-                    y: y
-                },
-                attrs: {
-                    '.card': {
-                        fill: background,
-                        stroke: 'none'
-                    },
-                    image: {
-                        'xlink:href': 'images/' + image,
-                        opacity: 0.7
-                    },
-                    '.rank': {
-                        text: rank,
-                        fill: textColor,
-                        'word-spacing': '-5px',
-                        'letter-spacing': 0
-                    },
-                    '.name': {
-                        text: name,
-                        fill: textColor,
-                        'font-size': 13,
-                        'font-family': 'Arial',
-                        'letter-spacing': 0
+                            function link(source, target, breakpoints) {
+
+                                var cell = new joint.shapes.org.Arrow({
+                                    source: {
+                                        id: source.id
+                                    },
+                                    target: {
+                                        id: target.id
+                                    },
+                                    vertices: breakpoints,
+                                    attrs: {
+                                        '.connection': {
+                                            'fill': 'none',
+                                            'stroke-linejoin': 'round',
+                                            'stroke-width': '2',
+                                            'stroke': '#4b4a67'
+                                        }
+                                    }
+
+                                });
+                                graph.addCell(cell);
+                                return cell;
+                            }
+                        </script>
+                        <?php
+        $posicion = 0;
+        for ($i = 1; $i <= $Num; $i++) {
+            foreach ($Niveles as $i => $valor) {
+                $Alto = $i * 100;
+                foreach ($valor as $t => $g) {
+                    $query = "SELECT r.posicion, a.Nombre, a.IdPadre, a.IdMadre FROM rama as r, vaca as a WHERE r.IdVaca=$g and r.IdArbol=$Tree and a.Ejemplar=$g";
+                    $result = $con->query($query);
+                    $row1 = $result->fetch_array(MYSQLI_ASSOC);
+                    $p = $row1['posicion'];
+                    $papu = $row1['IdPadre'];
+                    $query1 = "SELECT * FROM rama WHERE IdVaca=$papu";
+                    $resultado = $con->query($query1);
+                    if ($papu == "" || !$resultado) {
+                        $papu = $row1['IdMadre'];
+                    } else if ($resultado->num_rows < 1) {
+                        $papu = $row1['IdMadre'];
                     }
-                }
-            });
-            graph.addCell(cell);
-            return cell;
-        };
-
-        function link(source, target, breakpoints) {
-
-            var cell = new joint.shapes.org.Arrow({
-                source: {
-                    id: source.id
-                },
-                target: {
-                    id: target.id
-                },
-                vertices: breakpoints,
-                attrs: {
-                    '.connection': {
-                        'fill': 'none',
-                        'stroke-linejoin': 'round',
-                        'stroke-width': '2',
-                        'stroke': '#4b4a67'
+                    $vaquita = $row1['Nombre'];
+                    if ($p == 1 && $i == 1) {$posicion = ($ancho / sizeof($valor)) / 2;} else {
+                        if ($p == 1) {$posicion = ($ancho / sizeof($valor)) / 2;} else { $posicion += ($ancho / sizeof($valor));}
+                        $query2 = "SELECT posicion FROM rama WHERE IdVaca=$papu AND IdArbol=$Tree";
+                        $res = $con->query($query2);
+                        $ro = $res->fetch_array(MYSQLI_ASSOC);
+                        $pp = $ro['posicion'];
                     }
-                }
-
-            });
-            graph.addCell(cell);
-            return cell;
-        }
-
-</script>
-        <?php
-        $posicion=0;
-for ($i=1;  $i<=$Num; $i++)
-{
-    foreach($Niveles as $i=>$valor)
-    {
-        $Alto=$i*100;
-        foreach($valor as $t=>$g)
-        {
-            $query="SELECT r.posicion, a.Nombre, a.IdPadre, a.IdMadre FROM rama as r, vaca as a WHERE r.IdVaca=$g and r.IdArbol=$Tree and a.Ejemplar=$g";
-            $result=$con->query($query);
-            $row1 = $result->fetch_array(MYSQLI_ASSOC);
-            $p=$row1['posicion'];
-            $papu=$row1['IdPadre'];
-            $query1="SELECT * FROM rama WHERE IdVaca=$papu";
-            $resultado = $con->query($query1);
-            if ($papu=="" || !$resultado) {
-                $papu=$row1['IdMadre'];
-            }
-            else if ($resultado->num_rows<1)
-            {
-                $papu=$row1['IdMadre'];
-            }
-            $vaquita=$row1['Nombre'];
-            if($p==1 && $i==1){ $posicion=($ancho/sizeof($valor))/2;}
-            else
-            {   
-                if ($p==1){$posicion=($ancho/sizeof($valor))/2;}
-                else {$posicion+=($ancho/sizeof($valor));}
-                $query2="SELECT posicion FROM rama WHERE IdVaca=$papu AND IdArbol=$Tree";
-                $res=$con->query($query2);
-                $ro=$res->fetch_array(MYSQLI_ASSOC);
-                $pp=$ro['posicion'];
-            }
-            //if($g==8 || $g==3) {$posicion+=200; $Alto+=10;}
-            $query2="UPDATE rama SET posicion=$posicion WHERE IdVaca=$g AND IdArbol=$Tree";
-            $result1=$con->query($query2);
+                    $query2 = "UPDATE rama SET posicion=$posicion WHERE IdVaca=$g AND IdArbol=$Tree";
+                    $result1 = $con->query($query2);
         ?>
-        <script>var <?php echo "v$g";?> = member(<?php echo "$posicion, $Alto";?>, 'CEO', '<?php echo $vaquita;?>', 'male.png', '#30d0c6');</script>
-        <?php 
-        if ($i>1) {?>  <script>  link(<?php echo "v$papu";?>,<?php echo "v$g";?>, [{x: <?php echo $pp+95;?>, y: <?php echo $Alto-15;?>}, {x:<?php echo $posicion+95;?> , y: <?php echo $Alto-15;?>}]); </script> <?php } ?>
-        
-        <?php
-        } 
-    }
-}
-?>
+                        <script>
+                            var <?php echo "v$g"; ?> = member(<?php echo "$posicion, $Alto"; ?>, 'GANADO',
+                                '<?php echo $vaquita; ?>', 'male.png', '#30d0c6');
+                        </script>
+                        <?php
+            if ($i > 1) {?>
+                        <script>
+                            link(<?php echo "v$papu"; ?>, <?php echo "v$g"; ?>, [{
+                                x: <?php echo $pp + 95; ?>,
+                                y: <?php echo $Alto - 15; ?>
+                            }, {
+                                x: <?php echo $posicion + 95; ?>,
+                                y: <?php echo $Alto - 15; ?>
+                            }]);
+                        </script>
+                        <?php }?>
+
+                        <?php
+                }
+            }
+        }
+        ?>
 
                     </div>
                 </div>
@@ -256,7 +247,7 @@ for ($i=1;  $i<=$Num; $i++)
         </div>
     </div>
 
-    <?php include("estructura/footer.php"); ?>
+    <?php include "estructura/footer.php";?>
     <script>
         ! function (e) {
             function t(n) {
