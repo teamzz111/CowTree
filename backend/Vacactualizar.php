@@ -147,6 +147,7 @@
                                 <div class="form-group">
                                 <label>Padre</label>
                                 <select data-placeholder="Elija el padre del ejemplar" id="select-beast" name="idpadre">
+                                <option selected value=''>Seleccione el padre del ejemplar</option>
                                         <?php 
                                                 $rs = $con->query("SELECT Nombre, Ejemplar FROM vaca WHERE sexo='Macho'");
                                                 while($row1 = $rs->fetch_array(MYSQLI_ASSOC)):
@@ -159,6 +160,7 @@
                                 </div>
                                 <div class="form-group">
                                 <label>Madre</label>
+                                <option selected value=''>Seleccione la madre del ejemplar</option>
                                     <select data-placeholder="Elija la madre del ejemplar" id="select-beast" name="idmadre">
                                         <?php 
                                                 $rs = $con->query("SELECT Nombre, Ejemplar FROM vaca WHERE sexo='Hembra'");
