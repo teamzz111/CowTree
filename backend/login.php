@@ -12,12 +12,12 @@
             $_SESSION['loggedin'] = true;
             $_SESSION['username'] = $user;
             $_SESSION['cargo'] = $row['Cargo'];
-            echo "true";
+            echo nl2br("true");
         } else {
-            echo "false";
+            echo nl2br("false");
         }
     } else {
-        echo "noexiste";
+        echo nl2br("noexiste");
     }
 ?>
 
