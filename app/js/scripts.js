@@ -57,13 +57,13 @@ $(function () {
                 url: '../backend/NuevoUsuario.php',
                 data: $(this).serialize(),
                 success: function (data) {
-                    if (data == 'true') {
+                    if (data.includes('true')) {
                         $(".exito").text("¡REGISTRO EXITOSO!");
                         $('.exito').fadeIn(2000, function () {
                             window.location.reload(true);
                         });
 
-                    } else if (data == 'false') {
+                    } else if (data.includes('false')) {
                         $(".exito").text("¡REGISTRO SIN ÉXITO, NO TENEMOS MÁS INFORMACIÓN");
                         $('.exito').fadeIn(2000, function () {
                             window.location.reload(true);
@@ -92,19 +92,19 @@ $(function () {
             url: '../backend/Nuevaca.php',
             data: $(this).serialize(),
             success: function (data) {
-                if (data == 'true') {
+                if (data.includes('true')) {
                     $(".exito").text("¡REGISTRO EXITOSO!");
                     $('.exito').fadeIn(2000, function () {
                         window.location.reload(true);
                     });
 
-                } else if (data == 'false') {
+                } else if (data.includes('false')) {
                     $(".exito").text("¡REGISTRO SIN ÉXITO, NO TENEMOS MÁS INFORMACIÓN");
                     $('.exito').fadeIn(2000, function () {
                         //window.location.reload(true);
                     });
 
-                } else if (data == 0){
+                } else if (data.includes('0')){
                     $(".exito").text("GANADO REPETIDO");
                                 
                 
@@ -131,13 +131,13 @@ $(function () {
             url: '../backend/nuevaGanaderia.php',
             data: $(this).serialize(),
             success: function (data) {
-                if (data == 'true') {
+                if (data.includes('true')) {
                     $(".exito").text("¡REGISTRO EXITOSO!");
                     $('.exito').fadeIn(2000, function () {
                         window.location.reload(true);
                     });
 
-                } else if (data == 'false') {
+                } else if (data.includes('false')) {
                     $(".exito").text("¡REGISTRO SIN ÉXITO, NO TENEMOS MÁS INFORMACIÓN");
                     $('.exito').fadeIn(2000, function () {
                     //    window.location.reload(true);
