@@ -74,8 +74,8 @@
                                     <label>Sexo</label>
                                     <br>
                                     <select name="sexo" id="" class="name">
-                                        <option value="sí">Macho</option>
-                                        <option value="no">Hembra</option>
+                                        <option value="Macho">Macho</option>
+                                        <option value="Hembra">Hembra</option>
                                     </select>
 
                                 </div>
@@ -114,14 +114,31 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Ejemplar padre</label>
-                                    <input type="text" name="idpadre" class="form-control" placeholder="Ingrese id de padre">
+                                <label>Padre</label>
+                                <select data-placeholder="Elija el padre del ejemplar" id="select-beast" name="idpadre">
+                                        <?php 
+                                                $rs = $con->query("SELECT Nombre, Ejemplar FROM vaca WHERE sexo='Macho'");
+                                                while($row = $rs->fetch_array(MYSQLI_ASSOC)):
+                                        ?>
+                                        <option value="<?php echo $row['Ejemplar']; ?>">
+                                            <?php echo$row['Nombre'];?>
+                                        </option>
+                                        <?php endwhile; ?>
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Ejemplar madre</label>
-                                    <input type="text" name="idmadre" class="form-control" placeholder="Ingrese id de madre">
+                                <label>Madre</label>
+                                    <select data-placeholder="Elija la madre del ejemplar" id="select-beast" name="idmadre">
+                                        <?php 
+                                                $rs = $con->query("SELECT Nombre, Ejemplar FROM vaca WHERE sexo='Hembra'");
+                                                while($row = $rs->fetch_array(MYSQLI_ASSOC)):
+                                        ?>
+                                        <option value="<?php echo $row['Ejemplar']; ?>">
+                                            <?php echo$row['Nombre'];?>
+                                        </option>
+                                        <?php endwhile; ?>
+                                    </select>
                                 </div>
-
                                 <div class="form-group">
                                     <label>Fenotipo</label>
                                     <input type="text" name="fenotipo" class="form-control" placeholder="Ingrese Fenotipo">

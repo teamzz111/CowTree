@@ -5,7 +5,7 @@ $(document).ready(function () {
             url: 'backend/login.php',
             data: $('#form').serialize(),
             success: function (data) {
-                if (data == 'true') {
+                if (data.includes('true')  ) {
                     location.href = "app/index.php";
                 } else if (data == 'false') {
                     $('#form .exito').fadeIn(500);
