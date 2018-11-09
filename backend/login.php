@@ -3,7 +3,6 @@
 
     $user = $_POST['user'];
     $pass = $_POST['pass'];
-
     $result = $con->query("SELECT Pass, Nombre, Cargo FROM usuario WHERE Id = " . $user);
     if ($result->num_rows > 0) {
         $row = $result->fetch_array(MYSQLI_ASSOC);
