@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-11-2018 a las 13:39:58
+-- Tiempo de generación: 09-11-2018 a las 18:12:28
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.2.11
 
@@ -38,6 +38,10 @@ CREATE TABLE `arbol` (
 --
 
 INSERT INTO `arbol` (`Id`, `Nombre`) VALUES
+(100, 'Arbol de Comino'),
+(99, 'Arbol de Comino'),
+(98, 'Arbol de Comino'),
+(97, 'Arbol de Chiquitin'),
 (96, 'Arbol de Junior'),
 (95, 'Arbol de Lo que sea'),
 (94, 'Arbol de Cj'),
@@ -117,29 +121,38 @@ CREATE TABLE `rama` (
 --
 
 INSERT INTO `rama` (`IdArbol`, `IdVaca`, `Nivel`, `posicion`) VALUES
-(87, '1', 1, 1),
-(88, '2', 1, 1),
-(87, '2', 2, 2),
-(89, '3', 1, 1),
-(87, '3', 2, 3),
-(90, '4', 1, 1),
-(87, '4', 2, 1),
-(91, '5', 1, 1),
-(88, '5', 2, 0),
-(87, '5', 3, 1),
+(87, '1', 1, 400),
+(88, '2', 1, 400),
+(87, '2', 2, 400),
+(89, '3', 1, 400),
+(87, '3', 2, 667),
+(90, '4', 1, 400),
+(87, '4', 2, 133),
+(91, '5', 1, 400),
+(88, '5', 2, 200),
+(87, '5', 3, 300),
 (92, '6', 1, 1),
-(88, '6', 2, 0),
-(87, '6', 3, 2),
-(93, '7', 1, 1),
-(89, '7', 2, 0),
-(87, '7', 3, 3),
-(94, '8', 1, 1),
-(90, '8', 2, 0),
-(87, '8', 3, 4),
+(88, '6', 2, 600),
+(87, '6', 3, 500),
+(93, '7', 1, 400),
+(89, '7', 2, 400),
+(87, '7', 3, 700),
+(94, '8', 1, 400),
+(90, '8', 2, 400),
+(87, '8', 3, 100),
 (96, '9', 1, 1),
-(91, '9', 2, 0),
-(88, '9', 3, 0),
-(87, '9', 4, 1);
+(91, '9', 2, 400),
+(88, '9', 3, 400),
+(87, '9', 4, 200),
+(97, '10', 1, 95),
+(93, '10', 2, 400),
+(89, '10', 3, 400),
+(87, '10', 4, 600),
+(100, '14', 1, 95),
+(97, '14', 2, 95),
+(93, '14', 3, 400),
+(89, '14', 4, 400),
+(87, '14', 5, 400);
 
 -- --------------------------------------------------------
 
@@ -198,16 +211,17 @@ CREATE TABLE `vaca` (
 --
 
 INSERT INTO `vaca` (`Ejemplar`, `Nombre`, `Estado`, `Destino`, `Edad`, `Sexo`, `Herrado`, `Destetado`, `Fecha_nacimiento`, `Encaste`, `Reseña`, `Ganaderia_Id`, `Criador_Id`, `Fenotipo`, `Defectos`, `Calificacion`, `Comportamiento`, `Observadores`, `IdPadre`, `IdMadre`) VALUES
-('ASP-188-188-2014-H-SOSPECHOSA', 'Prueba 1', 'Vivo', 'Tentar', 4, '', 'Sí', 'No', '2018-09-14', 'Baltasar Iban', 'En buen estado', 0, 0, 'Test', 'Ninguni', '5', 'Normal', 'Andrés Largo', '0', NULL),
-('4', 'Dios destructor', 'Vivo', 'Reinar el mundo', 6, 'sí', 'sí', 'sí', '4211-12-12', 'El mejor papu', '', 5, 0, 'No jé', 'Ninguno, es perfecto', '1000', 'Excelente', 'El universo entero', '1', ''),
-('1', 'Hamburguesito', 'Vivo', 'Burguerking', 15, 'sí', 'sí', 'sí', '2111-02-11', 'NEL', 'Delicioso', 5, 0, 'Shido', 'no sirve para nada', '10', 'prron', 'Chewaca', '', ''),
-('2', 'Lord Tocino', 'Deprimido', 'asda', 13, 'sí', 'sí', 'sí', '2027-11-15', '', 'w423', 5, 0, 'algo', 'Se va a morir', '45', 'Terrible', 'Diosito', '1', ''),
-('3', 'Charlie', 'Activo', 'La muerte', 8, 'sí', 'sí', 'sí', '2019-02-03', '32', 'w423', 5, 0, 'khe', 'no sirve para nada', '10', 'increíble', 'Kratos', '1', ''),
-('5', 'Larry', 'Activo', 'Burguerking', 12, 'sí', 'sí', 'sí', '4520-02-11', 'pos si', 'Not bad', 5, 0, 'ni idea', 'no hay ', '99', 'maravilloso', 'su mami', '2', ''),
-('6', 'Harry Potter', 'Hechizado', 'Hogwarts', 20, 'sí', 'sí', 'sí', '2405-12-10', 'No tiene', 'Es un buen mago', 5, 0, 'no tiene nada ', 'Tiene una cicatriz en la frente ', '50', 'Rebelde', 'nadie, usa una capa invisible', '2', ''),
-('7', 'Jesus de Nazaret', 'vivo en todos nosotros', 'El cielo', 33, 'sí', 'sí', 'sí', '0001-01-01', 'nel', 'Bueno', 5, 0, 'no tiene nada ', 'Ninguno', '80', 'Bueno', 'Diosito', '3', ''),
-('8', 'Cj', 'Negro', 'las venturas', 24, 'sí', 'sí', 'sí', '2004-02-10', 'nada', 'prron', 5, 0, 'ni idea', 'Es negro', '12', 'Como todo un gangster', 'Ryder', '4', ''),
-('9', 'Junior', 'Vivo', 'vivir feliz', 45, 'sí', 'sí', 'sí', '0042-02-11', '2', '21212', 5, 0, 'asd', 'hk', '21', 'Chingon', '12', '5', '');
+('4', 'Dios destructor', 'Vivo', 'Reinar el mundo', 6, 'Macho', 'sí', 'sí', '4211-12-12', 'El mejor papu', '', 5, 0, 'No jé', 'Ninguno, es perfecto', '1000', 'Excelente', 'El universo entero', '1', ''),
+('1', 'Hamburguesito', 'Vivo', 'Burguerking', 15, 'Macho', 'sí', 'sí', '2111-02-11', 'NEL', 'Delicioso', 5, 0, 'Shido', 'no sirve para nada', '10', 'prron', 'Chewaca', '', ''),
+('2', 'Lord Tocino', 'Deprimido', 'asda', 13, 'Macho', 'sí', 'sí', '2027-11-15', '', 'w423', 5, 0, 'algo', 'Se va a morir', '45', 'Terrible', 'Diosito', '1', ''),
+('3', 'Charlie', 'Activo', 'La muerte', 8, 'Macho', 'sí', 'sí', '2019-02-03', '32', 'w423', 5, 0, 'khe', 'no sirve para nada', '10', 'increíble', 'Kratos', '1', ''),
+('5', 'Larry', 'Activo', 'Burguerking', 12, 'Macho', 'sí', 'sí', '4520-02-11', 'pos si', 'Not bad', 5, 0, 'ni idea', 'no hay ', '99', 'maravilloso', 'su mami', '2', ''),
+('6', 'Harry Potter', 'Hechizado', 'Hogwarts', 20, 'Macho', 'sí', 'sí', '2405-12-10', 'No tiene', 'Es un buen mago', 5, 0, 'no tiene nada ', 'Tiene una cicatriz en la frente ', '50', 'Rebelde', 'nadie, usa una capa invisible', '2', ''),
+('7', 'Jesus de Nazaret', 'vivo en todos nosotros', 'El cielo', 33, 'Macho', 'sí', 'sí', '0001-01-01', 'nel', 'Bueno', 5, 0, 'no tiene nada ', 'Ninguno', '80', 'Bueno', 'Diosito', '3', ''),
+('8', 'Cj', 'Negro', 'las venturas', 24, 'Hembra', 'sí', 'sí', '2004-02-10', 'nada', 'prron', 5, 0, 'ni idea', 'Es negro', '12', 'Como todo un gangster', 'Ryder', '4', ''),
+('9', 'Junior', 'Vivo', 'vivir feliz', 45, 'Hembra', 'sí', 'sí', '0042-02-11', '2', '21212', 5, 0, 'asd', 'hk', '21', 'Chingon', '12', '5', ''),
+('10', 'Chiquitin', 'Deprimido', 'Burguerking', 54, 'Hembra', 'sí', 'sí', '1222-12-12', 'lssda', 'adsasd', 5, 0, 'fsfd', 'sdfsdf', '32', 'ssdf', 'sdfsdf', '7', ''),
+('14', 'Comino', 'bien', 'Morirse', 12, 'Hembra', 'sí', 'sí', '0021-04-21', '', 'adsasd', 5, 0, 'no tiene nada ', 'no sirve para nada', '3', 'prron', 'Diosito', '', '10');
 
 --
 -- Índices para tablas volcadas
@@ -255,7 +269,7 @@ ALTER TABLE `vaca`
 -- AUTO_INCREMENT de la tabla `arbol`
 --
 ALTER TABLE `arbol`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- AUTO_INCREMENT de la tabla `ganaderia`
