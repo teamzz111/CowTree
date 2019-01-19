@@ -48,6 +48,7 @@
                                                 if(!isset($elemento['Nombre'])){
                                                     echo "Sin definir";
                                                 } else {
+                                                    $id=$elemento['Ejemplar'];
                                                     echo $elemento['Nombre'];} ?></span></td>
                                         <td class="hidden-sm-down"> <span>
                                                 <?php echo $elemento['Ejemplar']; ?></span></td>
@@ -59,10 +60,8 @@
                                                 <?php echo $elemento['Destetado']; ?></span></td>
                                         <td class="hidden-md-down"><span>
                                                 <?php echo $elemento['Herrado']; ?></span></td>
-                                        <td>
-                                            
-                                                <button type="button" class="btn btn-success" onclick="function(<?php echo $elemento['Ejemplar']; ?>)">Modificar</button>
-                                           
+                                        <td>                                            
+                                                <button type="button" class="btn btn-success" onclick="location.href= 'form-actualizarvaca.php?id=<?php echo $id;?>'">Modificar</button>                                          
                                         </td>
 
                                     </tr>

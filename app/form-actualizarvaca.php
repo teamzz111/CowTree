@@ -14,10 +14,10 @@
 
 <body class="fix-header fix-sidebar">
     <?php include("estructura/header.php"); 
-    $Vaca = $_POST['vaca'];
+    $Vaca = $_GET['id'];
     $query="SELECT * FROM vaca WHERE Ejemplar='$Vaca'";
-    $resultado = $con->query($query1);
-    $row = $result->fetch_array(MYSQLI_ASSOC); ?>
+    $resultado = $con->query($query);
+    $row = $resultado->fetch_array(MYSQLI_ASSOC); ?>
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
@@ -99,8 +99,21 @@
                                     <label>Sexo</label>
                                     <br>
                                     <select name="sexo" id="" class="name">
+                                    
+                                        <?php if($row['Sexo']=='Macho')
+                                       {
+                                         ?><option selected value="Macho">Macho</option>
+                                         <option value="Hembra">Hembra</option>
+                                       <?php 
+                                       }
+                                       else
+                                       { ?>
                                         <option value="Macho">Macho</option>
-                                        <option value="Hembra">Hembra</option>
+                                        <option selected value="Hembra">Hembra</option>
+                                       <?php 
+                                       }
+                                       ?>
+
                                     </select>
 
                                 </div>
@@ -112,21 +125,14 @@
                                     <label>Ganadero</label>
                                     <select data-placeholder="Elija un usuario o busque" id="select-beast" name="criador_id">
                                         <?php 
-                                                $rs = $con->query("SELECT ganaderia.Nombre, usuario.Nombre, usuario.Id
-                                                FROM usuario
-                                                LEFT JOIN ganaderia ON ganaderia.Id = usuario.Ganaderia_Id;");
-                                                while($row1 = $rs->fetch_array(MYSQLI_ASSOC)):
-                                        if ($row1['Id']==$row['Ganaderia_Id']){?>
-                                        <option selected value="<?php echo $row1['Id']; ?>">
-                                            <?php echo$row1['Nombre'];?>
-                                        </option>
-                                                <?php //QUEDA PENDIENTE }
-                                            else
-                                            { ?>
-                                            <option value="<?php echo $row1['Id']; ?>">
-                                                <?php echo$row1['Nombre'];?>
-                                            </option> 
-                                            <?php } endwhile; ?>
+                                            $rs = $con->query("SELECT Nombre, Id From Usuario;");
+                                            while($row1 = $rs->fetch_array(MYSQLI_ASSOC)):
+                                                ?>
+                                                <option  value="<?php echo $row1['Id']; ?>" <?php if ($row1['Id']==$row['Criador_Id']): ?> selected <?php endif; ?> >
+                                                    <?php echo$row1['Nombre'];?>
+                                                </option>
+                                    <?php 
+                                        endwhile;  ?>
                                     </select>
                                 </div>
 
@@ -137,11 +143,13 @@
                                         <?php
                                             $rs = $con->query('SELECT Id, Nombre FROM ganaderia');
                                             while($row1 = $rs->fetch_array(MYSQLI_ASSOC)):
+                                                 ?>
+                                                    <option  value="<?php echo $row1['Id']; ?>" <?php if ($row1['Id']==$row['Ganaderia_Id']): ?> selected <?php endif; ?> >
+                                                        <?php echo$row1['Nombre'];?>
+                                                    </option>
+                                        <?php 
+                                            endwhile; 
                                         ?>
-                                            <option value="<?php echo $row1['Id']; ?>">
-                                                <?php echo $row1['Nombre']; ?>
-                                            </option>
-                                        <?php endwhile; ?>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -150,11 +158,12 @@
                                         <?php 
                                                 $rs = $con->query("SELECT Nombre, Ejemplar FROM vaca WHERE sexo='Macho'");
                                                 while($row1 = $rs->fetch_array(MYSQLI_ASSOC)):
-                                        ?>
-                                        <option value="<?php echo $row1['Ejemplar']; ?>">
-                                            <?php echo$row1['Nombre'];?>
-                                        </option>
-                                        <?php endwhile; ?>
+                                                    ?>
+                                                    <option  value="<?php echo $row1['Ejemplar']; ?>" <?php if ($row1['Ejemplar']==$row['IdPadre']): ?> selected <?php endif; ?> >
+                                                        <?php echo$row1['Nombre'];?>
+                                                    </option>
+                                        <?php 
+                                            endwhile;  ?>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -164,11 +173,12 @@
                                         <?php 
                                                 $rs = $con->query("SELECT Nombre, Ejemplar FROM vaca WHERE sexo='Hembra'");
                                                 while($row1 = $rs->fetch_array(MYSQLI_ASSOC)):
-                                        ?>
-                                        <option value="<?php echo $row1['Ejemplar']; ?>">
-                                            <?php echo$row1['Nombre'];?>
-                                        </option>
-                                        <?php endwhile; ?>
+                                                    ?>
+                                                    <option  value="<?php echo $row1['Ejemplar']; ?>" <?php if ($row1['Ejemplar']==$row['IdMadre']): ?> selected <?php endif; ?> >
+                                                        <?php echo$row1['Nombre'];?>
+                                                    </option>
+                                        <?php 
+                                            endwhile; ?>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -214,13 +224,15 @@
     <script src="../js/sifter.js"></script>
     <script src="../js/selectize.js"></script>
     <script>
-        $('#select-beast, #ganaderia_id, #arbol').selectize({
-            highlight: false,
-            create: false,
-            sortField: 'text'
+         $('#select-beast, #ganaderia_id, #arbol').selectize({
+            
+            create: true,
+        
         });
     </script>
+    <?php 
 
+    ?>
 </body>
 
 </html>
