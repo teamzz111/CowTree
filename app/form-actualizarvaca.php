@@ -52,16 +52,16 @@
                                     <label>Herrado</label>
                                     <br>
                                     <select name="herrado" id="" class="name">
-                                       <?php if($row['Herrado']=='sí')
+                                       <?php if($row['Herrado']=='1')
                                        {
-                                         ?><option selected value="sí">Sí</option>
-                                         <option value="no">No</option>
+                                         ?><option selected value="1">Sí</option>
+                                         <option value="0">No</option>
                                        <?php 
                                        }
                                        else
                                        { ?>
-                                        <option value="sí">Sí</option>
-                                        <option selected value="no">No</option>
+                                        <option value="1">Sí</option>
+                                        <option selected value="0">No</option>
                                        <?php 
                                        }
                                        ?>
@@ -73,14 +73,14 @@
                                     <select name="destetado" id="" class="name">
                                        <?php if($row['Destetado']=='sí')
                                        {
-                                         ?><option selected value="sí">Sí</option>
-                                         <option value="no">No</option>
+                                         ?><option selected value="1">Sí</option>
+                                         <option value="0">No</option>
                                        <?php 
                                        }
                                        else
                                        { ?>
-                                        <option value="sí">Sí</option>
-                                        <option selected value="no">No</option>
+                                        <option value="1">Sí</option>
+                                        <option selected value="0">No</option>
                                        <?php 
                                        }
                                        ?>

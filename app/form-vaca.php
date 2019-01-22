@@ -49,16 +49,16 @@
                                     <label>Herrado</label>
                                     <br>
                                     <select name="herrado" id="" class="name">
-                                        <option value="sí">Sí</option>
-                                        <option value="no">No</option>
+                                        <option value="1">Sí</option>
+                                        <option value="0">No</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Destetado</label>
                                     <br>
                                     <select name="destetado" id="" class="name">
-                                        <option value="sí">Sí</option>
-                                        <option value="no">No</option>
+                                        <option value="1">Sí</option>
+                                        <option value="0">No</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
