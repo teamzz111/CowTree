@@ -74,12 +74,12 @@
                             $result1 = $con->query($query1);
                             while ($row1 = $result1->fetch_array(MYSQLI_ASSOC)) {
                                 $okii = $row1['IdVaca'];
-                                $query = "SELECT Ejemplar FROM vaca WHERE IdPadre=$okii OR IdMadre=$okii";
+                                $query = "SELECT Ejemplar FROM vaca WHERE IdPadre='$okii' OR IdMadre='$okii'";
                                 $result = $con->query($query);
                                 while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
                                     $ejemplar = $row['Ejemplar'];
                                     $nivel = $i + 1;
-                                    $query2 = "UPDATE rama SET posicion=$N WHERE IdVaca=$ejemplar AND IdArbol=$Tree AND Nivel=$nivel";
+                                    $query2 = "UPDATE rama SET posicion=$N WHERE IdVaca='$ejemplar' AND IdArbol=$Tree AND Nivel=$nivel";
                                     $N++;
                                     $resultado = $con->query($query2);
                                     if (!$resultado) {echo "false";}
@@ -96,7 +96,7 @@
                             $result1 = $con->query($query1);
                             while ($row = $result1->fetch_array(MYSQLI_ASSOC)) {
                                 $les = $row['IdVaca'];
-                                $query = "SELECT * FROM vaca WHERE Ejemplar=$les";
+                                $query = "SELECT * FROM vaca WHERE Ejemplar='$les'";
                                 $result = $con->query($query);
                                 $row1 = $result->fetch_array(MYSQLI_ASSOC);
                                 $Nombre = $row1['Nombre'];
@@ -195,7 +195,7 @@
             foreach ($Niveles as $i => $valor) {
                 $Alto = $i * 100;
                 foreach ($valor as $t => $g) {
-                    $query = "SELECT r.posicion, a.Nombre, a.IdPadre, a.IdMadre FROM rama as r, vaca as a WHERE r.IdVaca=$g and r.IdArbol=$Tree and a.Ejemplar=$g";
+                    $query = "SELECT r.posicion, a.Nombre, a.IdPadre, a.IdMadre FROM rama as r, vaca as a WHERE r.IdVaca='$g' and r.IdArbol=$Tree and a.Ejemplar='$g'";
                     $result = $con->query($query);
                     $row1 = $result->fetch_array(MYSQLI_ASSOC);
                     $p = $row1['posicion'];
@@ -210,12 +210,12 @@
                     $vaquita = $row1['Nombre'];
                     if ($p == 1 && $i == 1) {$posicion = ($ancho / sizeof($valor)) / 2;} else {
                         if ($p == 1) {$posicion = ($ancho / sizeof($valor)) / 2;} else { $posicion += ($ancho / sizeof($valor));}
-                        $query2 = "SELECT posicion FROM rama WHERE IdVaca=$papu AND IdArbol=$Tree";
+                        $query2 = "SELECT posicion FROM rama WHERE IdVaca='$papu' AND IdArbol=$Tree";
                         $res = $con->query($query2);
                         $ro = $res->fetch_array(MYSQLI_ASSOC);
                         $pp = $ro['posicion'];
                     }
-                    $query2 = "UPDATE rama SET posicion=$posicion WHERE IdVaca=$g AND IdArbol=$Tree";
+                    $query2 = "UPDATE rama SET posicion=$posicion WHERE IdVaca='$g' AND IdArbol=$Tree";
                     $result1 = $con->query($query2);
         ?>
                         <script>

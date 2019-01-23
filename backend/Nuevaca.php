@@ -1,5 +1,6 @@
 <?php
     require_once 'Conexion.php';
+    include 'ReasignarPadres.php';
     session_start();
     $Nombre = $_POST['nombre'];
     $Ejemplar = $_POST['ejemplar'];
@@ -54,9 +55,8 @@
             }
         } else {echo 'false';
             echo $con->error;}
-        //$result=false;
-        $resul = false;
-        $result = false;
+        
+        $resul = true;
         if ($Padre != '') {
             $query = "SELECT * FROM rama WHERE IdVaca=$Padre";
             $result = $con->query($query);
@@ -81,6 +81,6 @@
                 if (!$resultado) {echo "false";}
             }
         }
-        if (($resul || $result) || $rs) {echo "true";} else {echo false;}
+        if ($resul) {echo "true";} else {echo false;}
     }
 ?>
