@@ -26,12 +26,12 @@ index.html, login.html   Landing and login pages
 app/                     Dashboard and forms (ranches, animals, trees, reports, PDF)
 backend/                 PHP endpoints (login, create/update animals, ranches, users, parents)
 backend/Arbol/           Tree rendering (JointJS)
-backend/*.sql            MySQL schema and sample data
+backend/schema.sql       MySQL schema (structure only)
 ```
 
 ## Running locally
 
-1. Import `backend/u532626708_cow.sql` into a MySQL database.
+1. Import `backend/schema.sql` into a MySQL database (it creates an empty `cowtree` database).
 2. Set the database connection values in `backend/Conexion.php`.
 3. Serve the project root with PHP (for example XAMPP, or `php -S localhost:8000`) and open `login.html`.
 
